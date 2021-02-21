@@ -1,1 +1,21 @@
-/*styles enter here good luck boys
+header{
+    background-color: rgba(29,32,34,255);
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: left;
+    text-size-adjust: 30px;
+    padding: 20px;
+}
+
+.side-logo{
+     display:block;
+     width: 90px;
+     height: 90px;
+     margin-left: auto;
+    margin-right: auto;
+}
+
+.Whole-Map{
+    width:100%;
+}
