@@ -15,9 +15,4 @@ header a{
     font-weight: bold;
 }
 
-.Whole-Map{
-    position: fixed;
-    right: 200px;
-    width: 150%;
-    border: 3px solid #73AD21;
-}
+

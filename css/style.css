@@ -16,6 +16,7 @@ header{
     margin-right: auto;
 }
 
-.Whole-Map{
-    width:100%;
+.svg-container{
+    display: flex;
+    flex-direction: column;
 }
