@@ -1,5 +1,5 @@
 
-body {background-color: lightblue;
+body {background-color: white;
 opacity: 90%;}
 
 header{background-color: rgb(28,28,35);
@@ -37,7 +37,7 @@ border: solid 3px black;
 
 .instruction{text-align: center;
 font-size: 30px;
-background-color: lightblue;
+background-color: black;
 opacity: 90%;
 font-family: sans-serif;
 font-size: 50px;
