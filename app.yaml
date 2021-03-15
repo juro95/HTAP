@@ -6,8 +6,8 @@ runtime: python38
 instance_class: F2
 
 handlers:
-- url: /app/static
-  static_dir: color_check/static
+- url: /static
+  static_dir: HTAP/static
 
 - url: /.*
   secure: always

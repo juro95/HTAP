@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How To Avoid People</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id"
+        content="945713320218-l3hktm010jrfi3v5qg6lsbpern4bl1pu.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 
 <header>
     <span>
-        <img src="{{url_for('static', filename='img/logo-square.png')}}"
-            alt="CODE Logo" class="logo">
+        <img src="{{url_for('static', filename='img/logo-square.png')}}" alt="CODE Logo" class="logo">
     </span>
 </header>
 
@@ -29,7 +32,7 @@
                 <a href="/About" class="navButton"><b>About</b></a>
             </span>
             <span class="nav">
-                <!--<a class="navButton"><b>Sign In</b></a>--!>
+                <a class="navButton"><b>Sign In</b></a>
             </span>
         </p>
 
@@ -41,6 +44,30 @@
         <div class="instruction-box">
             <p class=" instruction">Please Hover Over The Compartment Where You Would Like To Book A Room!</p>
         </div>
+
+
+        <!-- google sign in button -->
+        <div class="sign-in">
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+            <script>
+                function onSignIn(googleUser) {
+                    // Useful data for your client-side scripts:
+                    var profile = googleUser.getBasicProfile();
+                    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                    console.log('Full Name: ' + profile.getName());
+                    console.log('Given Name: ' + profile.getGivenName());
+                    console.log('Family Name: ' + profile.getFamilyName());
+                    console.log("Image URL: " + profile.getImageUrl());
+                    console.log("Email: " + profile.getEmail());
+
+                    // The ID token you need to pass to your backend:
+                    var id_token = googleUser.getAuthResponse().id_token;
+                    console.log("ID Token: " + id_token);
+                }
+            </script>
+        </div>
+
+
         <svg width="1899" height="593" viewBox="0 0 1899 593" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="CAMPUS MAP original">
                 <g id="CAMPUS OUTLINE">
