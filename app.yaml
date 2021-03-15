@@ -7,7 +7,7 @@ instance_class: F2
 
 handlers:
 - url: /templates
-  static_dir: HTAP/templates
+  static_dir: static/templates
 
 - url: /.*
   secure: always
