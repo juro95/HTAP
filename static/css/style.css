@@ -26,10 +26,14 @@ flex-direction: column;
     margin-right: 10%;
     }
 
+
 .navButton{
 text-decoration: none;
 color: white;
 font-size: 40px;
+}
+
+.sign-in {justify-content: right;
 }
 
 .instruction-box{  border: solid 5px black;
@@ -45,12 +49,7 @@ font-family: sans-serif;
 font-size: 50px;
 }
 
-.sign-in{
-    padding-top: 400px;
-    display: flex;
-    justify-content: center;
-    
-}
+
 
 
 
