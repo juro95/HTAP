@@ -13,13 +13,12 @@ background-color: black;}
    
 
 
-nav{text-align: center;
+nav{
 background-color: black;
 padding-top: 20px;
 padding-bottom: 20px;
 margin-bottom: 0%;
-display: flex;
-flex-direction: column;
+
 }
 
 .nav {margin-left: 10%;
@@ -33,8 +32,6 @@ color: white;
 font-size: 40px;
 }
 
-.sign-in {justify-content: right;
-}
 
 .instruction-box{  border: solid 5px black;
 color: #fff;
