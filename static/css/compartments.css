@@ -1,4 +1,4 @@
-header{
+header {
     position: absolute;
     background-image: linear-gradient(#08061a, #0b0a1a);
     border-radius: 0 20px 20px 0;
@@ -11,19 +11,19 @@ header{
     line-height: 60px;
 }
 
-header a{
+header a {
     font-size: 30px;
     text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
-html{
+html {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
 
-body{
+body {
     background-image: linear-gradient(#0d0c16, #c1bed8);
     display: flex;
     justify-content: center;
@@ -31,7 +31,7 @@ body{
     min-height: 100vh;
 }
 
-.pannel{
+.pannel {
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -45,18 +45,24 @@ body{
     text-transform: uppercase;
 }
 
-#ROCK{
+.hide {
+    display: none;
+}
+
+
+#ROCK {
     cursor: pointer;
     pointer-events: all;
 }
 
-#ROCK:hover{
+
+#ROCK:hover {
     fill: blue;
     opacity: 30%;
     pointer-events: all;
 }
 
-footer{
+footer {
     display: flex;
     flex-direction: column;
     text-align: center;
