@@ -3,7 +3,7 @@ let APIKEY = "AIzaSyCEN2ID03Kt25fuYEV2QV7CiCxT-Dm3ZtA";
 let DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
 let SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
-let signIn = document.querySelector('.singIn');
+let signIn = document.querySelector('.signIn');
 let signOut = document.querySelector('signOut');
 
 // On load, called to load the auth2 library and API client library.
@@ -39,10 +39,6 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         signIn.style.display = 'none';
         signOut.style.display = 'block';
-        // listUpcomingEvents();
-        formatEvents();
-        eventsToFloorplan();
-        showNavi();
     } else {
         signIn.style.display = 'block';
         signOut.style.display = 'none';
