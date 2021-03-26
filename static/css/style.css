@@ -23,10 +23,11 @@ body {
     height: 10%;
 }
 
-.g-signin2 {
+.signIn {
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    color: white;
+    font-size: 30px;
     background-color: #3A7734;
 }
 
