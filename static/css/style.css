@@ -50,6 +50,7 @@ body {
     color: white;
     border-width: 2px;
     border-color: white;
+    border-radius: 0.7rem;
 }
 
 svg {
