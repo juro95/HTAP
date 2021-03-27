@@ -1,16 +1,19 @@
+let login = document.querySelector(".g-signin2");
+let logout = document.querySelector(".signOut");
+
+
 function onSignIn(googleUser) {
     let profile = googleUser.getBasicProfile();
-    $(".g-signin2").css("display", "none");
-    $(".signOut").css("display", "block");
-
+    login.style.display = "none";
+    logout.style.display = "block";
 }
 
 function signOut() {
     let auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         alert("you have been signed out!")
-        $(".g-signin2").css("display", "block");
-        $(".signOut").css("display", "none");
+        login.style.display = "block";
+        logout.style.display = "none";
     })
 }
 
