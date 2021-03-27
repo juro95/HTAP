@@ -28,16 +28,19 @@ body {
     margin-top: 35px;
 }
 
-.login #signIn {
+.signOut {
     font-family: Hack, monospace;
     font-size: 20px;
     background-color: #1F2626;
     color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 1rem;
     transition: all 0.5s;
 }
 
 
-.login #signIn:hover {
+.signOut:hover {
     -moz-transform: scale(1.2) translate(0px, -4px);
     -webkit-transform: scale(1.2) translate(0px, -4px);
     -o-transform: scale(1.2) translate(0px, -4px);
