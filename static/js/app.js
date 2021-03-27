@@ -6,6 +6,10 @@ let SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 let signIn = document.querySelector('.signIn');
 let signOut = document.querySelector('signOut');
 
+gapi.load('auth2', function () {
+    // Library loaded.
+});
+ 
 // On load, called to load the auth2 library and API client library.
 function handleClientLoad() {
     gapi.load('client:auth2', initClient);
@@ -54,7 +58,6 @@ function handleAuthClick(event) {
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
 }
-
 
 
 
