@@ -28,7 +28,7 @@ body {
     margin-top: 35px;
 }
 
-.signIn {
+#authorize_button {
     font-family: Hack, monospace;
     font-size: 20px;
     background-color: #1F2626;
@@ -40,7 +40,7 @@ body {
 }
 
 
-.signIn:hover {
+#authorize_button:hover {
     -moz-transform: scale(1.2) translate(0px, -4px);
     -webkit-transform: scale(1.2) translate(0px, -4px);
     -o-transform: scale(1.2) translate(0px, -4px);
