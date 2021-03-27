@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How To Avoid People</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    git commit
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id"
           content="945713320218-l3hktm010jrfi3v5qg6lsbpern4bl1pu.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/api.js?onload=onLibraryLoaded"></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
 
@@ -29,9 +30,10 @@
 
     <div class="login">
 
-        <button class="signIn" style="display: block">Sign In
+        <button id="authorize_button" class="signIn" style="display: block">Sign In
             <i class="fas fa-sign-in-alt"></i></button>
-        <button class="signOut" style="display: none">Sign Out<i class="fas fa-sign-in-alt"></i></button>
+        <button id="signout_button" class="signOut" style="display: none">Sign Out<i class="fas fa-sign-in-alt"></i>
+        </button>
     </div>
 </header>
 
