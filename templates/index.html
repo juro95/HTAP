@@ -10,9 +10,9 @@
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id"
           content="945713320218-l3hktm010jrfi3v5qg6lsbpern4bl1pu.apps.googleusercontent.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.12.0/css/all.css'>
 
@@ -29,11 +29,8 @@
     </div>
 
     <div class="login">
-
-        <button id="authorize_button" class="signIn" style="display: block">Sign In
-            <i class="fas fa-sign-in-alt"></i></button>
-        <button id="signout_button" class="signOut" style="display: none">Sign Out<i class="fas fa-sign-in-alt"></i>
-        </button>
+        <div class="g-signin2" id="signIn" data-onsuccess="onSignIn"></div>
+        <button class="signOut">Sign out</button>
     </div>
 </header>
 
