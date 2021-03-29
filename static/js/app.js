@@ -1,3 +1,7 @@
+let login = document.querySelector(".signIn");
+let logout = document.querySelector(".signOut");
+
+
 window.onload = (event) => {
     gapi.load('auth2', function () {
         gapi.auth2.init();
@@ -19,8 +23,6 @@ function handleAuthClick(event) {
 
 function onSignIn(googleUser) {
     let profile = googleUser.getBasicProfile();
-    login.style.display = "none";
-    logout.style.display = "block";
 }
 
 function signOut() {
