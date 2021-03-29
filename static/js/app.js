@@ -9,7 +9,6 @@ function handleAuthClick(event) {
     })
 }
 
-
 function onSignIn(googleUser) {
     let profile = googleUser.getBasicProfile();
 }
@@ -20,7 +19,6 @@ function signOut() {
         alert("you have been signed out!")
     })
 }
-
 
 function updateSigninStatus(isSignedIn) {
     // formatEvents();
