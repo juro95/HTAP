@@ -29,7 +29,8 @@
     </div>
 
     <div class="login">
-        <div class="g-signin2" id="signIn" data-onsuccess="onSignIn"></div>
+        <button class="signIn" id="signIn" data-onsuccess="onSignIn" onclick="handleAuthClick()"> Sign in <i
+                class="fas fa-sign-in-alt"></i></button>
         <button class="signOut" onclick="signOut()">Sign out <i class="fas fa-sign-in-alt"></i>
         </button>
     </div>
@@ -405,5 +406,5 @@
 </body>
 
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
+<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 </html>
