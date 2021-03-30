@@ -148,6 +148,7 @@ var request = gapi.client.calendar.events.insert({
 
 request.execute(function (event) {
     appendPre('Event created: ' + event.htmlLink);
+    alert("event created!")
 });
 
 
