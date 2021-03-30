@@ -7,7 +7,7 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+var SCOPES = "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events";
 
 var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
@@ -114,6 +114,42 @@ function listUpcomingEvents() {
         }
     });
 }
+
+// Refer to the JavaScript quickstart on how to setup the environment:
+// https://developers.google.com/calendar/quickstart/js
+// Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
+// stored credentials.
+
+var event = {
+    'summary': 'Google I/O 2015',
+    'location': '800 Howard St., San Francisco, CA 94103',
+    'description': 'A chance to hear more about Google\'s developer products.',
+    'start': {
+        'dateTime': '2015-05-28T09:00:00-07:00',
+        'timeZone': 'America/Los_Angeles'
+    },
+    'end': {
+        'dateTime': '2021-05-28T17:00:00-07:00',
+        'timeZone': 'America/Los_Angeles'
+    },
+    'reminders': {
+        'useDefault': false,
+        'overrides': [
+            {'method': 'email', 'minutes': 24 * 60},
+            {'method': 'popup', 'minutes': 10}
+        ]
+    }
+};
+
+var request = gapi.client.calendar.events.insert({
+    'calendarId': 'primary',
+    'resource': event
+});
+
+request.execute(function (event) {
+    appendPre('Event created: ' + event.htmlLink);
+});
+
 
 
 
