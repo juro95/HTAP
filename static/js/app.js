@@ -23,6 +23,7 @@ function handleClientLoad() {
  *  Initializes the API client library and sets up sign-in state
  *  listeners.
  */
+
 function initClient() {
     gapi.client.init({
         apiKey: API_KEY,
@@ -30,16 +31,28 @@ function initClient() {
         discoveryDocs: DISCOVERY_DOCS,
         scope: SCOPES
     }).then(function () {
-        // Listen for sign-in state changes.
-        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            // Listen for sign-in state changes.
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
-        // Handle the initial sign-in state.
-        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-        authorizeButton.onclick = handleAuthClick;
-        signoutButton.onclick = handleSignoutClick;
-    }, function (error) {
-        appendPre(JSON.stringify(error, null, 2));
-    });
+            // Handle the initial sign-in state.
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            authorizeButton.onclick = handleAuthClick;
+            signoutButton.onclick = handleSignoutClick;
+            var request = gapi.client.calendar.events.insert({
+                'calendarId': 'primary',
+                'resource': event
+            });
+            request.execute(function (event) {
+                appendPre('Event created: ' + event.htmlLink);
+                alert("event created!")
+            })
+            console.log("event added!");
+
+        }, function (error) {
+            appendPre(JSON.stringify(error, null, 2));
+        }
+    )
+    ;
 }
 
 /**
@@ -141,15 +154,10 @@ var event = {
     }
 };
 
-var request = gapi.client.calendar.events.insert({
-    'calendarId': 'primary',
-    'resource': event
-});
 
-request.execute(function (event) {
-    appendPre('Event created: ' + event.htmlLink);
-    alert("event created!")
-});
+
+
+
 
 
 
