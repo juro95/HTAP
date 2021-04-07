@@ -50,18 +50,6 @@ body {
 }
 
 
-#ROCK {
-    cursor: pointer;
-    pointer-events: all;
-}
-
-
-#ROCK:hover {
-    fill: blue;
-    opacity: 30%;
-    pointer-events: all;
-}
-
 footer {
     display: flex;
     flex-direction: column;
