@@ -13,8 +13,9 @@ room.forEach(item => {
 
 room.forEach(item => {
     item.addEventListener('mouseout', event => {
-        event.target.style.fill = "white";
+        event.target.style.fill = "none";
         event.target.style.stroke = "black";
+        event.target.style.pointerEvents = "all";
         event.target.style.strokeOpacity = "1";
         event.target.style.fillOpacity = "0.5";
     })
