@@ -107,8 +107,11 @@ function listUpcomingEvents() {
         'timeMin': (new Date()).toISOString(),
         'showDeleted': false,
         'singleEvents': true,
+        'location': " ",
         'maxResults': 10,
         'orderBy': 'startTime'
+
+
     }).then(function (response) {
         var events = response.result.items;
         appendPre('Upcoming events:');
