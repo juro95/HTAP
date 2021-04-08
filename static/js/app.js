@@ -102,7 +102,7 @@ function appendPre(message) {
  * appropriate message is printed.
  */
 
-var location
+
 
 function listUpcomingEvents() {
     gapi.client.calendar.events.list({
@@ -110,9 +110,9 @@ function listUpcomingEvents() {
         'timeMin': (new Date()).toISOString(),
         'showDeleted': false,
         'singleEvents': true,
-        'location': location,
         'maxResults': 10,
-        'orderBy': 'startTime'
+        'orderBy': 'startTime',
+        'location': " ",
 
 
     }).then(function (response) {
