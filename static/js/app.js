@@ -48,11 +48,7 @@ function initClient() {
             })
             console.log("event added!");
 
-        }
-
-        ,
-
-        function (error) {
+        }, function (error) {
             appendPre(JSON.stringify(error, null, 2));
         }
     )
@@ -105,18 +101,15 @@ function appendPre(message) {
  * the authorized user's calendar. If no events are found an
  * appropriate message is printed.
  */
-
-
-
 function listUpcomingEvents() {
     gapi.client.calendar.events.list({
         'calendarId': 'primary',
         'timeMin': (new Date()).toISOString(),
         'showDeleted': false,
         'singleEvents': true,
+        'location': " ",
         'maxResults': 10,
-        'orderBy': 'startTime',
-        'location': '--4-Bikini Bottom (12)',
+        'orderBy': 'startTime'
 
 
     }).then(function (response) {
