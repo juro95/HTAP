@@ -101,13 +101,16 @@ function appendPre(message) {
  * the authorized user's calendar. If no events are found an
  * appropriate message is printed.
  */
+
+var location
+
 function listUpcomingEvents() {
     gapi.client.calendar.events.list({
         'calendarId': 'primary',
         'timeMin': (new Date()).toISOString(),
         'showDeleted': false,
         'singleEvents': true,
-        'location': " ",
+        'location': location,
         'maxResults': 10,
         'orderBy': 'startTime'
 
