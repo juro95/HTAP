@@ -107,7 +107,7 @@ function listUpcomingEvents() {
         'timeMin': (new Date()).toISOString(),
         'showDeleted': false,
         'singleEvents': true,
-        'location': " ",
+        'location': '--4-Bikini+Bottom',
         'maxResults': 10,
         'orderBy': 'startTime'
 
