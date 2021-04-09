@@ -107,7 +107,6 @@ function listUpcomingEvents() {
         'timeMin': (new Date()).toISOString(),
         'showDeleted': false,
         'singleEvents': true,
-        'location': '--4-Bikini Bottom (12)',
         'maxResults': 10,
         'orderBy': 'startTime'
 
@@ -123,7 +122,7 @@ function listUpcomingEvents() {
                 if (!when) {
                     when = event.start.date;
                 }
-                appendPre(event.summary + ' (' + when + ')')
+                appendPre(event.summary + ' (' + when + ')\n' + 'Location: ' + event.location)
             }
         } else {
             appendPre('No upcoming events found.');
