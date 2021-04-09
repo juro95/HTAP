@@ -103,14 +103,24 @@ function appendPre(message) {
  */
 function listUpcomingEvents() {
     gapi.client.calendar.events.list({
-        'calendarId': 'primary',
-        'timeMin': (new Date()).toISOString(),
-        'showDeleted': false,
-        'singleEvents': true,
-        'maxResults': 10,
-        'orderBy': 'startTime'
-
-
+        "single_time": {
+            "start_time": {
+                "seconds": "1617955200"
+            },
+            "end_time": {
+                "seconds": "1617963300"
+            },
+            "all_day": false
+        },
+        "hierarchy_node_id": "BLDG|-",
+        "user_context": {
+            "locale": "en",
+            "timezone": "Europe/Berlin"
+        },
+        "listing_params": {
+            "max_results_per_page": 50,
+            "show_unavailable": false
+        }
     }).then(function (response) {
         var events = response.result.items;
         appendPre('Upcoming events:');
