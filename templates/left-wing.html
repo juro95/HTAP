@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/compartments.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <header>
+        <a class="home-button" href="/">Home</a><br>
+        <a class="about" href="/About">About</a>
+    </header>
+</div>
+<div class="pannel">
+    <div class="main-content">
+        <div id="map-wrap">
+            <svg width="691" height="226" viewBox="0 0 691 226" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Left-Wing">
+                    <g id="text-first-compartment">
+                        <text id="Rock" transform="translate(113.741 191)" fill="black" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">Rock</tspan></text>
+                        <text id="Paper" transform="translate(255.741 191)" fill="black" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">Paper</tspan></text>
+                        <text id="Scissors" transform="translate(394.741 191)" fill="black" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">Scissors</tspan></text>
+                        <text id="Lizard" transform="translate(534.741 191)" fill="black" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">Lizard</tspan></text>
+                        <text id="Spock" transform="translate(643.741 191)" fill="black" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">Spock</tspan></text>
+                        <text id="Ada" transform="translate(161.741 72)" fill="black" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">Ada</tspan></text>
+                        <text id="Zuse" transform="translate(203.741 72)" fill="black" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">Zuse</tspan></text>
+                        <text id="Warp" transform="translate(257.741 72)" fill="black" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">Warp</tspan></text>
+                        <text id="Echo" transform="translate(308.741 72)" fill="black" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">Echo</tspan></text>
+                        <text id="8-Bit" transform="translate(14 191)" fill="black" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">8-Bit</tspan></text>
+                    </g>
+                    <path id="Vector"
+                          d="M153.5 64V98H347.5V50.5M1 165H690.5M354 56V74.5M353 107.5V145M191 50.5V98M243.5 98V32M296 14.5V98M52 165V225M199.5 165V224.5M347.5 165V224.5M496 165V224.5M626 165V224.5M1 116.5V225L690.5 224.5V56.5H497L480.5 13L349.5 57.5L334.5 1L1 116.5Z"
+                          stroke="black"/>
+                    <path id="8-Bit_2" class="room" d="M52 165H1V225H52V165Z" stroke="black"/>
+                    <path id="Rock_2" class="room" d="M199.5 165H52V225L199.5 224.5V165Z" stroke="black"/>
+                    <path id="Paper_2" class="room" d="M347.5 165H199.5V224.5H347.5V165Z" stroke="black"/>
+                    <path id="Scissors_2" class="room" d="M496 165H347.5V224.5H496V165Z" stroke="black"/>
+                    <path id="Lizard_2" class="room" d="M626 165H496V224.5H626V165Z" stroke="black"/>
+                    <path id="Spock_2" class="room" d="M690.5 165H626V224.5H690.5V165Z" stroke="black"/>
+                    <path id="Ada_2" class="room" d="M153.5 98V63.5L191 50V98H153.5Z" stroke="black"/>
+                    <path id="Zuse_2" class="room" d="M243.5 32L191 50V98H243.5V32Z" stroke="black"/>
+                    <path id="Warp_2" class="room" d="M296 14L243.5 32V98H296V14Z" stroke="black"/>
+                    <path id="Echo_2" class="room" d="M334.5 1L296 14V98H347.5V51L334.5 1Z" stroke="black"/>
+                </g>
+            </svg>
+
+
+        </div>
+    </div>
+
+</body>
+<script src="{{ url_for('static', filename='js/style.js') }}"></script>
+</html>

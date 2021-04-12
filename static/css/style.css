@@ -1,0 +1,172 @@
+a{
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+body {
+    position: absolute;
+    margin: 0px;
+    overflow: hidden;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background: #1F2626;
+    font-weight: 800;
+}
+
+.logo-frame {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+.logo {
+    width: 10%;
+    height: 10%;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    margin-top: 35px;
+}
+
+#authorize_button {
+    font-family: Hack, monospace;
+    font-size: 20px;
+    height: 20%;
+    background-color: #1F2626;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 0 0.4em;
+    margin-top: 3%;
+    transition: all 0.5s;
+}
+
+#signout_button {
+    font-family: Hack, monospace;
+    font-size: 20px;
+    height: 20%;
+    background-color: #1F2626;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 0 0.4em;
+    margin-top: 3%;
+    transition: all 0.5s;
+}
+
+
+#authorize_button:hover {
+    -moz-transform: scale(1.2) translate(0px, -4px);
+    -webkit-transform: scale(1.2) translate(0px, -4px);
+    -o-transform: scale(1.2) translate(0px, -4px);
+    -ms-transform: scale(1.2) translate(0px, -4px);
+    transform: scale(1.2) translate(0px, -4px);
+    background-color: #1F2626;
+    color: white;
+    border-color: white;
+}
+
+#signout_button:hover {
+    -moz-transform: scale(1.2) translate(0px, -4px);
+    -webkit-transform: scale(1.2) translate(0px, -4px);
+    -o-transform: scale(1.2) translate(0px, -4px);
+    -ms-transform: scale(1.2) translate(0px, -4px);
+    transform: scale(1.2) translate(0px, -4px);
+    background-color: #1F2626;
+    color: white;
+    border-color: white;
+}
+
+#content {
+    color: white;
+}
+
+svg {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 15%;
+    width: 80%;
+}
+
+#comp-one {
+    fill: none;
+    pointer-events: all;
+    transition: all 0.5s;
+}
+
+#comp-one:hover {
+    fill: RGBA(0, 255, 0, 0.3);
+    pointer-events: all !important;
+    transition: fill .5s;
+    cursor: pointer;
+}
+
+#comp-two {
+    fill: none;
+    pointer-events: all;
+}
+
+#comp-two:hover {
+    fill: RGBA(0, 255, 0, 0.3);
+    pointer-events: all !important;
+    transition: fill .5s;
+    cursor: pointer;
+}
+
+#STAFF {
+    fill: none;
+    pointer-events: all;
+}
+
+#STAFF:hover {
+    fill: #ff0000;
+    opacity: 30%;
+    pointer-events: all !important;
+    transition: fill .5s;
+    cursor: pointer;
+}
+
+#comp-three {
+    fill: none;
+    pointer-events: all;
+}
+
+#comp-three:hover {
+    fill: RGBA(0, 255, 0, 0.3);
+    pointer-events: all !important;
+    transition: fill .5s;
+    cursor: pointer;
+}
+
+#comp-four {
+    fill: none;
+    pointer-events: all;
+}
+
+#comp-four:hover {
+    fill: RGBA(0, 255, 0, 0.3);
+    pointer-events: all;
+    transition: fill .5s;
+    cursor: pointer;
+}
+
+body .datepicker-input {
+    align-items: center;
+    text-align:center;
+    padding: 1em;
+}
+input[type=date] {
+  width: 35%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+    
+    

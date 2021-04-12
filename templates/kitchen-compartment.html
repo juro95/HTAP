@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kitchen compartment</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/compartments.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <header>
+        <a class="home-button" href="/">Home</a><br>
+        <a class="about" href="/About">About</a>
+    </header>
+</div>
+<div class="pannel">
+    <div class="main-content">
+        <div id="map-wrap">
+            <svg width="300" height="441" viewBox="0 0 300 441" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Kitchen">
+                    <g id="room-names">
+                        <text id="KITCHEN" transform="translate(52 386)" fill="#231F1F" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">KITCHEN&#10;</tspan>
+                            <tspan x="0" y="25.1016">&#10;</tspan></text>
+                        <text id="ROOMY" transform="translate(18 103)" fill="#231F1F" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ROOMY&#10;</tspan>
+                            <tspan x="0" y="25.1016">&#10;</tspan></text>
+                        <text id="JUNGLE" transform="translate(202.741 386)" fill="#231F1F" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">JUNGLE&#10;</tspan></text>
+                        <text id="RICK" transform="translate(26 240)" fill="#231F1F" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">RICK&#10;</tspan>
+                            <tspan x="0" y="25.1016">&#10;</tspan></text>
+                        <text id="MORTY" transform="translate(18 195)" fill="#231F1F" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">MORTY</tspan></text>
+                        <text id="PEACE" transform="translate(102 27)" fill="#231F1F" xml:space="preserve"
+                              style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">PEACE</tspan></text>
+                    </g>
+                    <path id="Jungle" class="room" d="M150 440.5V347.5L299 348.5V440.5H150Z" stroke="black"/>
+                    <path id="Kitchen_2" class="room" d="M1 440V346.5L150 347.5V440H1Z" stroke="black"/>
+                    <path id="Vector"
+                          d="M2.5 225H77.5M77 52.5H161M2.5 272.5H77.5L77 26.5M2.5 272.5H1.00002V440.5H299V271.5H161V1L2.50002 49.5L2.5 272.5ZM1.00002 346.5L299 348.5M2.5 170H77.5"
+                          stroke="black"/>
+                    <path id="Rick" class="room" d="M77.5 272.5H2.50002V225H77.5V272.5Z" stroke="black"/>
+                    <path id="Morty" class="room" d="M2.50002 170V225H77.5V170H2.50002Z" stroke="black"/>
+                    <path id="Roomy" class="room" d="M77.5 170H2.50002V49.5L77 26.5L77.5 170Z" stroke="black"/>
+                    <path id="Peace" class="room" d="M77 52.5V26.5L161 1V52.5H77Z" stroke="black"/>
+                </g>
+            </svg>
+
+
+        </div>
+    </div>
+</body>
+<footer>Rooms are to be booked from here<br>
+    any and all information about room availabity,
+    should be seen once javascript and API are utilised
+</footer>
+<script src="{{ url_for('static', filename='js/style.js') }}"></script>
+</html>
+
+
