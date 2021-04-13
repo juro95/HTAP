@@ -39,7 +39,7 @@ function initClient() {
             authorizeButton.onclick = handleAuthClick;
             signoutButton.onclick = handleSignoutClick;
             var request = gapi.client.calendar.events.insert({
-                'calendarId': 'primary',
+                'calendarId': 'c_rllf9h069ucai78ldpvfcpbqrg@group.calendar.google.com',
                 'resource': event
             });
             request.execute(function (event) {
@@ -103,24 +103,13 @@ function appendPre(message) {
  */
 function listUpcomingEvents() {
     gapi.client.calendar.events.list({
-        "single_time": {
-            "start_time": {
-                "seconds": "1617955200"
-            },
-            "end_time": {
-                "seconds": "1617963300"
-            },
-            "all_day": false
-        },
-        "hierarchy_node_id": "BLDG|-",
-        "user_context": {
-            "locale": "en",
-            "timezone": "Europe/Berlin"
-        },
-        "listing_params": {
-            "max_results_per_page": 50,
-            "show_unavailable": false
-        }
+        'calendarId': 'c_rllf9h069ucai78ldpvfcpbqrg@group.calendar.google.com',
+        'timeMin': new Date().toISOString(),
+        'showDeleted': false,
+        'singleEvents': true,
+        'maxResults': 10,
+        'orderBy': 'startTime'
+
     }).then(function (response) {
         var events = response.result.items;
         appendPre('Upcoming events:');
