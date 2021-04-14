@@ -58,6 +58,20 @@ function initClient() {
             })
             console.log("event added!");
 
+
+            var freeRequest = gapi.client.calendar.freebusy.query({
+                items: [
+                    {id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"}
+                ],
+                "timeMin": "2021-03-03T10:00:00Z",
+                "timeMax": "2021-03-03T21:00:00Z",
+                "timeZone": "GMT+01:00",
+            });
+
+            freeRequest.execute(function (resp) {
+                console.log(resp);
+            })
+
         }, function (error) {
             appendPre(JSON.stringify(error, null, 2));
         }
@@ -140,26 +154,7 @@ function listUpcomingEvents() {
 }
 
 
-function initClient() {
-    gapi.client.init({
-        apiKey: API_KEY,
-        clientId: CLIENT_ID,
-        discoveryDocs: DISCOVERY_DOCS,
-        scope: SCOPES
-    }).then(function () {
-        var freeRequest = gapi.client.calendar.freebusy.query({
-            items: [
-                {id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"}
-            ],
-            "timeMin": "2021-03-03T10:00:00Z",
-            "timeMax": "2021-03-03T21:00:00Z",
-            "timeZone": "GMT+01:00",
-        });
 
-        freeRequest.execute(function (resp) {
-            console.log(resp);
-        })
-    })
-}
+
 
 
