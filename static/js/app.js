@@ -1,4 +1,5 @@
 // Client ID and API key from the Developer Console
+
 var CLIENT_ID = '945713320218-l3hktm010jrfi3v5qg6lsbpern4bl1pu.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyCEN2ID03Kt25fuYEV2QV7CiCxT-Dm3ZtA';
 
@@ -39,7 +40,8 @@ function initClient() {
             authorizeButton.onclick = handleAuthClick;
             signoutButton.onclick = handleSignoutClick;
             var request = gapi.client.calendar.events.insert({
-                'calendarId': 'c_rllf9h069ucai78ldpvfcpbqrg@group.calendar.google.com',
+
+                'calendarId': 'primary',
                 'resource': event
             });
             request.execute(function (event) {

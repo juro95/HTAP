@@ -9,6 +9,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/template")
+def template():
+    return render_template("template.html")
+
+
 @app.route("/About")
 def about():
     return render_template("About.html")

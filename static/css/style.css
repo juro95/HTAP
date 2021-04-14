@@ -1,4 +1,12 @@
 
+a {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+
 body {
     position: absolute;
     margin: 0px;
@@ -12,8 +20,9 @@ body {
 
 .logo-frame {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding-top: 50px;
+    padding-bottom: 10px;
 }
 
 .logo {
@@ -31,22 +40,28 @@ body {
 #authorize_button {
     font-family: Hack, monospace;
     font-size: 20px;
+    height: 20%;
     background-color: #1F2626;
     color: white;
     border: 2px solid white;
     border-radius: 10px;
-    padding: 0.8rem;
+
+    padding: 10px 0.4em;
+    margin-top: 0.5%;
     transition: all 0.5s;
 }
 
 #signout_button {
     font-family: Hack, monospace;
     font-size: 20px;
+
+    height: 20%;
     background-color: #1F2626;
     color: white;
     border: 2px solid white;
     border-radius: 10px;
-    padding: 0.8rem;
+    padding: 10px 0.4em;
+    margin-top: 0.5%;
     transition: all 0.5s;
 }
 
@@ -83,7 +98,6 @@ svg {
     padding-bottom: 15%;
     width: 80%;
 }
-
 
 #comp-one {
     fill: none;
@@ -146,6 +160,20 @@ svg {
     transition: fill .5s;
     cursor: pointer;
 }
-    
+
+
+body .datepicker-input {
+    align-items: center;
+    text-align: center;
+    padding: 1em;
+}
+
+input[type=date] {
+    width: 35%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
     
     

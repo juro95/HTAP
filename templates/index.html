@@ -22,24 +22,22 @@
 
 <header>
 
-    <div class="logo-frame">
-        <img class="logo" alt="Logo"
-             src="{{ url_for('static', filename='img/CodeNChill.png') }}">
-    </div>
 
-    <div class="login">
-        <button id="authorize_button" id="signIn" data-onsuccess="onSignIn" onclick="handleAuthClick()"> Sign in <i
+    <span class="logo-frame">
+        <img class="logo" alt="Logo" src="/static/img/CodeNChill.png">
+        <button id="authorize_button" data-onsuccess="onSignIn" onclick="handleAuthClick()">SIGN IN <i
                 class="fas fa-sign-in-alt"></i></button>
-        <button id="signout_button" onclick="handleSignoutClick()">Sign out <i class="fas fa-sign-in-alt"></i>
+        <button id="signout_button" onclick="handleSignoutClick()">SIGN OUT <i class="fas fa-sign-in-alt"></i>
         </button>
-    </div>
-
-    <pre id="content" style="white-space: pre-wrap;"></pre>
+    </span>
 </header>
 
 <main>
+    <div class="datepicker-input">
+        <input type="date">
+    </div>
+    </span>
 
-    <pre id="content" style="white-space: pre-wrap;"></pre>
     <div>
         <svg width="1899" height="400" viewBox="0 0 1899 593" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="CAMPUS MAP original">
