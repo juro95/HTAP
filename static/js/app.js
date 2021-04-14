@@ -12,6 +12,14 @@ var SCOPES = "https://www.googleapis.com/auth/calendar https://www.googleapis.co
 
 var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
+var date = document.getElementById("date");
+var time = document.getElementById("time");
+
+date.addEventListener("change", function () {
+    console.log(date.value)
+    ;
+})
+
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -131,37 +139,27 @@ function listUpcomingEvents() {
     });
 }
 
-// Refer to the JavaScript quickstart on how to setup the environment:
-// https://developers.google.com/calendar/quickstart/js
-// Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
-// stored credentials.
 
-var event = {
-    'summary': 'Google I/O 2015',
-    'location': '800 Howard St., San Francisco, CA 94103',
-    'description': 'A chance to hear more about Google\'s developer products.',
-    'start': {
-        'dateTime': '2021-05-28T09:00:00-07:00',
-        'timeZone': 'America/Los_Angeles'
-    },
-    'end': {
-        'dateTime': '2021-05-28T17:00:00-07:00',
-        'timeZone': 'America/Los_Angeles'
-    },
-    'reminders': {
-        'useDefault': false,
-        'overrides': [
-            {'method': 'email', 'minutes': 24 * 60},
-            {'method': 'popup', 'minutes': 10}
-        ]
-    }
-};
+function initClient() {
+    gapi.client.init({
+        apiKey: API_KEY,
+        clientId: CLIENT_ID,
+        discoveryDocs: DISCOVERY_DOCS,
+        scope: SCOPES
+    }).then(function () {
+        var freeRequest = gapi.client.calendar.freebusy.query({
+            items: [
+                {id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"}
+            ],
+            "timeMin": "2021-03-03T10:00:00Z",
+            "timeMax": "2021-03-03T21:00:00Z",
+            "timeZone": "GMT+01:00",
+        });
 
-
-
-
-
-
-
+        freeRequest.execute(function (resp) {
+            console.log(resp);
+        })
+    })
+}
 
 
