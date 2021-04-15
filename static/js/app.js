@@ -13,7 +13,8 @@ var SCOPES = "https://www.googleapis.com/auth/calendar https://www.googleapis.co
 var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
 var date = document.getElementById("date");
-var time = document.getElementById("time");
+var startTime = document.getElementById("time-start");
+var endTime = document.getElementById("time-end");
 
 date.addEventListener("change", function () {
     console.log(date.value)
@@ -50,7 +51,7 @@ function initClient() {
             var request = gapi.client.calendar.events.insert({
 
                 'calendarId': 'primary',
-                'resource': event
+                'resource': event,
             });
             request.execute(function (event) {
                 appendPre('Event created: ' + event.htmlLink);
@@ -63,8 +64,8 @@ function initClient() {
                 items: [
                     {id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"}
                 ],
-                "timeMin": "2021-03-03T10:00:00Z",
-                "timeMax": "2021-03-03T21:00:00Z",
+                "timeMin": startTime.toISOString(),
+                "timeMax": endTime.toISOString(),
                 "timeZone": "GMT+01:00",
             });
 
