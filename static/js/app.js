@@ -16,10 +16,17 @@ var date = document.getElementById("date");
 var startTime = document.getElementById("time-start");
 var endTime = document.getElementById("time-end");
 
-date.addEventListener("change", function () {
-    console.log(`${date.value}` + "T" + `${startTime.value}` + ":00" + "Z");
-    console.log(startTime.value);
-    console.log(endTime.value);
+//console test
+[startTime, endTime].forEach(item => {
+    item.addEventListener("change", function () {
+        if (date.value !== null && startTime.value !== null && endTime.value !== null) {
+
+            console.log(`${date.value}` + "T" + `${startTime.value}` + ":00" + "Z");
+            console.log(startTime.value);
+            console.log(endTime.value);
+
+        }
+    })
 })
 
 
