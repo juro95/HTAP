@@ -69,10 +69,11 @@ function initClient() {
                 "timeMax": `${date.value}` + "T" + `${endTime.value}` + ":00" + "Z",
                 "timeZone": "GMT+01:00",
             });
-
-            freeRequest.execute(function (resp) {
-                console.log(resp);
-            })
+            if (date.value !== null && startTime.value !== null && endTime.value !== null) {
+                freeRequest.execute(function (resp) {
+                    console.log(resp);
+                })
+            }
 
         }, function (error) {
             appendPre(JSON.stringify(error, null, 2));
