@@ -17,8 +17,9 @@ var startTime = document.getElementById("time-start");
 var endTime = document.getElementById("time-end");
 
 date.addEventListener("change", function () {
-    console.log(date.value)
-    ;
+    console.log(`${date.value}` + "T" + `${startTime.value}` + ":00" + "Z");
+    console.log(startTime.value);
+    console.log(endTime.value);
 })
 
 
@@ -64,8 +65,8 @@ function initClient() {
                 items: [
                     {id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"}
                 ],
-                "timeMin": startTime.toISOString(),
-                "timeMax": endTime.toISOString(),
+                "timeMin": `${date.value}` + "T" + `${startTime.value}` + ":00" + "Z",
+                "timeMax": `${date.value}` + "T" + `${endTime.value}` + ":00" + "Z",
                 "timeZone": "GMT+01:00",
             });
 
