@@ -17,28 +17,31 @@ var startTime = document.getElementById("time-start");
 var endTime = document.getElementById("time-end");
 var inputs = document.querySelectorAll(".input")
 
-
 /**
- //checking for change of all values. Then console.log values on change and executing request if busy.
- [...inputs].forEach(input => {
-        input.addEventListener('change', function () {
-                if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
-                ) {
-                    console.log(`"${date.value}T${startTime.value}:00Z",
-                    "${date.value}T${endTime.value}:00Z"`);
-                    freeRequest.execute(function (resp) {
-                        console.log(resp);
-                    })
+ console.log("lalas");
 
-                } else {
-                    console.log("change date pls")
+ [...inputs].forEach(input => {
+        input.addEventListener
+        {
+            input.addEventListener('change', function () {
+                    if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
+                    ) {
+                        let minTime = `"${date.value}T${startTime.value}:00.000Z"`;
+                        let maxTime = `"${date.value}T${endTime.value}:00.000Z"`;
+                        console.log(minTime, maxTime);
+                        freeRequest.execute(function (resp) {
+                            console.log(resp);
+                        })
+
+                    } else {
+                        console.log("change date pls")
+                    }
                 }
-            }
-        )
+            )
+        }
     }
  )
  */
-
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -77,23 +80,25 @@ function initClient() {
             })
             console.log("event added!");
 
-            //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
-            var freeRequest = gapi.client.calendar.freebusy.query({
-                items: [
-                    {id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"}
-                ],
-                "timeMin": `"${date.value}T${startTime.value}:00.000Z"`,
-                "timeMax": `"${date.value}T${endTime.value}:00.000Z"`,
-                "timeZone": "GMT+01:00",
-            });
 
             //checking for change of all values. Then console.log values on change and executing request if busy.
             [...inputs].forEach(input => {
                     input.addEventListener('change', function () {
                             if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
                             ) {
-                                console.log(`"${date.value}T${startTime.value}:00Z",
-                    "${date.value}T${endTime.value}:00Z"`);
+                                var minTime = `"${date.value}T${startTime.value}:00.000Z"`;
+                                var maxTime = `"${date.value}T${endTime.value}:00.000Z"`;
+                                console.log(minTime, maxTime);
+                                //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
+                                var freeRequest = gapi.client.calendar.freebusy.query({
+                                    items: [
+                                        {id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"}
+                                    ],
+                                    "timeMin": minTime,
+                                    "timeMax": maxTime,
+                                    "timeZone": "GMT+01:00",
+                                });
+
                                 freeRequest.execute(function (resp) {
                                     console.log(resp);
                                 })
