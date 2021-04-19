@@ -17,7 +17,6 @@ var startTime = document.getElementById("time-start");
 var endTime = document.getElementById("time-end");
 var inputs = document.querySelectorAll(".input")
 
-console.log(inputs);
 
 /**
  //checking for change of all values. Then console.log values on change and executing request if busy.
