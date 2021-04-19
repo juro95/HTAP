@@ -15,20 +15,31 @@ var signoutButton = document.getElementById('signout_button');
 var date = document.getElementById("date");
 var startTime = document.getElementById("time-start");
 var endTime = document.getElementById("time-end");
+var inputs = document.querySelectorAll(".input")
 
-//console test
-[startTime, endTime].forEach(item => {
-    item.addEventListener("change", function () {
-        if (date.value !== null && startTime.value !== null && endTime.value !== null) {
+console.log(inputs);
 
-            console.log(`${date.value}` + "T" + `${startTime.value}` + ":00" + "Z");
-            console.log(startTime.value);
-            console.log(endTime.value);
+/**
+ //checking for change of all values. Then console.log values on change and executing request if busy.
+ [...inputs].forEach(input => {
+        input.addEventListener('change', function () {
+                if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
+                ) {
+                    console.log(`${date.value}` + "T" + `${startTime.value}` + ":00" + "Z" + ","
+                        + `${date.value}` + "T" + `${endTime.value}` + ":00" + "Z"
+                    );
+                    freeRequest.execute(function (resp) {
+                        console.log(resp);
+                    })
 
-        }
-    })
-})
-
+                } else {
+                    console.log("change date pls")
+                }
+            }
+        )
+    }
+ )
+ */
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -76,11 +87,25 @@ function initClient() {
                 "timeMax": `${date.value}` + "T" + `${endTime.value}` + ":00" + "Z",
                 "timeZone": "GMT+01:00",
             });
-            if (date.value !== null && startTime.value !== null && endTime.value !== null) {
-                freeRequest.execute(function (resp) {
-                    console.log(resp);
-                })
-            }
+            //checking for change of all values. Then console.log values on change and executing request if busy.
+            [...inputs].forEach(input => {
+                    input.addEventListener('change', function () {
+                            if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
+                            ) {
+                                console.log(`${date.value}` + "T" + `${startTime.value}` + ":00" + "Z" + ","
+                                    + `${date.value}` + "T" + `${endTime.value}` + ":00" + "Z"
+                                );
+                                freeRequest.execute(function (resp) {
+                                    console.log(resp);
+                                })
+
+                            } else {
+                                console.log("change date pls")
+                            }
+                        }
+                    )
+                }
+            )
 
         }, function (error) {
             appendPre(JSON.stringify(error, null, 2));
