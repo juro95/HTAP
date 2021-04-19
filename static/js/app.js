@@ -25,9 +25,8 @@ console.log(inputs);
         input.addEventListener('change', function () {
                 if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
                 ) {
-                    console.log(`${date.value}` + "T" + `${startTime.value}` + ":00" + "Z" + ","
-                        + `${date.value}` + "T" + `${endTime.value}` + ":00" + "Z"
-                    );
+                    console.log(`"${date.value}T${startTime.value}:00Z",
+                    "${date.value}T${endTime.value}:00Z"`);
                     freeRequest.execute(function (resp) {
                         console.log(resp);
                     })
@@ -40,6 +39,7 @@ console.log(inputs);
     }
  )
  */
+
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -78,23 +78,23 @@ function initClient() {
             })
             console.log("event added!");
 
-
+            //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
             var freeRequest = gapi.client.calendar.freebusy.query({
                 items: [
                     {id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"}
                 ],
-                "timeMin": `${date.value}` + "T" + `${startTime.value}` + ":00" + "Z",
-                "timeMax": `${date.value}` + "T" + `${endTime.value}` + ":00" + "Z",
+                "timeMin": `"${date.value}T${startTime.value}:00Z"`,
+                "timeMax": `"${date.value}T${endTime.value}:00Z"`,
                 "timeZone": "GMT+01:00",
             });
+
             //checking for change of all values. Then console.log values on change and executing request if busy.
             [...inputs].forEach(input => {
                     input.addEventListener('change', function () {
                             if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
                             ) {
-                                console.log(`${date.value}` + "T" + `${startTime.value}` + ":00" + "Z" + ","
-                                    + `${date.value}` + "T" + `${endTime.value}` + ":00" + "Z"
-                                );
+                                console.log(`"${date.value}T${startTime.value}:00Z",
+                    "${date.value}T${endTime.value}:00Z"`);
                                 freeRequest.execute(function (resp) {
                                     console.log(resp);
                                 })
@@ -106,6 +106,7 @@ function initClient() {
                     )
                 }
             )
+
 
         }, function (error) {
             appendPre(JSON.stringify(error, null, 2));
