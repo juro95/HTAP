@@ -83,8 +83,8 @@ function initClient() {
                 items: [
                     {id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"}
                 ],
-                "timeMin": `"${date.value}T${startTime.value}:00Z"`,
-                "timeMax": `"${date.value}T${endTime.value}:00Z"`,
+                "timeMin": `"${date.value}T${startTime.value}:00.000Z"`,
+                "timeMax": `"${date.value}T${endTime.value}:00.000Z"`,
                 "timeZone": "GMT+01:00",
             });
 
