@@ -94,7 +94,7 @@ function initClient() {
                                             id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"
                                         }
                                     ],
-                                    timeZone: "GMT+08:00"
+                                    timeZone: "GMT-07:00"
                                 };
                                 console.log(requestBody);
                                 //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
