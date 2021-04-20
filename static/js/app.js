@@ -79,39 +79,7 @@ function initClient() {
                 alert("event created!")
             })
             console.log("event added!");
-
-
-            //checking for change of all values. Then console.log values on change and executing request if busy.
-            [...inputs].forEach(input => {
-                    input.addEventListener('change', function () {
-                            if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
-                            ) {
-                                //user input that goes into the freebusy query
-                                let requestBody = {
-                                    timeMin: date.value + "T" + startTime.value + ":00.000Z",
-                                    timeMax: date.value + "T" + endTime.value + ":00.000Z",
-                                    items: [
-                                        {
-                                            id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"
-                                        }
-                                    ],
-                                    timeZone: "GMT+01:00"
-                                };
-                                console.log(requestBody);
-                                //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
-                                var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
-
-                                freeRequest.execute(function (resp) {
-                                    console.log(resp);
-                                })
-
-                            } else {
-                                console.log("change date pls")
-                            }
-                        }
-                    )
-                }
-            )
+            avalabilityCheck()
 
 
         }, function (error) {
@@ -196,7 +164,39 @@ function listUpcomingEvents() {
 }
 
 
+//checking for user input on change of date or time, then sending query to gcalendar
 
+//checking for change of all values. Then console.log values on change and executing request if busy.
+function avalabilityCheck() {
+    [...inputs].forEach(input => {
+            input.addEventListener('change', function () {
+                    if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
+                    ) {
+                        //user input that goes into the freebusy query
+                        let requestBody = {
+                            timeMin: date.value + "T" + startTime.value + ":00.000Z",
+                            timeMax: date.value + "T" + endTime.value + ":00.000Z",
+                            items: [
+                                {
+                                    id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"
+                                }
+                            ],
+                            timeZone: "GMT+01:00"
+                        };
 
+                        //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
+                        var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
+                        freeRequest.execute(function (resp) {
+                            console.log(resp);
+                        })
+
+                    } else {
+                        console.log("change date pls")
+                    }
+                }
+            )
+        }
+    )
+}
 
