@@ -21,26 +21,49 @@ var inputs = document.querySelectorAll(".input")
  console.log("lalas");
 
  [...inputs].forEach(input => {
-        input.addEventListener
-        {
-            input.addEventListener('change', function () {
-                    if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
-                    ) {
-                        let minTime = `"${date.value}T${startTime.value}:00.000Z"`;
-                        let maxTime = `"${date.value}T${endTime.value}:00.000Z"`;
-                        console.log(minTime, maxTime);
-                        freeRequest.execute(function (resp) {
-                            console.log(resp);
-                        })
+        input.addEventListener('change', function () {
+                if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
+                ) {
+                    //user input that goes into the freebusy query
+                    let requestBody = {
+                        timeMin: date.value + "T" + startTime.value + ":00.000Z",
+                        timeMax: date.value + "T" + endTime.value + ":00.000Z",
+                        items: [
+                            {
+                                id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"
+                            }
+                        ],
+                        timeZone: "GMT+01:00"
+                    };
 
-                    } else {
-                        console.log("change date pls")
-                    }
+                    //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
+                    var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
+
+                    freeRequest.execute(function (resp) {
+                        console.log(resp);
+                    })
+
+                } else {
+                    console.log("change date pls")
                 }
-            )
-        }
+            }
+        )
     }
  )
+ */
+
+/**
+ console.log("works");
+
+ [...inputs].forEach(input => {
+    input.addEventListener('change', function () {
+        if (endTime.value <= startTime.value) {
+            console.log("yalla");
+        } else {
+            console.log("wat");
+        }
+    })
+})
  */
 
 /**
@@ -79,6 +102,7 @@ function initClient() {
                 alert("event created!")
             })
             console.log("event added!");
+            //checking for room availability
             avalabilityCheck()
 
 
@@ -164,7 +188,7 @@ function listUpcomingEvents() {
 }
 
 
-//checking for user input on change of date or time, then sending query to gcalendar
+//function checking for user input on change of date or time, then sending query to gcalendar
 
 //checking for change of all values. Then console.log values on change and executing request if busy.
 function avalabilityCheck() {
@@ -187,9 +211,13 @@ function avalabilityCheck() {
                         //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
                         var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
-                        freeRequest.execute(function (resp) {
-                            console.log(resp);
-                        })
+                        if (endTime.value <= startTime.value) {
+                            alert("Please enter a valid date!");
+                        } else {
+                            freeRequest.execute(function (resp) {
+                                console.log(resp);
+                            })
+                        }
 
                     } else {
                         console.log("change date pls")
