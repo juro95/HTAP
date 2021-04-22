@@ -218,7 +218,7 @@ function avalabilityCheck() {
                             freeRequest.execute(function (resp) {
                                 var responseObject = JSON.stringify(resp);
                                 console.log(responseObject);
-                                if (responseObject.calendars[calendarID].busy.length < 1 )
+                                if (resp.calendars[calendarID].busy.length < 1 )
                                 {console.log("room is free");}
 
                             })
