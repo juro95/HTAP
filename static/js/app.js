@@ -215,11 +215,11 @@ function avalabilityCheck() {
                             alert("Please enter a valid date!");
                         } else {
                             freeRequest.execute(function (resp) {
-                                var temp = resp;
-                                console.log(temp);
-                                console.log(JSON.stringify(resp));
-                                const busyArray = requestBody.data.calendars.calendarid.busy;
-                                console.log(busyArray);
+                                var responseObject = JSON.stringify(resp);
+                                console.log(responseObject);
+                                if (responseObject.calendars["code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"].busy.length < 1 )
+                                {console.log("room is free");}
+
                             })
                         }
 
