@@ -217,7 +217,7 @@ function avalabilityCheck() {
                             freeRequest.execute(function (resp) {
                                 var temp = resp;
                                 console.log(temp);
-                                console.log(JSON.stringify(requestBody.data));
+                                console.log(JSON.stringify(resp));
                                 const busyArray = requestBody.data.calendars.calendarid.busy;
                                 console.log(busyArray);
                             })
