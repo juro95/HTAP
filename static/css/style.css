@@ -161,6 +161,18 @@ svg {
     cursor: pointer;
 }
 
+#comp-five {
+    fill: none;
+    pointer-events: all;
+}
+
+#comp-five:hover {
+    fill: RGBA(0, 255, 0, 0.3);
+    pointer-events: all;
+    transition: fill .5s;
+    cursor: pointer;
+}
+
 
 body .datepicker-input {
     align-items: center;
