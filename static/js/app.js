@@ -217,7 +217,7 @@ function avalabilityCheck() {
                             freeRequest.execute(function (resp) {
                                 var responseObject = JSON.stringify(resp);
                                 console.log(responseObject);
-                                if (responseObject.calendars["code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"].busy.length < 1 )
+                                if (responseObject.calendars[code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com].busy.length < 1 )
                                 {console.log("room is free");}
 
                             })
