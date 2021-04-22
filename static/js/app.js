@@ -215,7 +215,11 @@ function avalabilityCheck() {
                             alert("Please enter a valid date!");
                         } else {
                             freeRequest.execute(function (resp) {
-                                console.log(resp);
+                                var temp = resp;
+                                console.log(temp);
+                                console.log(JSON.stringify(resp.data));
+                                const busyArray = resp.data.calendars.calendarid.busy;
+                                console.log(busyArray);
                             })
                         }
 
