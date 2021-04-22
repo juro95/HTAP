@@ -228,3 +228,5 @@ function avalabilityCheck() {
     )
 }
 
+console.log("haöaöa");
+
