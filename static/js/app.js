@@ -218,9 +218,38 @@ function avalabilityCheck() {
                             freeRequest.execute(function (resp) {
                                 var responseObject = JSON.stringify(resp);
                                 console.log(responseObject);
+
                                 if (resp.calendars[calendarID].busy.length < 1 )
                                 {console.log("room is free");}
+                                else if (resp.calendars[calendarID].busy.length === 1)
+                                {console.log(resp.calendars[calendarID].busy[0].start);
+                                console.log(resp.calendars[calendarID].busy[0].end);
+                                }
+                                else if (resp.calendars[calendarID].busy.length === 2)
+                                {console.log(resp.calendars[calendarID].busy[0].start);
+                                console.log(resp.calendars[calendarID].busy[0].end);
+                                console.log(resp.calendars[calendarID].busy[1].start);
+                                console.log(resp.calendars[calendarID].busy[1].end);
+                                }
+                                else if (resp.calendars[calendarID].busy.length === 3)
+                                {console.log(resp.calendars[calendarID].busy[0].start);
+                                console.log(resp.calendars[calendarID].busy[0].end);
+                                console.log(resp.calendars[calendarID].busy[1].start);
+                                console.log(resp.calendars[calendarID].busy[1].end);
+                                console.log(resp.calendars[calendarID].busy[2].start);
+                                console.log(resp.calendars[calendarID].busy[2].end);
+                                }
+                                else if (resp.calendars[calendarID].busy.length === 4)
+                                {console.log(resp.calendars[calendarID].busy[0].start);
+                                console.log(resp.calendars[calendarID].busy[0].end);
+                                console.log(resp.calendars[calendarID].busy[1].start);
+                                console.log(resp.calendars[calendarID].busy[1].end);
+                                console.log(resp.calendars[calendarID].busy[2].start);
+                                console.log(resp.calendars[calendarID].busy[2].end);
+                                console.log(resp.calendars[calendarID].busy[3].start);
+                                console.log(resp.calendars[calendarID].busy[3].end);
 
+                                }
                             })
                         }
 
