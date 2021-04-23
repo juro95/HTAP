@@ -25,7 +25,7 @@ let rooms = {
     "Jungle": "code.berlin_188b81q8a620qia5jnkdohp7bu0ug6g96ss32d1i6cq3ae0@resource.calendar.google.com",
     "Lizard": "code.berlin_1885dv1guu8e4gsdmna2vusmqgqh2@resource.calendar.google.com",
     "Morty": "code.berlin_31333137303136343636@resource.calendar.google.com",
-    "Mr. Krabs": "c_1888es6bfll5kjsuls02f06lf7vbs4gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
+    "Mr.Krabs": "c_1888es6bfll5kjsuls02f06lf7vbs4gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
     "Paper": "code.berlin_3635313131353437333332@resource.calendar.google.com",
     "Patrick": "c_1880fd3bis93ehhvglb5b5kb9llle4gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
     "Peace": "code.berlin_1886llujif4fmjgpiogj4n145vi0a6gb74o30d9h6kpjee9k6c@resource.calendar.google.com",
@@ -223,7 +223,7 @@ function avalabilityCheck() {
                     ) {
                         for (key in rooms) {
                             if (rooms.hasOwnProperty(key)) {
-                                var calendarID = rooms[key];
+                                let calendarID = rooms[key];
                                 //console.log(value);
                         //user input that goes into the freebusy query
                         let requestBody = {
