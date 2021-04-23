@@ -42,6 +42,9 @@ let rooms = {
     "Rock": "c_1886i0393ltc8gqgmach00hf1odhg@resource.calendar.google.com"
 }
 
+
+
+
 /**
  console.log("lalas");
 
@@ -241,9 +244,6 @@ function avalabilityCheck() {
                         //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
                         var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
-                        if (endTime.value <= startTime.value) {
-                            alert("Please enter a valid date!");
-                        } else {
                             freeRequest.execute(function (resp) {
                                 var responseObject = JSON.stringify(resp);
                                 console.log(responseObject);
@@ -276,7 +276,6 @@ function avalabilityCheck() {
 
                                 }
                             })
-                        }
                     }}
                     } else {
                         console.log("change date pls")
