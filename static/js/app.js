@@ -221,7 +221,7 @@ function avalabilityCheck() {
             input.addEventListener('change', function () {
                     if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
                     ) {
-                        for (key in rooms) {
+                        for (let key in rooms) {
                             if (rooms.hasOwnProperty(key)) {
                                 let calendarID = rooms[key];
                                 //console.log(value);
@@ -247,7 +247,7 @@ function avalabilityCheck() {
                                 var responseObject = JSON.stringify(resp);
                                 console.log(responseObject);
                                 if (resp.calendars[calendarID].busy.length < 1) {
-                                    console.log("room is free");
+                                    console.log('room is free');
                                 } else if (resp.calendars[calendarID].busy.length === 1) {
                                     console.log(resp.calendars[calendarID].busy[0].start);
                                     console.log(resp.calendars[calendarID].busy[0].end);
