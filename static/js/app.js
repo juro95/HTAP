@@ -224,6 +224,7 @@ function avalabilityCheck() {
                         for (let key in rooms) {
                             if (rooms.hasOwnProperty(key)) {
                                 let calendarID = rooms[key];
+                                let roomName = key;
                                 //console.log(value);
                         //user input that goes into the freebusy query
                         let requestBody = {
@@ -247,7 +248,7 @@ function avalabilityCheck() {
                                 var responseObject = JSON.stringify(resp);
                                 console.log(responseObject);
                                 if (resp.calendars[calendarID].busy.length < 1) {
-                                    console.log('room is free');
+                                    console.log(`${roomName} is free`);
                                 } else if (resp.calendars[calendarID].busy.length === 1) {
                                     console.log(resp.calendars[calendarID].busy[0].start);
                                     console.log(resp.calendars[calendarID].busy[0].end);
