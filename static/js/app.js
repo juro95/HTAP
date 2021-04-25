@@ -279,16 +279,16 @@ function avalabilityCheck() {
                                 };
 
 
-                                //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
+                                //make request to gcalendar if rooms are free. Giving back array on what times room is busy.
                                 var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
                                 freeRequest.execute(function (resp) {
+                                    let isBusy = 0;
                                     var responseObject = JSON.stringify(resp);
                                     console.log(responseObject);
                                     if (resp.calendars[calendarID].busy.length < 1) {
                                         console.log(`${roomName} is free`);
-                                    } else {
-
+                                    } else { isBusy +=1;
                                     }
 
 
@@ -320,6 +320,7 @@ function avalabilityCheck() {
 
                                 }*/
                                 })
+                                if (isBusy > 0){console.log("comp is busy");}
                           }
                         }
                     } else {
