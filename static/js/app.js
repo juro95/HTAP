@@ -324,7 +324,7 @@ function avalabilityCheck() {
 
                           }
                         }
-                   console.log("finito");
+                   console.log(isBusy);
                     if (isBusy === false) {
                         console.log("wokring?");
                     }
