@@ -289,7 +289,9 @@ function avalabilityCheck() {
 
                                     if (resp.calendars[calendarID].busy.length < 1) {
                                         console.log(`${roomName} is free`);
-                                    } else {isBusy = false;
+                                    }
+                                    //if room is busy set isBusy to false
+                                    else {isBusy = !isBusy;
                                     console.log("room is Busy");
                                     }
                                     console.log(isBusy)
@@ -325,14 +327,14 @@ function avalabilityCheck() {
 
                           }
                         }
-                   console.log(isBusy);
+                    } else {
+                        console.log("change date pls");
+                    }
+                    console.log(isBusy);
                     if (isBusy === false) {
                         console.log("working?");
                     }
                     else{console.log("not working")}
-                    } else {
-                        console.log("change date pls");
-                    }
                 }
             )
         }
