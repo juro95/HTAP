@@ -259,7 +259,7 @@ function listUpcomingEvents() {
 function avalabilityCheck() {
     [...inputs].forEach(input => {
             input.addEventListener('change', function () {
-                var isBusy = 0;
+                let isBusy = 0;
                     if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
                     ) {
                         for (let key in comp_1) {
@@ -321,9 +321,9 @@ function avalabilityCheck() {
 
                                 }*/
                                 })
-                            }
-                        } if (isBusy > 0){console.log("compartment_1 is busy!")}
-            else {console.log("compartment_1 is free!")}
+                           if (isBusy > 0){console.log("compartment_1 is busy!")}
+            else {console.log("compartment_1 is free!")} }
+                        }
                     } else {
                         console.log("change date pls")
                     }
