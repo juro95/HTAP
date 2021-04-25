@@ -259,6 +259,7 @@ function listUpcomingEvents() {
 function avalabilityCheck() {
     [...inputs].forEach(input => {
             input.addEventListener('change', function () {
+                 let isBusy = 0;
                     if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
                     ) {
                         for (let key in comp_1) {
@@ -284,7 +285,6 @@ function avalabilityCheck() {
 
                                 //executing request.
                                 freeRequest.execute(function (resp) {
-                                    let isBusy = 0;
                                     var responseObject = JSON.stringify(resp);
                                     console.log(responseObject);
                                     if (resp.calendars[calendarID].busy.length < 1) {
