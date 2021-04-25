@@ -254,13 +254,13 @@ function listUpcomingEvents() {
 
 
 //function checking for user input on change of date or time, then sending query to gcalendar
-
 //checking for change of all values. Then console.log values on change and executing request if busy.
 function avalabilityCheck() {
     [...inputs].forEach(input => {
             input.addEventListener('change', function () {
                     if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
                     ) {let isBusy = true;
+                    //looping through all rooms in compartment
                         for (let key in comp_1) {
                             if (comp_1.hasOwnProperty(key)) {
                                 let calendarID = comp_1[key];
@@ -290,9 +290,8 @@ function avalabilityCheck() {
                                         console.log(`${roomName} is free`);
                                     } else { isBusy = false;
                                     console.log("room is Busy");
-                                    break;
                                     }
-                                    console.log("eh");
+
 
                                     /**
                                      else if (resp.calendars[calendarID].busy.length === 1) {
@@ -325,8 +324,12 @@ function avalabilityCheck() {
 
                           }
                         }
+                   console.log("finito");
+                    if (isBusy === false) {
+                        console.log("wokring?");
+                    }
                     } else {
-                        console.log("change date pls")
+                        console.log("change date pls");
                     }
                 }
             )
