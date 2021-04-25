@@ -259,7 +259,7 @@ function listUpcomingEvents() {
 function avalabilityCheck() {
     [...inputs].forEach(input => {
             input.addEventListener('change', function () {
-                 isBusy = 0;
+                let isBusy = 0;
                     if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
                     ) {
                         for (let key in comp_1) {
