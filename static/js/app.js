@@ -1,5 +1,4 @@
 // Client ID and API key from the Developer Console
-
 var CLIENT_ID = '425223675927-dugksbk5qnqi680lf4gor9n6ec5hceth.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyDVGW-RI-4Vu2-158KpDsVFpIsGR5o67UE';
 
@@ -15,7 +14,9 @@ var signoutButton = document.getElementById('signout_button');
 var date = document.getElementById("date");
 var startTime = document.getElementById("time-start");
 var endTime = document.getElementById("time-end");
-var inputs = document.querySelectorAll(".input");
+var inputs = document.querySelectorAll(".input, .btn");
+
+
 let rooms = {
     "Ada": "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com",
     "D-2": "code.berlin_1883j5g4liq5ihuehfm64pgo3o66g@resource.calendar.google.com",
@@ -83,55 +84,6 @@ let comp_5 = {
 
 
 /**
- console.log("lalas");
-
- [...inputs].forEach(input => {
-        input.addEventListener('change', function () {
-                if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
-                ) {
-                    //user input that goes into the freebusy query
-                    let requestBody = {
-                        timeMin: date.value + "T" + startTime.value + ":00.000Z",
-                        timeMax: date.value + "T" + endTime.value + ":00.000Z",
-                        items: [
-                            {
-                                id: "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com"
-                            }
-                        ],
-                        timeZone: "GMT+01:00"
-                    };
-
-                    //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
-                    var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
-
-                    freeRequest.execute(function (resp) {
-                        console.log(resp);
-                    })
-
-                } else {
-                    console.log("change date pls")
-                }
-            }
-        )
-    }
- )
- */
-
-/**
- console.log("works");
-
- [...inputs].forEach(input => {
-    input.addEventListener('change', function () {
-        if (endTime.value <= startTime.value) {
-            console.log("yalla");
-        } else {
-            console.log("wat");
-        }
-    })
-})
- */
-
-/**
  *  On load, called to load the auth2 library and API client library.
  */
 function handleClientLoad() {
@@ -186,7 +138,6 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
-        listUpcomingEvents();
     } else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
@@ -219,38 +170,6 @@ function appendPre(message) {
     pre.appendChild(textContent);
 }
 
-/**
- * Print the summary and start datetime/date of the next ten events in
- * the authorized user's calendar. If no events are found an
- * appropriate message is printed.
- */
-function listUpcomingEvents() {
-    gapi.client.calendar.events.list({
-        'calendarId': 'c_rllf9h069ucai78ldpvfcpbqrg@group.calendar.google.com',
-        'timeMin': new Date().toISOString(),
-        'showDeleted': false,
-        'singleEvents': true,
-        'maxResults': 10,
-        'orderBy': 'startTime'
-
-    }).then(function (response) {
-        var events = response.result.items;
-        appendPre('Upcoming events:');
-
-        if (events.length > 0) {
-            for (i = 0; i < events.length; i++) {
-                var event = events[i];
-                var when = event.start.dateTime;
-                if (!when) {
-                    when = event.start.date;
-                }
-                appendPre(event.summary + ' (' + when + ')\n' + 'Location: ' + event.location)
-            }
-        } else {
-            appendPre('No upcoming events found.');
-        }
-    });
-}
 
 
 //function checking for user input on change of date or time, then sending query to gcalendar
@@ -298,7 +217,7 @@ function avalabilityCheck() {
                                     if (resp.calendars[calendarID].busy.length < 1) {
                                         console.log(`${roomName} is free`);
                                     }
-                                    //if room is busy set isBusy to false
+                                    //if room is busy set isBusy to false, then if isBusy=false make compartment green
                                     else {isBusy = !isBusy;
                                     console.log("room is Busy");
                                     }
