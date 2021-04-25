@@ -259,9 +259,8 @@ function listUpcomingEvents() {
 function avalabilityCheck() {
     [...inputs].forEach(input => {
             input.addEventListener('change', function () {
-                 let isBusy = 0;
                     if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
-                    ) {
+                    ) {let isBusy = true;
                         for (let key in comp_1) {
                             if (comp_1.hasOwnProperty(key)) {
                                 let calendarID = comp_1[key];
@@ -289,10 +288,11 @@ function avalabilityCheck() {
                                     console.log(responseObject);
                                     if (resp.calendars[calendarID].busy.length < 1) {
                                         console.log(`${roomName} is free`);
-                                    } else { isBusy++;
-                                    console.log(isBusy);
+                                    } else { isBusy = false;
+                                    console.log("room is Busy");
+                                    break;
                                     }
-
+                                    console.log("eh");
 
                                     /**
                                      else if (resp.calendars[calendarID].busy.length === 1) {
@@ -328,9 +328,7 @@ function avalabilityCheck() {
                     } else {
                         console.log("change date pls")
                     }
-                    if(isBusy>1){
-              console.log(isBusy);
-                    console.log("comp is busy!")}}
+                }
             )
         }
     )
