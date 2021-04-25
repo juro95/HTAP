@@ -328,7 +328,9 @@ function avalabilityCheck() {
                     } else {
                         console.log("change date pls")
                     }
-              console.log(isBusy); }
+                    if(isBusy>1){
+              console.log(isBusy);
+                    console.log("comp is busy!")}}
             )
         }
     )
