@@ -259,7 +259,7 @@ function avalabilityCheck() {
     [...inputs].forEach(input => {
             input.addEventListener('change', function () {
                     if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
-                    ) {let isBusy = true;
+                    ) {var isBusy = true;
                     //looping through all rooms in compartment
                         for (let key in comp_1) {
                             if (comp_1.hasOwnProperty(key)) {
