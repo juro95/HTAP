@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How To Avoid People</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Hours-styles.css') }}">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id"
-          content="425223675927-dugksbk5qnqi680lf4gor9n6ec5hceth.apps.googleusercontent.com">
+          content="945713320218-l3hktm010jrfi3v5qg6lsbpern4bl1pu.apps.googleusercontent.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-
+    <script src="{{url_for('static', filename='js/logic.js') }}"></script>
     <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.12.0/css/all.css'>
 
 </head>
@@ -21,12 +22,9 @@
 <body>
 
 <header>
-
-
     <span class="logo-frame">
         <img class="logo" alt="Logo" src="/static/img/CodeNChill.png">
-        <button id="authorize_button" data-onsuccess="onSignIn" onclick="handleAuthClick()">SIGN IN <i
-                class="fas fa-sign-in-alt"></i></button>
+        <button id="authorize_button" data-onsuccess="onSignIn" onclick="handleAuthClick()">SIGN IN <i class="fas fa-sign-in-alt"></i></button>
         <button id="signout_button" onclick="handleSignoutClick()">SIGN OUT <i class="fas fa-sign-in-alt"></i>
         </button>
     </span>
@@ -34,226 +32,264 @@
 
 <main>
     <div class="datepicker-input">
-        <input class="input" id="date" type="date" required>
-        <input class="input" id="time-start" type="time" required>
-        <input class="input" id="time-end" type="time" required>
+    <input type="date" id="FromDate" placeholder="Today" onclick = handleUserChoice("ignore") class="date"/><span class="today"></span><hr />
     </div>
-    </span>
-
-    <div class = "svg">
-        <svg width="1899" height="593" viewBox="0 0 1899 593" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="CAMPUS MAP original #1">
-<g id="CAMPUS OUTLINE">
-<path id="Vector" d="M737.5 459.5V591M857 459.5V591M903.5 459.5V591M1201.5 460V590M1248.5 460V590M1201.5 425V437M1248.5 425V437M1485.5 423.5H1672.5M1786.5 351H1673V423M1673 423H1786.5M1673 423H1485M1485 423V447.5M1485 423V405H1419M1419 405V437.5M1419 405V82L1249.5 118V423H1248M1248 423V438.5M1248 423H1201.5M1201.5 423V438.5M1201.5 423H1063.5V152L905 200.5V423.5H903M903 423.5V437.5M903 423.5H857M857 423.5V437.5M857 423.5H737.5M737.5 423.5V438M737.5 423.5H544L528 380L444.5 407.5M2 591.5V499L381.5 368L396 425L427.5 414M48 482.5V498M47.5 513.5V591M400.5 429.5V443M400 473.5V513M2.5 591.5H1418V479M1418 479V458.5M1418 479H1484.5M1484.5 479V467M1484.5 479V568.5H1707V588.5L1897.5 590.5V340H1885.5V267L1835 2L1650 36.5L1704 348" stroke="white" stroke-width="3"/>
-</g>
-<path id="8bit" d="M99 532H48.5V592H99V532Z" stroke="white"/>
-<path id="ROCK" d="M246.5 532H99V591H246.5V532Z" stroke="white"/>
-<text id="ROCK_2" transform="translate(158 554)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ROCK&#10;</tspan></text>
-<path id="PAPER" d="M395.5 532H246.5V591.5H395.5V532Z" stroke="white"/>
-<path id="SCISSORS" d="M543 532H395.5V592H543V532Z" stroke="white"/>
-<path id="LIZARD" d="M673 532H543V591H673V532Z" stroke="white"/>
-<path id="SPOCK" d="M737 532H673V591.5H737V532Z" stroke="white"/>
-<path id="ADA" d="M200.5 465V430L238 417.5V465H200.5Z" stroke="white"/>
-<path id="ZUSE" d="M292 465H238V417L292 398.5V465Z" stroke="white"/>
-<path id="WARP" d="M343.5 465H292V399L343.5 380.5V465Z" stroke="white"/>
-<path id="Vector 1" d="M394.5 465H343.5V382L380.5 368.5L394.5 423.5V465Z" stroke="white"/>
-<path id="Vector 2" d="M737 495.5H858" stroke="white"/>
-<text id="WC" transform="translate(789 536)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">WC&#10;</tspan></text>
-<path id="Vector 3" d="M1052.75 498.5L903.5 497.5V591.5H1052.75M1052.75 498.5L1202 499.5V591.5H1052.75M1052.75 498.5V591.5" stroke="white"/>
-<path id="Vector 4" d="M979 376V423.5H904.5V376H979ZM979 376V321H904.5" stroke="white"/>
-<path id="Vector 5" d="M979 321H905.5V200L979 177.5V321Z" stroke="white"/>
-<path id="Vector 6" d="M979 203.5V177.5L1063.5 151.5V203.5H979Z" stroke="white"/>
-<path id="Vector 7" d="M1249.5 499.5H1418" stroke="white"/>
-<path id="Vector 8" d="M1418.5 153.5V375H1331M1418.5 153.5H1331M1418.5 153.5V82L1331 100.5M1331 153.5V216.5M1331 153.5V100.5M1331 375H1249.5V324H1331M1331 375V324M1331 324V269.5M1331 269.5H1249.5V216.5M1331 269.5V216.5M1249.5 216.5H1331M1249.5 216.5V118.5L1331 100.5" stroke="white"/>
-<path id="Vector 9" d="M1485 477H1605.5M1605.5 477V568.5M1605.5 477H1707.5M1707.5 477V567.5M1707.5 477H1809.5V589V348H1898" stroke="white"/>
-<path id="Vector 10" d="M1737 20L1749 77.5M1749 77.5L1846 58M1749 77.5L1760 129.5M1760 129.5L1855 110.5M1760 129.5L1771 180.5M1771 180.5L1865.5 162.5M1771 180.5L1782 232.5M1782 232.5L1876.5 216.5M1782 232.5L1792.5 286L1885.5 270.5" stroke="white"/>
-<g id="ROOMS">
-<g id="8-BIT">
-<text id="8-BIT_2" transform="translate(69 575.807) rotate(-90)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">8-BIT&#10;</tspan></text>
-</g>
-<g id="ADA_2">
-<text id="ADA_3" transform="translate(208 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ADA&#10;</tspan></text>
-</g>
-<g id="TEAM HQ">
-<text id="TEAM_HQ" transform="translate(1345.74 252.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">TEAM_HQ</tspan></text>
-</g>
-<g id="CODE LABORATORY">
-<text id="CODE LABORATORY_2" transform="translate(1510.74 499.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="22.1191" y="11.1016">CODE&#10;</tspan><tspan x="0.421875" y="25.1016">LABORATORY</tspan></text>
-</g>
-<g id="R2">
-<text id="R2_2" transform="translate(1651.74 510.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">R2</tspan></text>
-</g>
-<g id="D2">
-<text id="D2_2" transform="translate(1748.74 518.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">D2&#10;</tspan></text>
-</g>
-<g id="SILENT SPACE">
-<text id="SILENT SPACE_2" transform="translate(1831.74 447.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SILENT&#10;</tspan><tspan x="0" y="25.1016">SPACE&#10;</tspan></text>
-</g>
-<g id="PLANKTON">
-<text id="PLANKTON_2" transform="translate(1801 251.83) rotate(-11)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">PLANKTON&#10;</tspan></text>
-</g>
-<g id="MR.KRABS">
-<text id="MR. KRABS_2" transform="translate(1792 197.83) rotate(-11)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">MR. KRABS&#10;</tspan></text>
-</g>
-<g id="SPONGEBOB">
-<text id="SPONGEBOB_2" transform="translate(1756 41.3566) rotate(-11)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SPONGEBOB</tspan></text>
-</g>
-<g id="PATRICK">
-<text id="PATRICK_2" transform="translate(1780 92.968) rotate(-11)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">PATRICK&#10;</tspan></text>
-</g>
-<g id="SQUIDWARD">
-<text id="SQUIDWARD_2" transform="translate(1779 145.975) rotate(-11)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SQUIDWARD&#10;</tspan></text>
-</g>
-<g id="COGNITO">
-<text id="COGNITO_2" transform="translate(1265 291)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">COGNITO&#10;</tspan><tspan x="0" y="25.1016">&#10;</tspan></text>
-</g>
-<g id="NYMERIA">
-<text id="NYMERIA_2" transform="translate(1265 236)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">NYMERIA</tspan></text>
-</g>
-<g id="AFF">
-<text id="AFF_2" transform="translate(1281.74 162.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">AFF&#10;</tspan></text>
-</g>
-<g id="OTTERSPACE">
-<text id="OTTERSPACE_2" transform="translate(1344.74 122.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" letter-spacing="0em"><tspan x="0" y="8.57617">OTHERSPACE&#10;</tspan></text>
-</g>
-<g id="ECHO">
-<text id="ECHO_2" transform="translate(353 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ECHO&#10;</tspan></text>
-<text id="ECHO_3" transform="translate(353 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ECHO&#10;</tspan></text>
-</g>
-<g id="6 MIN">
-<text id="6MIN" transform="translate(1277.74 343.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">6MIN</tspan></text>
-</g>
-<g id="KITCHEN">
-<text id="KITCHEN_2" transform="translate(955 537)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">KITCHEN&#10;</tspan><tspan x="0" y="25.1016">&#10;</tspan></text>
-</g>
-<g id="ZUSE_2">
-<text id="ZUSE_3" transform="translate(250 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ZUSE</tspan></text>
-<text id="ZUSE_4" transform="translate(250 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ZUSE</tspan></text>
-</g>
-<g id="WC_2">
-<text id="WC_3" transform="translate(1323 537)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">WC&#10;</tspan></text>
-</g>
-<g id="ROOMY">
-<text id="ROOMY_2" transform="translate(921 254)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ROOMY&#10;</tspan><tspan x="0" y="25.1016">&#10;</tspan></text>
-</g>
-<g id="JUNGLE">
-<text id="JUNGLE_2" transform="translate(1105.74 537)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">JUNGLE&#10;</tspan></text>
-</g>
-<g id="RICK">
-<text id="RICK_2" transform="translate(929 391)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">RICK&#10;</tspan><tspan x="0" y="25.1016">&#10;</tspan></text>
-</g>
-<g id="MORTY">
-<text id="MORTY_2" transform="translate(921 346)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">MORTY</tspan></text>
-</g>
-<g id="PEACE">
-<text id="PEACE_2" transform="translate(1005 178)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">PEACE</tspan></text>
-</g>
-<g id="WARP_2">
-<text id="WARP_3" transform="translate(300 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">WARP&#10;</tspan></text>
-</g>
-<g id="SPOCK_2">
-<text id="SPOCK_3" transform="translate(685 555)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SPOCK&#10;</tspan></text>
-</g>
-<g id="PAPER_2">
-<text id="PAPER_3" transform="translate(300.259 554.537)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">PAPER</tspan></text>
-</g>
-<g id="LIZARD_2">
-<text id="LIZARD_3" transform="translate(587 555)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">LIZARD</tspan></text>
-</g>
-<g id="SCISSORS_2">
-<text id="SCISSORS_3" transform="translate(441 554)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SCISSORS&#10;</tspan></text>
-</g>
-</g>
-<g id="stairs">
-<g id="stairs_2">
-<rect id="Rectangle 10" x="10.741" y="560.025" width="0.832432" height="4.31351" fill="white"/>
-<rect id="Rectangle 13" x="14.7518" y="555.712" width="0.983784" height="4.31351" fill="white"/>
-<rect id="Rectangle 12" x="23.0762" y="547.463" width="0.832432" height="4.31351" fill="white"/>
-<rect id="Rectangle 11" x="18.9897" y="551.928" width="0.832432" height="4.31351" fill="white"/>
-<path id="Rectangle 1" d="M20.3518 559.571H38.741V564.49H20.3518V559.571Z" fill="white"/>
-<rect id="Rectangle 2" x="24.3627" y="555.485" width="14.3784" height="4.08649" fill="white"/>
-<rect id="Rectangle 3" x="28.6005" y="551.474" width="10.1405" height="4.01081" fill="white"/>
-<rect id="Rectangle 4" x="32.687" y="547.463" width="6.05405" height="4.01081" fill="white"/>
-<rect id="Rectangle 5" x="10.741" y="563.582" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 9" x="14.7518" y="555.485" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 8" x="23.0762" y="547.463" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 7" x="18.9897" y="551.474" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 6" x="10.741" y="559.571" width="9.61081" height="0.908108" fill="white"/>
-</g>
-<g id="stairs_3">
-<rect id="Rectangle 10_2" x="866.741" y="558.025" width="0.832432" height="4.31351" fill="white"/>
-<rect id="Rectangle 13_2" x="870.752" y="553.712" width="0.983784" height="4.31351" fill="white"/>
-<rect id="Rectangle 12_2" x="879.076" y="545.463" width="0.832432" height="4.31351" fill="white"/>
-<rect id="Rectangle 11_2" x="874.99" y="549.928" width="0.832432" height="4.31351" fill="white"/>
-<path id="Rectangle 1_2" d="M876.352 557.571H894.741V562.49H876.352V557.571Z" fill="white"/>
-<rect id="Rectangle 2_2" x="880.363" y="553.485" width="14.3784" height="4.08649" fill="white"/>
-<rect id="Rectangle 3_2" x="884.6" y="549.474" width="10.1405" height="4.01081" fill="white"/>
-<rect id="Rectangle 4_2" x="888.687" y="545.463" width="6.05405" height="4.01081" fill="white"/>
-<rect id="Rectangle 5_2" x="866.741" y="561.582" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 9_2" x="870.752" y="553.485" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 8_2" x="879.076" y="545.463" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 7_2" x="874.99" y="549.474" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 6_2" x="866.741" y="557.571" width="9.61081" height="0.908108" fill="white"/>
-</g>
-<g id="stairs_4">
-<rect id="Rectangle 10_3" x="1207.74" y="558.025" width="0.832432" height="4.31351" fill="white"/>
-<rect id="Rectangle 13_3" x="1211.75" y="553.712" width="0.983784" height="4.31351" fill="white"/>
-<rect id="Rectangle 12_3" x="1220.08" y="545.463" width="0.832432" height="4.31351" fill="white"/>
-<rect id="Rectangle 11_3" x="1215.99" y="549.928" width="0.832432" height="4.31351" fill="white"/>
-<path id="Rectangle 1_3" d="M1217.35 557.571H1235.74V562.49H1217.35V557.571Z" fill="white"/>
-<rect id="Rectangle 2_3" x="1221.36" y="553.485" width="14.3784" height="4.08649" fill="white"/>
-<rect id="Rectangle 3_3" x="1225.6" y="549.474" width="10.1405" height="4.01081" fill="white"/>
-<rect id="Rectangle 4_3" x="1229.69" y="545.463" width="6.05405" height="4.01081" fill="white"/>
-<rect id="Rectangle 5_3" x="1207.74" y="561.582" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 9_3" x="1211.75" y="553.485" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 8_3" x="1220.08" y="545.463" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 7_3" x="1215.99" y="549.474" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 6_3" x="1207.74" y="557.571" width="9.61081" height="0.908108" fill="white"/>
-</g>
-<g id="stairs_5">
-<rect id="Rectangle 10_4" x="1436.74" y="427.025" width="0.832432" height="4.31351" fill="white"/>
-<rect id="Rectangle 13_4" x="1440.75" y="422.712" width="0.983784" height="4.31351" fill="white"/>
-<rect id="Rectangle 12_4" x="1449.08" y="414.463" width="0.832432" height="4.31351" fill="white"/>
-<rect id="Rectangle 11_4" x="1444.99" y="418.928" width="0.832432" height="4.31351" fill="white"/>
-<path id="Rectangle 1_4" d="M1446.35 426.571H1464.74V431.49H1446.35V426.571Z" fill="white"/>
-<rect id="Rectangle 2_4" x="1450.36" y="422.485" width="14.3784" height="4.08649" fill="white"/>
-<rect id="Rectangle 3_4" x="1454.6" y="418.474" width="10.1405" height="4.01081" fill="white"/>
-<rect id="Rectangle 4_4" x="1458.69" y="414.463" width="6.05405" height="4.01081" fill="white"/>
-<rect id="Rectangle 5_4" x="1436.74" y="430.582" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 9_4" x="1440.75" y="422.485" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 8_4" x="1449.08" y="414.463" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 7_4" x="1444.99" y="418.474" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 6_4" x="1436.74" y="426.571" width="9.61081" height="0.908108" fill="white"/>
-</g>
-<g id="stairs_6">
-<rect id="Rectangle 10_5" x="1706.74" y="388.025" width="0.832432" height="4.31351" fill="white"/>
-<rect id="Rectangle 13_5" x="1710.75" y="383.712" width="0.983784" height="4.31351" fill="white"/>
-<rect id="Rectangle 12_5" x="1719.08" y="375.463" width="0.832432" height="4.31351" fill="white"/>
-<rect id="Rectangle 11_5" x="1714.99" y="379.928" width="0.832432" height="4.31351" fill="white"/>
-<path id="Rectangle 1_5" d="M1716.35 387.571H1734.74V392.49H1716.35V387.571Z" fill="white"/>
-<rect id="Rectangle 2_5" x="1720.36" y="383.485" width="14.3784" height="4.08649" fill="white"/>
-<rect id="Rectangle 3_5" x="1724.6" y="379.474" width="10.1405" height="4.01081" fill="white"/>
-<rect id="Rectangle 4_5" x="1728.69" y="375.463" width="6.05405" height="4.01081" fill="white"/>
-<rect id="Rectangle 5_5" x="1706.74" y="391.582" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 9_5" x="1710.75" y="383.485" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 8_5" x="1719.08" y="375.463" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 7_5" x="1714.99" y="379.474" width="9.61081" height="0.908108" fill="white"/>
-<rect id="Rectangle 6_5" x="1706.74" y="387.571" width="9.61081" height="0.908108" fill="white"/>
-</g>
-</g>
-<path id="comp-three" d="M903.5 423.5V591.5H1201.5V422.5H1063.5V152L905 200.5V423.5H903.5Z" stroke="white"/>
-<path id="comp-four" d="M1810 422.5H1673L1484.5 423.5V569H1707.5V588L1897.5 590.5V347.5H1810V422.5Z" stroke="white"/>
-<path id="comp-five" d="M1809.5 351H1704.5L1650.5 36.5L1835 2L1885.5 267.5V339.5H1897.5V347H1809.5V351Z" stroke="white"/>
-<path id="comp-one" d="M400 532L400.5 423L396 424.5L381.5 368L48 483V591L395.5 592V532H400Z" stroke="white"/>
-<path id="comp-two" d="M399.5 532L400.5 423.5L528 380L544.5 423.5H737.5V591.5H395.5V532H399.5Z" stroke="white"/>
-<path id="STAFF" d="M1248.5 118.5V592H1419.5V81.5L1248.5 118.5Z" stroke="white"/>
-</g>
-</svg>
-
+</span>
+    <div class="TimeSelection">
+        <div class="column" style="background-color:#1F2626;">
+    <div><img class="night" src="{{url_for('static', filename='img/moon.png')}}"></div>
+    <div class="title">NIGHT</div>
+    <div><button id="00" class="btn effect01" onclick = handleUserChoice("00")>00:00</button></div>
+    <div><button id="01" class="btn effect01" onclick = handleUserChoice("01")>01:00</button></div>
+    <div><button id="02" class="btn effect01" onclick = handleUserChoice("02")>02:00</button></div>
+    <div><button id="03" class="btn effect01" onclick = handleUserChoice("03")>03:00</button></div>
+    <div><button id="04" class="btn effect01" onclick = handleUserChoice("04")>04:00</button></div>
+    <div><button id="05" class="btn effect01" onclick = handleUserChoice("05")>05:00</button></div>
+  </div>
+  <div class="column" style="background-color:#1F2626;">
+    <div><img src="{{url_for('static', filename='img/sunrise.png')}}"></div>
+    <div class="title">MORNING</div>
+    <div><button id="06" class="btn effect01" onclick = handleUserChoice('06')>06:00</button></div>
+    <div><button id="07" class="btn effect01" onclick = handleUserChoice("07")>07:00</button></div>
+    <div><button id="08" class="btn effect01" onclick = handleUserChoice("08")>08:00</button></div>
+    <div><button id="09" class="btn effect01" onclick = handleUserChoice("09")>09:00</button></div>
+    <div><button id="10" class="btn effect01" onclick = handleUserChoice("10")>10:00</button></div>
+    <div><button id="11" class="btn effect01" onclick = handleUserChoice("11")>11:00</button></div>
+  </div>
+  <div class="column" style="background-color:#1F2626;">
+    <div><img src="{{url_for('static', filename='img/sun.png')}}"></div>
+    <div class="title">MIDDAY</div>
+    <div><button id="12" class="btn effect01" onclick = handleUserChoice("12")>12:00</button></div>
+    <div><button id="13" class="btn effect01" onclick = handleUserChoice("13")>13:00</button></div>
+    <div><button id="14" class="btn effect01" onclick = handleUserChoice("14")>14:00</button></div>
+    <div><button id="15" class="btn effect01" onclick = handleUserChoice("15")>15:00</button></div>
+    <div><button id="16" class="btn effect01" onclick = handleUserChoice("16")>16:00</button></div>
+    <div><button id="17" class="btn effect01" onclick = handleUserChoice("17")>17:00</button></div>
+  </div>
+  <div class="column" style="background-color:#1F2626;">
+    <div><img src="{{url_for('static', filename='img/sunSet.png')}}"></div>
+    <div class="title">EVENING</div>
+    <div><button id="18" class="btn effect01" onclick = handleUserChoice("18")>18:00</button></div>
+    <div><button id="19" class="btn effect01" onclick = handleUserChoice("19")>19:00</button></div>
+    <div><button id="20" class="btn effect01" onclick = handleUserChoice("20")>20:00</button></div>
+    <div><button id="21" class="btn effect01" onclick = handleUserChoice("21")>21:00</button></div>
+    <div><button id="22" class="btn effect01" onclick = handleUserChoice("22")>22:00</button></div>
+    <div><button id="23" class="btn effect01" onclick = handleUserChoice("23")>23:00</button></div>
+  </div>
+</div>
+    <hr />
+  <div>
+       <svg class="fullMap" width="1899" height="400" viewBox="0 0 1899 593" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="CAMPUS MAP original #1">
+    <g id="CAMPUS OUTLINE">
+    <path id="Vector" d="M737.5 459.5V591M857 459.5V591M903.5 459.5V591M1201.5 460V590M1248.5 460V590M1201.5 425V437M1248.5 425V437M1485.5 423.5H1672.5M1786.5 351H1673V423M1673 423H1786.5M1673 423H1485M1485 423V447.5M1485 423V405H1419M1419 405V437.5M1419 405V82L1249.5 118V423H1248M1248 423V438.5M1248 423H1201.5M1201.5 423V438.5M1201.5 423H1063.5V152L905 200.5V423.5H903M903 423.5V437.5M903 423.5H857M857 423.5V437.5M857 423.5H737.5M737.5 423.5V438M737.5 423.5H544L528 380L444.5 407.5M2 591.5V499L381.5 368L396 425L427.5 414M48 482.5V498M47.5 513.5V591M400.5 429.5V443M400 473.5V513M2.5 591.5H1418V479M1418 479V458.5M1418 479H1484.5M1484.5 479V467M1484.5 479V568.5H1707V588.5L1897.5 590.5V340H1885.5V267L1835 2L1650 36.5L1704 348" stroke="white" stroke-width="3"/>
+    </g>
+    <path id="8bit" d="M99 532H48.5V592H99V532Z" stroke="white"/>
+    <path id="ROCK" d="M246.5 532H99V591H246.5V532Z" stroke="white"/>
+    <text id="ROCK_2" transform="translate(158 554)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ROCK&#10;</tspan></text>
+    <path id="PAPER" d="M395.5 532H246.5V591.5H395.5V532Z" stroke="white"/>
+    <path id="SCISSORS" d="M543 532H395.5V592H543V532Z" stroke="white"/>
+    <path id="LIZARD" d="M673 532H543V591H673V532Z" stroke="white"/>
+    <path id="SPOCK" d="M737 532H673V591.5H737V532Z" stroke="white"/>
+    <path id="ADA" d="M200.5 465V430L238 417.5V465H200.5Z" stroke="white"/>
+    <path id="ZUSE" d="M292 465H238V417L292 398.5V465Z" stroke="white"/>
+    <path id="WARP" d="M343.5 465H292V399L343.5 380.5V465Z" stroke="white"/>
+    <path id="Vector 1" d="M394.5 465H343.5V382L380.5 368.5L394.5 423.5V465Z" stroke="white"/>
+    <path id="Vector 2" d="M737 495.5H858" stroke="white"/>
+    <text id="WC" transform="translate(789 536)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">WC&#10;</tspan></text>
+    <path id="Vector 3" d="M1052.75 498.5L903.5 497.5V591.5H1052.75M1052.75 498.5L1202 499.5V591.5H1052.75M1052.75 498.5V591.5" stroke="white"/>
+    <path id="Vector 4" d="M979 376V423.5H904.5V376H979ZM979 376V321H904.5" stroke="white"/>
+    <path id="Vector 5" d="M979 321H905.5V200L979 177.5V321Z" stroke="white"/>
+    <path id="Vector 6" d="M979 203.5V177.5L1063.5 151.5V203.5H979Z" stroke="white"/>
+    <path id="Vector 7" d="M1249.5 499.5H1418" stroke="white"/>
+    <path id="Vector 8" d="M1418.5 153.5V375H1331M1418.5 153.5H1331M1418.5 153.5V82L1331 100.5M1331 153.5V216.5M1331 153.5V100.5M1331 375H1249.5V324H1331M1331 375V324M1331 324V269.5M1331 269.5H1249.5V216.5M1331 269.5V216.5M1249.5 216.5H1331M1249.5 216.5V118.5L1331 100.5" stroke="white"/>
+    <path id="Vector 9" d="M1485 477H1605.5M1605.5 477V568.5M1605.5 477H1707.5M1707.5 477V567.5M1707.5 477H1809.5V589V348H1898" stroke="white"/>
+    <path id="Vector 10" d="M1737 20L1749 77.5M1749 77.5L1846 58M1749 77.5L1760 129.5M1760 129.5L1855 110.5M1760 129.5L1771 180.5M1771 180.5L1865.5 162.5M1771 180.5L1782 232.5M1782 232.5L1876.5 216.5M1782 232.5L1792.5 286L1885.5 270.5" stroke="white"/>
+    <g id="ROOMS">
+    <g id="8-BIT">
+    <text id="8-BIT_2" transform="translate(69 575.807) rotate(-90)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">8-BIT&#10;</tspan></text>
+    </g>
+    <g id="ADA_2">
+    <text id="ADA_3" transform="translate(208 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ADA&#10;</tspan></text>
+    </g>
+    <g id="TEAM HQ">
+    <text id="TEAM_HQ" transform="translate(1345.74 252.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">TEAM_HQ</tspan></text>
+    </g>
+    <g id="CODE LABORATORY">
+    <text id="CODE LABORATORY_2" transform="translate(1510.74 499.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="22.1191" y="11.1016">VOID&#10;</tspan><tspan x="22.521875" y="25.1016">LAB</tspan></text>
+    </g>
+    <g id="R2">
+    <text id="R2_2" transform="translate(1651.74 510.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">R2</tspan></text>
+    </g>
+    <g id="D2">
+    <text id="D2_2" transform="translate(1748.74 518.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">D2&#10;</tspan></text>
+    </g>
+    <g id="SILENT SPACE">
+    <text id="SILENT SPACE_2" transform="translate(1831.74 447.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SILENT&#10;</tspan><tspan x="0" y="25.1016">SPACE&#10;</tspan></text>
+    </g>
+    <g id="PLANKTON">
+    <text id="PLANKTON_2" transform="translate(1801 251.83) rotate(-11)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">PLANKTON&#10;</tspan></text>
+    </g>
+    <g id="MR. KRABS">
+    <text id="MR. KRABS_2" transform="translate(1792 197.83) rotate(-11)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">MR. KRABS&#10;</tspan></text>
+    </g>
+    <g id="SPONGEBOB">
+    <text id="SPONGEBOB_2" transform="translate(1756 41.3566) rotate(-11)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SPONGEBOB</tspan></text>
+    </g>
+    <g id="PATRICK">
+    <text id="PATRICK_2" transform="translate(1780 92.968) rotate(-11)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">PATRICK&#10;</tspan></text>
+    </g>
+    <g id="SQUIDWARD">
+    <text id="SQUIDWARD_2" transform="translate(1779 145.975) rotate(-11)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SQUIDWARD&#10;</tspan></text>
+    </g>
+    <g id="COGNITO">
+    <text id="COGNITO_2" transform="translate(1265 291)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">COGNITO&#10;</tspan><tspan x="0" y="25.1016">&#10;</tspan></text>
+    </g>
+    <g id="NYMERIA">
+    <text id="NYMERIA_2" transform="translate(1265 236)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">NYMERIA</tspan></text>
+    </g>
+    <g id="AFF">
+    <text id="AFF_2" transform="translate(1281.74 162.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">AFF&#10;</tspan></text>
+    </g>
+    <g id="OTTERSPACE">
+    <text id="OTTERSPACE_2" transform="translate(1344.74 122.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" letter-spacing="0em"><tspan x="0" y="8.57617">OTHERSPACE&#10;</tspan></text>
+    </g>
+    <g id="ECHO">
+    <text id="ECHO_2" transform="translate(353 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ECHO&#10;</tspan></text>
+    <text id="ECHO_3" transform="translate(353 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ECHO&#10;</tspan></text>
+    </g>
+    <g id="6 MIN">
+    <text id="6MIN" transform="translate(1277.74 343.463)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">6MIN</tspan></text>
+    </g>
+    <g id="KITCHEN">
+    <text id="KITCHEN_2" transform="translate(955 537)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">KITCHEN&#10;</tspan><tspan x="0" y="25.1016">&#10;</tspan></text>
+    </g>
+    <g id="ZUSE_2">
+    <text id="ZUSE_3" transform="translate(250 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ZUSE</tspan></text>
+    <text id="ZUSE_4" transform="translate(250 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ZUSE</tspan></text>
+    </g>
+    <g id="WC_2">
+    <text id="WC_3" transform="translate(1323 537)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">WC&#10;</tspan></text>
+    </g>
+    <g id="ROOMY">
+    <text id="ROOMY_2" transform="translate(921 254)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">ROOMY&#10;</tspan><tspan x="0" y="25.1016">&#10;</tspan></text>
+    </g>
+    <g id="JUNGLE">
+    <text id="JUNGLE_2" transform="translate(1105.74 537)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">JUNGLE&#10;</tspan></text>
+    </g>
+    <g id="RICK">
+    <text id="RICK_2" transform="translate(929 391)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">RICK&#10;</tspan><tspan x="0" y="25.1016">&#10;</tspan></text>
+    </g>
+    <g id="MORTY">
+    <text id="MORTY_2" transform="translate(921 346)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">MORTY</tspan></text>
+    </g>
+    <g id="PEACE">
+    <text id="PEACE_2" transform="translate(1005 178)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">PEACE</tspan></text>
+    </g>
+    <g id="WARP_2">
+    <text id="WARP_3" transform="translate(300 442)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">WARP&#10;</tspan></text>
+    </g>
+    <g id="SPOCK_2">
+    <text id="SPOCK_3" transform="translate(685 555)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SPOCK&#10;</tspan></text>
+    </g>
+    <g id="PAPER_2">
+    <text id="PAPER_3" transform="translate(300.259 554.537)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">PAPER</tspan></text>
+    </g>
+    <g id="LIZARD_2">
+    <text id="LIZARD_3" transform="translate(587 555)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">LIZARD</tspan></text>
+    </g>
+    <g id="SCISSORS_2">
+    <text id="SCISSORS_3" transform="translate(441 554)" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SCISSORS&#10;</tspan></text>
+    </g>
+    </g>
+    <g id="stairs">
+    <g id="stairs_2">
+    <rect id="Rectangle 10" x="10.741" y="560.025" width="0.832432" height="4.31351" fill="white"/>
+    <rect id="Rectangle 13" x="14.7518" y="555.712" width="0.983784" height="4.31351" fill="white"/>
+    <rect id="Rectangle 12" x="23.0762" y="547.463" width="0.832432" height="4.31351" fill="white"/>
+    <rect id="Rectangle 11" x="18.9897" y="551.928" width="0.832432" height="4.31351" fill="white"/>
+    <path id="Rectangle 1" d="M20.3518 559.571H38.741V564.49H20.3518V559.571Z" fill="white"/>
+    <rect id="Rectangle 2" x="24.3627" y="555.485" width="14.3784" height="4.08649" fill="white"/>
+    <rect id="Rectangle 3" x="28.6005" y="551.474" width="10.1405" height="4.01081" fill="white"/>
+    <rect id="Rectangle 4" x="32.687" y="547.463" width="6.05405" height="4.01081" fill="white"/>
+    <rect id="Rectangle 5" x="10.741" y="563.582" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 9" x="14.7518" y="555.485" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 8" x="23.0762" y="547.463" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 7" x="18.9897" y="551.474" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 6" x="10.741" y="559.571" width="9.61081" height="0.908108" fill="white"/>
+    </g>
+    <g id="stairs_3">
+    <rect id="Rectangle 10_2" x="866.741" y="558.025" width="0.832432" height="4.31351" fill="white"/>
+    <rect id="Rectangle 13_2" x="870.752" y="553.712" width="0.983784" height="4.31351" fill="white"/>
+    <rect id="Rectangle 12_2" x="879.076" y="545.463" width="0.832432" height="4.31351" fill="white"/>
+    <rect id="Rectangle 11_2" x="874.99" y="549.928" width="0.832432" height="4.31351" fill="white"/>
+    <path id="Rectangle 1_2" d="M876.352 557.571H894.741V562.49H876.352V557.571Z" fill="white"/>
+    <rect id="Rectangle 2_2" x="880.363" y="553.485" width="14.3784" height="4.08649" fill="white"/>
+    <rect id="Rectangle 3_2" x="884.6" y="549.474" width="10.1405" height="4.01081" fill="white"/>
+    <rect id="Rectangle 4_2" x="888.687" y="545.463" width="6.05405" height="4.01081" fill="white"/>
+    <rect id="Rectangle 5_2" x="866.741" y="561.582" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 9_2" x="870.752" y="553.485" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 8_2" x="879.076" y="545.463" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 7_2" x="874.99" y="549.474" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 6_2" x="866.741" y="557.571" width="9.61081" height="0.908108" fill="white"/>
+    </g>
+    <g id="stairs_4">
+    <rect id="Rectangle 10_3" x="1207.74" y="558.025" width="0.832432" height="4.31351" fill="white"/>
+    <rect id="Rectangle 13_3" x="1211.75" y="553.712" width="0.983784" height="4.31351" fill="white"/>
+    <rect id="Rectangle 12_3" x="1220.08" y="545.463" width="0.832432" height="4.31351" fill="white"/>
+    <rect id="Rectangle 11_3" x="1215.99" y="549.928" width="0.832432" height="4.31351" fill="white"/>
+    <path id="Rectangle 1_3" d="M1217.35 557.571H1235.74V562.49H1217.35V557.571Z" fill="white"/>
+    <rect id="Rectangle 2_3" x="1221.36" y="553.485" width="14.3784" height="4.08649" fill="white"/>
+    <rect id="Rectangle 3_3" x="1225.6" y="549.474" width="10.1405" height="4.01081" fill="white"/>
+    <rect id="Rectangle 4_3" x="1229.69" y="545.463" width="6.05405" height="4.01081" fill="white"/>
+    <rect id="Rectangle 5_3" x="1207.74" y="561.582" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 9_3" x="1211.75" y="553.485" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 8_3" x="1220.08" y="545.463" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 7_3" x="1215.99" y="549.474" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 6_3" x="1207.74" y="557.571" width="9.61081" height="0.908108" fill="white"/>
+    </g>
+    <g id="stairs_5">
+    <rect id="Rectangle 10_4" x="1436.74" y="427.025" width="0.832432" height="4.31351" fill="white"/>
+    <rect id="Rectangle 13_4" x="1440.75" y="422.712" width="0.983784" height="4.31351" fill="white"/>
+    <rect id="Rectangle 12_4" x="1449.08" y="414.463" width="0.832432" height="4.31351" fill="white"/>
+    <rect id="Rectangle 11_4" x="1444.99" y="418.928" width="0.832432" height="4.31351" fill="white"/>
+    <path id="Rectangle 1_4" d="M1446.35 426.571H1464.74V431.49H1446.35V426.571Z" fill="white"/>
+    <rect id="Rectangle 2_4" x="1450.36" y="422.485" width="14.3784" height="4.08649" fill="white"/>
+    <rect id="Rectangle 3_4" x="1454.6" y="418.474" width="10.1405" height="4.01081" fill="white"/>
+    <rect id="Rectangle 4_4" x="1458.69" y="414.463" width="6.05405" height="4.01081" fill="white"/>
+    <rect id="Rectangle 5_4" x="1436.74" y="430.582" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 9_4" x="1440.75" y="422.485" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 8_4" x="1449.08" y="414.463" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 7_4" x="1444.99" y="418.474" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 6_4" x="1436.74" y="426.571" width="9.61081" height="0.908108" fill="white"/>
+    </g>
+    <g id="stairs_6">
+    <rect id="Rectangle 10_5" x="1706.74" y="388.025" width="0.832432" height="4.31351" fill="white"/>
+    <rect id="Rectangle 13_5" x="1710.75" y="383.712" width="0.983784" height="4.31351" fill="white"/>
+    <rect id="Rectangle 12_5" x="1719.08" y="375.463" width="0.832432" height="4.31351" fill="white"/>
+    <rect id="Rectangle 11_5" x="1714.99" y="379.928" width="0.832432" height="4.31351" fill="white"/>
+    <path id="Rectangle 1_5" d="M1716.35 387.571H1734.74V392.49H1716.35V387.571Z" fill="white"/>
+    <rect id="Rectangle 2_5" x="1720.36" y="383.485" width="14.3784" height="4.08649" fill="white"/>
+    <rect id="Rectangle 3_5" x="1724.6" y="379.474" width="10.1405" height="4.01081" fill="white"/>
+    <rect id="Rectangle 4_5" x="1728.69" y="375.463" width="6.05405" height="4.01081" fill="white"/>
+    <rect id="Rectangle 5_5" x="1706.74" y="391.582" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 9_5" x="1710.75" y="383.485" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 8_5" x="1719.08" y="375.463" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 7_5" x="1714.99" y="379.474" width="9.61081" height="0.908108" fill="white"/>
+    <rect id="Rectangle 6_5" x="1706.74" y="387.571" width="9.61081" height="0.908108" fill="white"/>
+    </g>
+    </g>
+        <a xlink:href="/left-wing2"><path id="comp-one" d="M400 532L400.5 423L396 424.5L381.5 368L48 483V591L395.5 592V532H400Z" stroke="white"/></a>
+        <a xlink:href="/left-wing"><path id="comp-two" d="M399.5 532L400.5 423.5L528 380L544.5 423.5H737.5V591.5H395.5V532H399.5Z" stroke="white"/></a>
+        <a xlink:href="/kitchen"><path id="comp-three" d="M903.5 423.5V591.5H1201.5V422.5H1063.5V152L905 200.5V423.5H903.5Z" stroke="white"/></a>
+        <a xlink:href="/right-wing"><path id="comp-four" d="M1810 422.5H1673L1484.5 423.5V569H1707.5V588L1897.5 590.5V347.5H1810V422.5Z" stroke="white"/></a>
+        <a xlink:href="/bikini-bottom"><path id="comp-five" d="M1809.5 351H1704.5L1650.5 36.5L1835 2L1885.5 267.5V339.5H1897.5V347H1809.5V351Z" stroke="white"/></a>
+        <a xlink:href="/office"><path id="STAFF" d="M1248.5 118.5V592H1419.5V81.5L1248.5 118.5Z" stroke="white"/></a>
+    </g>
+    </svg>
     </div>
 </main>
 </body>
-
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 <script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){};handleClientLoad()"

@@ -8,11 +8,9 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-
-@app.route("/template")
+@ app.route("/template")
 def template():
     return render_template("template.html")
-
 
 @app.route("/About")
 def about():
@@ -28,6 +26,9 @@ def kitchen():
 def left():
     return render_template("left-wing.html")
 
+@app.route("/left-wing2")
+def left2():
+    return render_template("left-wing2.html")
 
 @app.route("/office")
 def office():
@@ -42,6 +43,7 @@ def right():
 @app.route("/bikini-bottom")
 def bikini():
     return render_template("bikini-bottom.html")
+
 
 
 if __name__ == "__main__":
