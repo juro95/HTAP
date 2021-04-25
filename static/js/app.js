@@ -328,7 +328,7 @@ function avalabilityCheck() {
                     } else {
                         console.log("change date pls")
                     }
-               }
+              console.log(isBusy); }
             )
         }
     )
