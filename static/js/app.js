@@ -327,7 +327,8 @@ function avalabilityCheck() {
                     } else {
                         console.log("change date pls")
                     }
-                if (isBusy !== 0 ){console.log("compartement_1 is busy!")}  }
+                if (isBusy > 0 ){console.log("compartment_1 is busy!")}
+            else {console.log("compartment_1 is free!")}}
             )
         }
     )
