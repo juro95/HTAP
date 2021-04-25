@@ -286,12 +286,13 @@ function avalabilityCheck() {
                                 freeRequest.execute(function (resp) {
                                     var responseObject = JSON.stringify(resp);
                                     console.log(responseObject);
+
                                     if (resp.calendars[calendarID].busy.length < 1) {
                                         console.log(`${roomName} is free`);
-                                    } else { isBusy = false;
+                                    } else {isBusy = false;
                                     console.log("room is Busy");
                                     }
-
+                                    console.log(isBusy)
 
                                     /**
                                      else if (resp.calendars[calendarID].busy.length === 1) {
@@ -326,7 +327,7 @@ function avalabilityCheck() {
                         }
                    console.log(isBusy);
                     if (isBusy === false) {
-                        console.log("wokring?");
+                        console.log("working?");
                     }
                     else{console.log("not working")}
                     } else {
