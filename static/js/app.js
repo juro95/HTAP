@@ -328,6 +328,7 @@ function avalabilityCheck() {
                     if (isBusy === false) {
                         console.log("wokring?");
                     }
+                    else{console.log("not working")}
                     } else {
                         console.log("change date pls");
                     }
