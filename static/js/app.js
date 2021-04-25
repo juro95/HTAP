@@ -259,6 +259,8 @@ function listUpcomingEvents() {
 function avalabilityCheck() {
     [...inputs].forEach(input => {
             input.addEventListener('change', function () {
+                    let isBusy = 0;
+
                     if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
                     ) {
                         for (let key in comp_1) {
@@ -266,37 +268,34 @@ function avalabilityCheck() {
                                 let calendarID = comp_1[key];
                                 let roomName = key;
                                 //console.log(value);
-                        //user input that goes into the freebusy query
-                        let requestBody = {
-                            timeMin: date.value + "T" + startTime.value + ":00.000Z",
-                            timeMax: date.value + "T" + endTime.value + ":00.000Z",
-                            items: [
-                                {
-                                    id: calendarID
-                                }
-                            ],
-                            timeZone: "GMT+01:00"
-                        };
-
-                        //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
-                        var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
-
-                            freeRequest.execute(function (resp) {
-                                var responseObject = JSON.stringify(resp);
-                                console.log(responseObject);
-                                if (resp.calendars[calendarID].busy.length < 1) {
-                                    console.log(`${roomName} is free`);
-                                    document.querySelector("#comp-one").style.color = "green";
-                                    document.querySelector("#comp-one").style.opacity = "0.3";
-                                }
-                                else {
-                                    document.querySelector("#comp-one").style.color = "red";
-                                    document.querySelector("#comp-one").style.opacity = "0.3";
-                                }
+                                //user input that goes into the freebusy query
+                                let requestBody = {
+                                    timeMin: date.value + "T" + startTime.value + ":00.000Z",
+                                    timeMax: date.value + "T" + endTime.value + ":00.000Z",
+                                    items: [
+                                        {
+                                            id: calendarID
+                                        }
+                                    ],
+                                    timeZone: "GMT+01:00"
+                                };
 
 
-                                /**
-                                else if (resp.calendars[calendarID].busy.length === 1) {
+                                //make request to gcalendar if Ada is free. Giving back array on what times room is busy.
+                                var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
+
+                                freeRequest.execute(function (resp) {
+                                    var responseObject = JSON.stringify(resp);
+                                    console.log(responseObject);
+                                    if (resp.calendars[calendarID].busy.length < 1) {
+                                        console.log(`${roomName} is free`);
+                                    } else {
+                                        isBusy += 1;
+                                    }
+
+
+                                    /**
+                                     else if (resp.calendars[calendarID].busy.length === 1) {
                                     console.log(resp.calendars[calendarID].busy[0].start);
                                     console.log(resp.calendars[calendarID].busy[0].end);
                                 } else if (resp.calendars[calendarID].busy.length === 2) {
@@ -322,16 +321,16 @@ function avalabilityCheck() {
                                     console.log(resp.calendars[calendarID].busy[3].end);
 
                                 }*/
-                            })
-                    }}
+                                })
+                            }
+                        }
                     } else {
                         console.log("change date pls")
                     }
-                }
+                if (isBusy !== 0 ){console.log("compartement_1 is busy!")}  }
             )
         }
     )
 }
 
-console.log("haöaöa");
 
