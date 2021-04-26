@@ -235,8 +235,7 @@ function availabilityCheck() {
 
                           }
                         }
-                        if (comp_1free.length > 0 && comp_1busy.length === 0 || comp_1free.length === 0 && comp_1busy.length > 0 || comp_1free.length > 0 && comp_1busy.length > 0){
-                        colorMap()}
+
 
                     } else {
                         console.log("change date pls");
@@ -260,6 +259,9 @@ function colorMap(){
                             svgComp1.style.fillOpacity = "0.3";
                         }
 }
+
+if (comp_1free.length > 0 && comp_1busy.length === 0 || comp_1free.length === 0 && comp_1busy.length > 0 || comp_1free.length > 0 && comp_1busy.length > 0){
+                        colorMap()}
 
 //Omar
 
