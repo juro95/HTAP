@@ -236,11 +236,9 @@ function avalabilityCheck() {
                         }
                         if (comp_1free.length >1){
                             svgComp1.style.fill = "RGBA(0, 255, 0, 0.3)";
-                            svgComp1.style.opacity = "0.3";
                         }
                         else{
-                            svgComp1.style.fill = "red";
-                            svgComp1.style.opacity = "0.3";
+                            svgComp1.style.fill = "(255,0,0,0.3)";
                         }
 
                     } else {
@@ -248,6 +246,7 @@ function avalabilityCheck() {
                         comp_1busy.length = 0;
                         comp_1free.length = 0;
                         svgComp1.style.fill = "none";
+                        svgComp1.style.fillOpacity = "0.1";
                     }
 
 }
