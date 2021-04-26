@@ -223,14 +223,14 @@ function availabilityCheck() {
                                         console.log(`${roomName} is free`);
                                         comp_1free.push(`${roomName}`);
                                         console.log(comp_1free);
+                                        if (comp_1free.length > 0 && comp_1busy.length === 0 || comp_1free.length === 0 && comp_1busy.length > 0 || comp_1free.length > 0 && comp_1busy.length > 0){
+                                        colorMap()}
                                     }
                                     else {
                                     console.log(`${roomName} is busy`);
                                     comp_1busy.push(`${roomName}`);
                                     console.log(comp_1busy);
                                     }
-                                    if (comp_1free.length > 0 && comp_1busy.length === 0 || comp_1free.length === 0 && comp_1busy.length > 0 || comp_1free.length > 0 && comp_1busy.length > 0){
-                                    colorMap()}
                                 })
 
                           }
