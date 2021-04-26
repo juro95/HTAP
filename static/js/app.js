@@ -226,8 +226,8 @@ function avalabilityCheck() {
                                     }
                                     //if room is busy set isBusy to false, then if isBusy=false make compartment green
                                     else {
-                                    console.log("room is Busy");
-                                    comp_1free.push(`${roomName}`);
+                                    console.log(`${roomName} is busy`);
+                                    comp_1busy.push(`${roomName}`);
                                     console.log(comp_1busy);
                                     }
                                 })
