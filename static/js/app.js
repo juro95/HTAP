@@ -186,7 +186,6 @@ function appendPre(message) {
 //function checking for user input on change of date or time, then sending query to gcalendar
 //checking for change of all values. Then console.log values on change and executing request if busy.
 function avalabilityCheck() {
-    chosenHours.addEventListener('change', function () {
                     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== ""
                     ) {let isBusy = true;
 
@@ -232,34 +231,6 @@ function avalabilityCheck() {
                                     console.log("room is Busy");
                                     }
                                     console.log(isBusy)
-
-                                    /**
-                                     else if (resp.calendars[calendarID].busy.length === 1) {
-                                    console.log(resp.calendars[calendarID].busy[0].start);
-                                    console.log(resp.calendars[calendarID].busy[0].end);
-                                } else if (resp.calendars[calendarID].busy.length === 2) {
-                                    console.log(resp.calendars[calendarID].busy[0].start);
-                                    console.log(resp.calendars[calendarID].busy[0].end);
-                                    console.log(resp.calendars[calendarID].busy[1].start);
-                                    console.log(resp.calendars[calendarID].busy[1].end);
-                                } else if (resp.calendars[calendarID].busy.length === 3) {
-                                    console.log(resp.calendars[calendarID].busy[0].start);
-                                    console.log(resp.calendars[calendarID].busy[0].end);
-                                    console.log(resp.calendars[calendarID].busy[1].start);
-                                    console.log(resp.calendars[calendarID].busy[1].end);
-                                    console.log(resp.calendars[calendarID].busy[2].start);
-                                    console.log(resp.calendars[calendarID].busy[2].end);
-                                } else if (resp.calendars[calendarID].busy.length === 4) {
-                                    console.log(resp.calendars[calendarID].busy[0].start);
-                                    console.log(resp.calendars[calendarID].busy[0].end);
-                                    console.log(resp.calendars[calendarID].busy[1].start);
-                                    console.log(resp.calendars[calendarID].busy[1].end);
-                                    console.log(resp.calendars[calendarID].busy[2].start);
-                                    console.log(resp.calendars[calendarID].busy[2].end);
-                                    console.log(resp.calendars[calendarID].busy[3].start);
-                                    console.log(resp.calendars[calendarID].busy[3].end);
-
-                                }*/
                                 })
 
                           }
@@ -267,8 +238,7 @@ function avalabilityCheck() {
                     } else {
                         console.log("change date pls");
                     }
-                }
-            )
+
 }
 
 
@@ -284,6 +254,7 @@ function handleDateChoice(){
     console.log(chosenHours.startTime)
     console.log(chosenHours.endTime)
     console.log(chosenHours.date + "T" + chosenHours.startTime + ":00.000Z")
+    avalabilityCheck()
 }
 
 document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
