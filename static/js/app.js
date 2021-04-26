@@ -94,6 +94,8 @@ let comp_5 = {
     "Patrick": "c_1880fd3bis93ehhvglb5b5kb9llle4gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
 }
 
+let comps = [comp_1, comp_2, comp_3, comp_4, comp_5];
+
 
 
 /**
@@ -233,8 +235,8 @@ function avalabilityCheck() {
 
                           }
                         }
-                        if (comp_1free !== false)
-                        colorMap()
+                        if (comp_1free !== false){
+                        colorMap()}
 
                     } else {
                         console.log("change date pls");
@@ -250,10 +252,12 @@ function colorMap(){
     if (comp_1free.length >1){
                             svgComp1.style.fill = "green";
                             console.log(" comp busy");
+                            svgComp1.style.fillOpacity = "0.3";
                         }
                         else{
                             svgComp1.style.fill = "red";
                             console.log(" comp not busy");
+                            svgComp1.style.fillOpacity = "0.3";
                         }
 }
 
