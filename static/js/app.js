@@ -186,8 +186,7 @@ function appendPre(message) {
 //function checking for user input on change of date or time, then sending query to gcalendar
 //checking for change of all values. Then console.log values on change and executing request if busy.
 function avalabilityCheck() {
-    [...inputs].forEach(input => {
-            input.addEventListener('change', function () {
+    chosenHours.addEventListener('change', function () {
                     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== ""
                     ) {let isBusy = true;
 
@@ -270,8 +269,6 @@ function avalabilityCheck() {
                     }
                 }
             )
-        }
-    )
 }
 
 
