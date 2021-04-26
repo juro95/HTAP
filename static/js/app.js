@@ -236,6 +236,9 @@ function avalabilityCheck() {
                         }
                     } else {
                         console.log("change date pls");
+                        comp_1busy.length = 0;
+                        comp_1free.length = 0;
+
                     }
 
 }
