@@ -135,7 +135,7 @@ function initClient() {
             })
             console.log("event added!");
             //checking for room availability
-            avalabilityCheck()
+            availabilityCheck()
 
 
         }, function (error) {
@@ -188,7 +188,7 @@ function appendPre(message) {
 
 //function checking for user input on change of date or time, then sending query to gcalendar
 //checking for change of all values. Then console.log values on change and executing request if busy.
-function avalabilityCheck() {
+function availabilityCheck() {
                     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== ""
                     ) {
 
@@ -235,7 +235,7 @@ function avalabilityCheck() {
 
                           }
                         }
-                        if (comp_1free !== false){
+                        if (comp_1free.length > 0 && comp_1busy.length === 0 || comp_1free.length === 0 && comp_1busy.length > 0 || comp_1free.length > 0 && comp_1busy.length > 0){
                         colorMap()}
 
                     } else {
@@ -249,14 +249,14 @@ function avalabilityCheck() {
 }
 
 function colorMap(){
-    if (comp_1free.length >1){
+    if (comp_1free.length > 0){
                             svgComp1.style.fill = "green";
-                            console.log(" comp busy");
+                            console.log("comp busy");
                             svgComp1.style.fillOpacity = "0.3";
                         }
                         else{
                             svgComp1.style.fill = "red";
-                            console.log(" comp not busy");
+                            console.log("comp not busy");
                             svgComp1.style.fillOpacity = "0.3";
                         }
 }
@@ -269,7 +269,7 @@ function colorMap(){
 function handleDateChoice(){
     let date = document.querySelector("input").value
     chosenHours.date = date
-    avalabilityCheck()
+    availabilityCheck()
 }
 
 document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
