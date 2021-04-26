@@ -18,8 +18,9 @@ var date = chosenHours.date;
 var startTime = chosenHours.startTime;
 var endTime = chosenHours.endTime;
  */
-var comp_1busy = []
-var comp_1free = []
+var comp_1busy = [];
+var comp_1free = [];
+var svgComp1 = document.querySelector("#comp-one");
 
 window.onload = function() {
   loadDate()
@@ -190,7 +191,6 @@ function avalabilityCheck() {
                     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== ""
                     ) {
 
-
                     //looping through all rooms in compartment
                         for (let key in comp_1) {
                             if (comp_1.hasOwnProperty(key)) {
@@ -234,6 +234,15 @@ function avalabilityCheck() {
 
                           }
                         }
+                        if (comp_1busy.length >1){
+                            svgComp1.style.fill = "red";
+                            svgComp1.style.opacity = "0.3";
+                        }
+                        else{
+                            svgComp1.style.fill = "RGBA(0, 255, 0, 0.3)";
+                            svgComp1.style.opacity = "0.3";
+                        }
+
                     } else {
                         console.log("change date pls");
                         comp_1busy.length = 0;
