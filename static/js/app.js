@@ -140,7 +140,6 @@ function initClient() {
             appendPre(JSON.stringify(error, null, 2));
         }
     )
-    ;
 }
 
 /**
@@ -236,9 +235,11 @@ function avalabilityCheck() {
                         }
                         if (comp_1free.length >1){
                             svgComp1.style.fill = "green";
+                            console.log(" comp busy");
                         }
                         else{
                             svgComp1.style.fill = "red";
+                            console.log(" comp not busy");
                         }
 
                     } else {
