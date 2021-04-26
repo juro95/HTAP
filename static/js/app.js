@@ -226,15 +226,15 @@ function availabilityCheck() {
 
 function requestBody ()
 {let requestBody = {
-                                    timeMin: chosenHours.date + "T" + chosenHours.startTime + ":00.000Z",
-                                    timeMax: chosenHours.date + "T" + chosenHours.endTime + ":00.000Z",
-                                    items: [
-                                        {
-                                            id: calendarID
-                                        }
-                                    ],
-                                    timeZone: "GMT+01:00"
-                                };
+    timeMin: chosenHours.date + "T" + chosenHours.startTime + ":00.000Z",
+    timeMax: chosenHours.date + "T" + chosenHours.endTime + ":00.000Z",
+    items: [
+        {
+            id: calendarID
+        }
+        ],
+    timeZone: "GMT+01:00"
+};
 return requestBody;
 }
 
