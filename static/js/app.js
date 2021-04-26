@@ -283,6 +283,7 @@ function handleDateChoice(){
     console.log(chosenHours.date)
     console.log(chosenHours.startTime)
     console.log(chosenHours.endTime)
+    console.log(chosenHours.date + "T" + chosenHours.startTime + ":00.000Z")
 }
 
 document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
