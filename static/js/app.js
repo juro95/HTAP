@@ -26,36 +26,6 @@ window.onload = function() {
   loadDate()
 };
 
-
-
-
-
-let rooms = {
-    "Ada": "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com",
-    "D-2": "code.berlin_1883j5g4liq5ihuehfm64pgo3o66g@resource.calendar.google.com",
-    "Bikini-Bottom": "c_1881ik7tlaikmg7ck5i77efpc20vi4gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
-    "8-Bit": "code.berlin_188f0qjk7i3s8g6bj3dtntl59ppd46gb68r34c9l64p3achp60@resource.calendar.google.com",
-    "Echo": "code.berlin_188f0qjk7i3s8g6bj3dtntl59ppd46gb68r34c9l64p3achp60@resource.calendar.google.com",
-    "Jungle": "code.berlin_188b81q8a620qia5jnkdohp7bu0ug6g96ss32d1i6cq3ae0@resource.calendar.google.com",
-    "Lizard": "code.berlin_1885dv1guu8e4gsdmna2vusmqgqh2@resource.calendar.google.com",
-    "Morty": "code.berlin_31333137303136343636@resource.calendar.google.com",
-    "Mr.Krabs": "c_1888es6bfll5kjsuls02f06lf7vbs4gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
-    "Paper": "code.berlin_3635313131353437333332@resource.calendar.google.com",
-    "Patrick": "c_1880fd3bis93ehhvglb5b5kb9llle4gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
-    "Peace": "code.berlin_1886llujif4fmjgpiogj4n145vi0a6gb74o30d9h6kpjee9k6c@resource.calendar.google.com",
-    "Plankton": "c_1880o8abbdc0iho8k006b8p16m8p64gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
-    "R2": "code.berlin_1885vk34enieoitrk3b4l5vottl5m@resource.calendar.google.com",
-    "Rick": "code.berlin_3736373335323835363837@resource.calendar.google.com",
-    "Scissors": "code.berlin_3934313230373536353639@resource.calendar.google.com",
-    "Spock": "code.berlin_3337333133353032313436@resource.calendar.google.com",
-    "Spongebob": "c_188c5qoo8kuh2jkdnfusmkfc4hcuc4gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
-    "Squidward": "c_1883gns7qtrjsgvlj179giafkblua4gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
-    "Void-Lab": "c_188d0sd2j8pnei5ai0f0ijl0p3bmg4gbcdnm8p9ec9in4r39do@resource.calendar.google.com",
-    "Warp": "code.berlin_188f2u4uqje8uh9sh50ell5nlacva6gb6op34d9l6sq34chk6g@resource.calendar.google.com",
-    "Zuse": "code.berlin_1888rqjtdkh70i80n4v45e7km81ua6gb68pjae1k74qjcdhk68@resource.calendar.google.com",
-    "Rock": "c_1886i0393ltc8gqgmach00hf1odhg@resource.calendar.google.com"
-}
-
 let comp_1 = {
     "Ada": "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com",
     "Echo": "code.berlin_188f0qjk7i3s8g6bj3dtntl59ppd46gb68r34c9l64p3achp60@resource.calendar.google.com",
@@ -95,6 +65,18 @@ let comp_5 = {
 }
 
 let comps = [comp_1, comp_2, comp_3, comp_4, comp_5];
+
+let svg1 = document.querySelector("#comp-one");
+let svg2 = document.querySelector("#comp-two");
+let svg3 = document.querySelector("#comp-three");
+let svg4 = document.querySelector("#comp-four");
+let svg5 = document.querySelector("#comp-five");
+
+let svgAll = [svg1, svg2, svg3, svg4, svg5];
+
+
+
+
 
 
 
@@ -249,18 +231,43 @@ function availabilityCheck() {
 
 
 
-function colorMap(){
-    if (comp_1free.length > 0){
-                            svgComp1.style.fill = "green";
-                            console.log("comp not busy");
-                            svgComp1.style.fillOpacity = "0.3";
-                        }
-                        else{
-                            svgComp1.style.fill = "red";
-                            console.log("comp busy");
-                            svgComp1.style.fillOpacity = "0.3";
-                        }
+function colorMap() {
+    let i = 0;
+    let key = false;
+    for (compartment of comps) {
+        for (roomName of compartment) {
+            if (key === false) {
+                for (available of comp_1free) {
+                    if (available == roomName) {
+                        svgAll[i].style.fill = "green";
+                        svgAll[i].fillOpacity = "0.3";
+                        key = true;
+                        break;
+                    }
+
+                }
+            } else {
+                break;
+            }
+        }
+        key = false;
+        i += 1;
+    }
 }
+
+
+
+/**
+            if (comp_1free.length > 0) {
+                svgComp1.style.fill = "green";
+                console.log("comp not busy");
+                svgComp1.style.fillOpacity = "0.3";
+            } else {
+                svgComp1.style.fill = "red";
+                console.log("comp busy");
+                svgComp1.style.fillOpacity = "0.3";
+            }*/
+
 
 
 
