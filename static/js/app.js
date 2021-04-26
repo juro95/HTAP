@@ -18,8 +18,8 @@ var date = chosenHours.date;
 var startTime = chosenHours.startTime;
 var endTime = chosenHours.endTime;
  */
-var comp_1busy = [];
-var comp_1free = [];
+let comp_1busy = [];
+let comp_1free = [];
 var svgComp1 = document.querySelector("#comp-one");
 
 window.onload = function() {
