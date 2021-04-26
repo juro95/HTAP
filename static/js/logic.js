@@ -150,6 +150,10 @@ function highlightBetween() {
     }
 }
 
+
+
+document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
+
 /**
  * function that formats the chosen Date
  * */
@@ -158,8 +162,6 @@ function handleDateChoice(){
     chosenHours.date = date
     console.log(chosenHours)
 }
-
-document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
 
 function loadDate(){
     let Dat = document.querySelector("#FromDate")

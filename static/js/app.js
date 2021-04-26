@@ -23,14 +23,6 @@ window.onload = function() {
 };
 
 
-[...inputs].forEach(input => {
-    input.addEventListener('change', function () {
-        console.log(startTime.value)
-        console.log(endTime)
-        console.log(chosenHours.date)
-        console.log(chosenHours)
-    })
-})
 
 
 
@@ -134,12 +126,10 @@ function initClient() {
             request.execute(function (event) {
                 appendPre('Event created: ' + event.htmlLink);
                 alert("event created!")
-                window.addEventListener("click",function (){alert("event")})
             })
             console.log("event added!");
             //checking for room availability
             avalabilityCheck()
-        window.addEventListener("click",function (){alert("yalla")})
 
 
         }, function (error) {
@@ -292,6 +282,8 @@ function handleDateChoice(){
     let date = document.querySelector("input").value
     chosenHours.date = date
     console.log(chosenHours)
+    console.log(startTime.value)
+    console.log(chosenHours.date)
 }
 
 document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
