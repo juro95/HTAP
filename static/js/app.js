@@ -123,11 +123,12 @@ function initClient() {
             request.execute(function (event) {
                 appendPre('Event created: ' + event.htmlLink);
                 alert("event created!")
+                window.addEventListener("click",function (){alert("event")})
             })
             console.log("event added!");
             //checking for room availability
             avalabilityCheck()
-        window.addEventListener("click",function (){alert("yalla";)})
+        window.addEventListener("click",function (){alert("yalla")})
 
 
         }, function (error) {
