@@ -11,10 +11,16 @@ var SCOPES = "https://www.googleapis.com/auth/calendar https://www.googleapis.co
 
 var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
-var date = document.getElementById("date");
-var startTime = document.getElementById("time-start");
-var endTime = document.getElementById("time-end");
+
+var chosenHours = {"date":'',"startTime":'', "endTime":''}
+var date = chosenHours.date;
+var startTime = chosenHours.startTime;
+var endTime = chosenHours.endTime;
 var inputs = document.querySelectorAll(".input, .btn");
+
+window.onload = function() {
+  loadDate()
+};
 
 
 let rooms = {
@@ -264,3 +270,22 @@ function avalabilityCheck() {
 }
 
 
+//Omar
+
+/**
+ * function that formats the chosen Date
+ * */
+function handleDateChoice(){
+    let date = document.querySelector("input").value
+    chosenHours.date = date
+    console.log(chosenHours)
+}
+
+document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
+
+function loadDate(){
+    let Dat = document.querySelector("#FromDate")
+    var date = new Date();
+    var currentDate = date.toISOString().substring(0,10);
+    Dat.value = currentDate;
+}
