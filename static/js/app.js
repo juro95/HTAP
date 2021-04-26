@@ -250,12 +250,12 @@ function availabilityCheck() {
 function colorMap(){
     if (comp_1free.length > 0){
                             svgComp1.style.fill = "green";
-                            console.log("comp busy");
+                            console.log("comp not busy");
                             svgComp1.style.fillOpacity = "0.3";
                         }
                         else{
                             svgComp1.style.fill = "red";
-                            console.log("comp not busy");
+                            console.log("comp busy");
                             svgComp1.style.fillOpacity = "0.3";
                         }
 }
