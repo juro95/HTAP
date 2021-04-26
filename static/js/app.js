@@ -240,6 +240,10 @@ function availabilityCheck() {
                         comp_1free.length = 0;
                         svgComp1.style.fill = "none";
                         svgComp1.style.fillOpacity = "0.1";
+                        svgComp1.addEventListener("hover", function(){
+                            svgComp1.style.fill = "rgb(168,168,168)";
+                            svgComp1.style.fillOpacity = "0.3";
+                        })
                     }
 
 }
