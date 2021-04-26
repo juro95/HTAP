@@ -235,10 +235,10 @@ function avalabilityCheck() {
                           }
                         }
                         if (comp_1free.length >1){
-                            svgComp1.style.fill = "RGBA(0, 255, 0, 0.3)";
+                            svgComp1.style.fill = "green";
                         }
                         else{
-                            svgComp1.style.fill = "RGBA(255, 0, 0, 0.3)";
+                            svgComp1.style.fill = "red";
                         }
 
                     } else {
