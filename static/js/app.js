@@ -23,6 +23,17 @@ window.onload = function() {
 };
 
 
+[...inputs].forEach(input => {
+    input.addEventListener('change', function () {
+        console.log(startTime.value)
+        console.log(endTime)
+        console.log(chosenHours.date)
+        console.log(chosenHours)
+    })
+})
+
+
+
 let rooms = {
     "Ada": "code.berlin_188ff8i403g5ajughddn43j69rl166gb6oo38e9g74s3gchp60@resource.calendar.google.com",
     "D-2": "code.berlin_1883j5g4liq5ihuehfm64pgo3o66g@resource.calendar.google.com",
