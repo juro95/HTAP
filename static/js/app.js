@@ -282,8 +282,9 @@ function handleDateChoice(){
     let date = document.querySelector("input").value
     chosenHours.date = date
     console.log(chosenHours)
-    console.log(startTime.value)
+    console.log(startTime)
     console.log(chosenHours.date)
+    console.log(chosenHours.startTime)
 }
 
 document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
