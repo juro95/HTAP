@@ -222,8 +222,7 @@ function availabilityCheck() {
                                         console.log(`${roomName} is free`);
                                         comp_1free.push(`${roomName}`);
                                         console.log(comp_1free);
-                                        if (comp_1free.length > 0 && comp_1busy.length === 0 || comp_1free.length === 0 && comp_1busy.length > 0 || comp_1free.length > 0 && comp_1busy.length > 0){
-                                        colorMap()}
+                                        colorMap()
                                     }
                                     else {
                                     console.log(`${roomName} is busy`);
