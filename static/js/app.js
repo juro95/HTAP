@@ -13,10 +13,12 @@ var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
 
 var chosenHours = {"date":'',"startTime":'', "endTime":''}
+/**
 var date = chosenHours.date;
 var startTime = chosenHours.startTime;
 var endTime = chosenHours.endTime;
-var inputs = document.querySelectorAll(".input, .btn");
+ */
+var inputs = chosenHours
 
 window.onload = function() {
   loadDate()
@@ -186,7 +188,7 @@ function appendPre(message) {
 function avalabilityCheck() {
     [...inputs].forEach(input => {
             input.addEventListener('change', function () {
-                    if (date.value !== "" && startTime.value !== "" && endTime.value !== ""
+                    if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== ""
                     ) {let isBusy = true;
 
                     console.log(isBusy);
@@ -204,8 +206,8 @@ function avalabilityCheck() {
                                 //console.log(value);
                                 //user input that goes into the freebusy query
                                 let requestBody = {
-                                    timeMin: date.value + "T" + startTime.value + ":00.000Z",
-                                    timeMax: date.value + "T" + endTime.value + ":00.000Z",
+                                    timeMin: chosenHours.date + "T" + chosenHours.startTime + ":00.000Z",
+                                    timeMax: chosenHours.date + "T" + chosenHours.endTime + ":00.000Z",
                                     items: [
                                         {
                                             id: calendarID
@@ -281,10 +283,9 @@ function avalabilityCheck() {
 function handleDateChoice(){
     let date = document.querySelector("input").value
     chosenHours.date = date
-    console.log(chosenHours)
-    console.log(startTime)
     console.log(chosenHours.date)
     console.log(chosenHours.startTime)
+    console.log(chosenHours.endTime)
 }
 
 document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
