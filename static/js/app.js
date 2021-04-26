@@ -192,7 +192,7 @@ function availabilityCheck() {
                     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== ""
                     ) {
 
-                    //looping through all rooms in compartment
+                    //looping through all rooms in compartment and making freebusy query
                         for (let key in comp_1) {
                             if (comp_1.hasOwnProperty(key)) {
                                 let calendarID = comp_1[key];
@@ -209,7 +209,6 @@ function availabilityCheck() {
                                     ],
                                     timeZone: "GMT+01:00"
                                 };
-
 
                                 //make request to gcalendar if rooms are free. Giving back array on what times room is busy.
                                 var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
@@ -232,10 +231,8 @@ function availabilityCheck() {
                                     console.log(comp_1busy);
                                     }
                                 })
-
                           }
                         }
-
 
                     } else {
                         console.log("change date pls");
@@ -246,6 +243,8 @@ function availabilityCheck() {
                     }
 
 }
+
+
 
 function colorMap(){
     if (comp_1free.length > 0){

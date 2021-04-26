@@ -1,8 +1,11 @@
 var chosenHours = {"date":'',"startTime":'', "endTime":''}
 
+document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
+
 window.onload = function() {
   loadDate()
 };
+
 /**
  * takes the id as a parameter input of the button clicked by the user
  * */
@@ -25,39 +28,138 @@ function handleUserChoice(event){
  * with respect to the order of which button was clicked first
  * */
 function handleHighlight(button){
-    let count = 0
-    if(button.style.backgroundColor == "rgb(255, 255, 255)" &&
-        button.style.borderTop == "4px solid rgb(76, 223, 76)" ){
-        button.style.backgroundColor = ""
-        button.style.borderTop = ''
-        button.style.color = ""
-        chosenHours.startTime = ""
+    if(button.style.backgroundColor === "rgb(255, 255, 255)" &&
+        button.style.borderTop === "4px solid rgb(76, 223, 76)"){
+        removeTop(button)
         removeHighlights("top")
     }
-    else if (button.style.backgroundColor == "rgb(255, 255, 255)" &&
-        button.style.borderBottom == "4px solid rgb(76, 223, 76)" ){
-        button.style.backgroundColor = ""
-        button.style.borderBottom = ""
-        button.style.color = ""
-        chosenHours.endTime = ""
+    else if (button.style.backgroundColor === "rgb(255, 255, 255)" &&
+        button.style.borderBottom === "4px solid rgb(76, 223, 76)"){
+        removeBot(button)
         removeHighlights("bot")
     }
-    else if (chosenHours.startTime == ""){
+    else if (chosenHours.startTime === "" ){
         let checkG = checkOrderTop(button)
-        if(checkG == true) {
+        if(checkG === true) {
+            addHighLightTop(button)
+        }
+        else{
+            alterSelectedHighlight(button)
+        }
+    }
+    else if(chosenHours.startTime !== "" && chosenHours.endTime === ""){
+        let checkR = checkorderBot(button)
+        if(checkR === true) {
+            addHighLightBot(button)
+        }
+        else{
+        alterSelectedHighlight(button)
+        }
+    }
+    else{
+         alterSelectedHighlight(button)
+    }
+}
+
+/**
+ * Highlights End Time button in case of first time entry
+ */
+function addHighLightBot(button){
+    button.style.backgroundColor = "rgb(255, 255, 255)"
+    button.style.borderBottom = "4px solid rgb(76, 223, 76)"
+    button.style.color = "#000"
+    chosenHours.endTime = button.getAttribute('id') + ":00"
+}
+
+/**
+ * Highlights Start Time button in case of first time entry
+ */
+function addHighLightTop(button){
+    button.style.backgroundColor = "rgb(255, 255, 255)"
+    button.style.borderTop = "4px solid rgb(76, 223, 76)"
+    button.style.color = "#000"
+    chosenHours.startTime = button.getAttribute('id') + ":00"
+}
+
+/**
+ * Deletes endTime Highlight
+ * */
+function removeBot(button){
+    button.style.backgroundColor = ""
+    button.style.borderBottom = ""
+    button.style.color = ""
+    chosenHours.endTime = ""
+}
+
+/**
+ * Deletes StartTime Highlight
+ * */
+function removeTop(button){
+    button.style.backgroundColor = ""
+    button.style.borderTop = ''
+    button.style.color = ""
+    chosenHours.startTime = ""
+}
+
+/**
+ * removes current Start/end time Highlight
+ * and updates with new Start/end time selection
+ * */
+function alterSelectedHighlight(button){
+    if(button.style.backgroundColor === "rgb(255, 255, 255)") {
+        shorten(button)
+    }
+    else {
+        change(button)
+    }
+}
+
+/**
+ * shortens highlighted selection
+ * */
+function shorten(button){
+    removeHighlights("bot")
+    deletePrevButton("end")
+    button.style.backgroundColor = "rgb(255, 255, 255)"
+    button.style.borderBottom = "4px solid rgb(76, 223, 76)"
+    button.style.color = "#000"
+    chosenHours.endTime = button.getAttribute('id') + ":00"
+}
+
+/**
+ * increases the size of the highlighted section
+ * based on user input
+ * */
+function change(button){
+    let valueToCheck = button.getAttribute('id') + ":00"
+        if(valueToCheck > chosenHours.endTime && chosenHours.endTime !== ""){
+            removeHighlights("bot")
+            deletePrevButton("end")
+            button.style.backgroundColor = "rgb(255, 255, 255)"
+            button.style.borderBottom = "4px solid rgb(76, 223, 76)"
+            button.style.color = "#000"
+            chosenHours.endTime = button.getAttribute('id') + ":00"
+        }
+        else{
+            removeHighlights("top")
+            deletePrevButton("start")
             button.style.backgroundColor = "rgb(255, 255, 255)"
             button.style.borderTop = "4px solid rgb(76, 223, 76)"
             button.style.color = "#000"
             chosenHours.startTime = button.getAttribute('id') + ":00"
         }
-    }
-    else if(chosenHours.startTime !== "" && chosenHours.endTime == ""){
-        let checkR = checkorderBot(button)
-        if(checkR == true) {
-            button.style.backgroundColor = "rgb(255, 255, 255)"
-            button.style.borderBottom = "4px solid rgb(76, 223, 76)"
-            button.style.color = "#000"
-            chosenHours.endTime = button.getAttribute('id') + ":00"
+}
+/**
+ * removes Old selected start/end time Highlights
+ * */
+function deletePrevButton(type) {
+    let buttons = document.querySelectorAll('.btn')
+    for (butt of buttons) {
+        if(type == "start") {
+            butt.style.borderTop = ""
+        }
+        else {
+            butt.style.borderBottom = ""
         }
     }
 }
@@ -158,10 +260,6 @@ function handleDateChoice(){
     chosenHours.date = date
     console.log(chosenHours)
 }
-
-document.querySelector("#FromDate").addEventListener("change", handleDateChoice)
-
-
 
 function loadDate(){
     let Dat = document.querySelector("#FromDate")
