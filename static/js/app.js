@@ -127,6 +127,7 @@ function initClient() {
             console.log("event added!");
             //checking for room availability
             avalabilityCheck()
+        window.addEventListener("click",function (){alert("yalla";)})
 
 
         }, function (error) {
