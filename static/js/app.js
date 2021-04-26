@@ -18,7 +18,8 @@ var date = chosenHours.date;
 var startTime = chosenHours.startTime;
 var endTime = chosenHours.endTime;
  */
-var inputs = chosenHours
+var comp_1busy = []
+var comp_1free = []
 
 window.onload = function() {
   loadDate()
@@ -187,13 +188,7 @@ function appendPre(message) {
 //checking for change of all values. Then console.log values on change and executing request if busy.
 function avalabilityCheck() {
                     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== ""
-                    ) {let isBusy = true;
-
-                    console.log(isBusy);
-                    if (isBusy === false) {
-                        console.log("working?");
-                    }
-                    else{console.log("not working");}
+                    ) {
 
 
                     //looping through all rooms in compartment
@@ -222,15 +217,19 @@ function avalabilityCheck() {
                                 freeRequest.execute(function (resp) {
                                     var responseObject = JSON.stringify(resp);
                                     console.log(responseObject);
-
+                                    //appending rooms to array whether busy or free
                                     if (resp.calendars[calendarID].busy.length < 1) {
                                         console.log(`${roomName} is free`);
+                                        comp_1free.push(`${roomName}`);
+                                        console.log(comp_1free);
+
                                     }
                                     //if room is busy set isBusy to false, then if isBusy=false make compartment green
-                                    else {isBusy = !isBusy;
+                                    else {
                                     console.log("room is Busy");
+                                    comp_1free.push(`${roomName}`);
+                                    console.log(comp_1busy);
                                     }
-                                    console.log(isBusy)
                                 })
 
                           }
@@ -250,10 +249,6 @@ function avalabilityCheck() {
 function handleDateChoice(){
     let date = document.querySelector("input").value
     chosenHours.date = date
-    console.log(chosenHours.date)
-    console.log(chosenHours.startTime)
-    console.log(chosenHours.endTime)
-    console.log(chosenHours.date + "T" + chosenHours.startTime + ":00.000Z")
     avalabilityCheck()
 }
 
@@ -265,3 +260,6 @@ function loadDate(){
     var currentDate = date.toISOString().substring(0,10);
     Dat.value = currentDate;
 }
+
+console.log(comp_1free);
+console.log(comp_1busy);
