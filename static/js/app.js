@@ -238,7 +238,7 @@ function avalabilityCheck() {
                             svgComp1.style.fill = "RGBA(0, 255, 0, 0.3)";
                         }
                         else{
-                            svgComp1.style.fill = "(255,0,0,0.3)";
+                            svgComp1.style.fill = "RGBA(255, 0, 0, 0.3)";
                         }
 
                     } else {
