@@ -167,19 +167,6 @@ function appendPre(message) {
 }
 
 
-function requestBody ()
-{let requestBody = {
-                                    timeMin: chosenHours.date + "T" + chosenHours.startTime + ":00.000Z",
-                                    timeMax: chosenHours.date + "T" + chosenHours.endTime + ":00.000Z",
-                                    items: [
-                                        {
-                                            id: calendarID
-                                        }
-                                    ],
-                                    timeZone: "GMT+01:00"
-                                };
-return requestBody;
-}
 
 
 //function checking for user input on change of date or time, then sending query to gcalendar
@@ -189,35 +176,38 @@ function availabilityCheck() {
                     ) {
 
                     //looping through all rooms in compartment and making freebusy query
-                        for (let key in comp_1) {
-                            if (comp_1.hasOwnProperty(key)) {
-                                let calendarID = comp_1[key];
-                                let roomName = key;
-                                //console.log(value);
-                                //user input that goes into the freebusy query
-                                let requestBody = requestBody();
-                                //make request to gcalendar if rooms are free. Giving back array on what times room is busy.
+                        for (compartment of comps) {
+                            for (let key in compartment)  {
+                                if (compartment.hasOwnProperty(key)) {
+                                    let calendarID = compartment[key];
+                                    let roomName = key;
+                                    //console.log(value);
+                                    //user input that goes into the freebusy query
+                                    let requestBody = requestBody();
+                                    //make request to gcalendar if rooms are free. Giving back array on what times room is busy.
 
-                                var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
+                                    var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
-                                //executing request.
-                                freeRequest.execute(function (resp) {
-                                    var responseObject = JSON.stringify(resp);
-                                    console.log(responseObject);
-                                    //appending rooms to array whether busy or free
-                                    if (resp.calendars[calendarID].busy.length < 1) {
-                                        console.log(`${roomName} is free`);
-                                        comp_1free.push(`${roomName}`);
-                                        console.log(comp_1free);
-                                        //colorMap()
+                                    //executing request.
+                                    freeRequest.execute(function (resp) {
+                                        var responseObject = JSON.stringify(resp);
+                                        console.log(responseObject);
+                                        //appending rooms to array whether busy or free
+                                        if (resp.calendars[calendarID].busy.length < 1) {
+                                            console.log(`${roomName} is free`);
+                                            comp_1free.push(`${roomName}`);
+                                            console.log(comp_1free);
+                                            //colorMap()
+                                        }
+                                        else {
+                                            console.log(`${roomName} is busy`);
+                                            comp_1busy.push(`${roomName}`);
+                                            console.log(comp_1busy);
+                                        }
                                     }
-                                    else {
-                                    console.log(`${roomName} is busy`);
-                                    comp_1busy.push(`${roomName}`);
-                                    console.log(comp_1busy);
-                                    }
-                                })
-                          }
+                                    )
+                                }
+                            }
                         }
 
                     } else {
@@ -233,6 +223,21 @@ function availabilityCheck() {
                     }
 
 }
+
+function requestBody ()
+{let requestBody = {
+                                    timeMin: chosenHours.date + "T" + chosenHours.startTime + ":00.000Z",
+                                    timeMax: chosenHours.date + "T" + chosenHours.endTime + ":00.000Z",
+                                    items: [
+                                        {
+                                            id: calendarID
+                                        }
+                                    ],
+                                    timeZone: "GMT+01:00"
+                                };
+return requestBody;
+}
+
 
 
 
