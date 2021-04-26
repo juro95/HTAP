@@ -167,6 +167,20 @@ function appendPre(message) {
 }
 
 
+function requestBody ()
+{let requestBody = {
+                                    timeMin: chosenHours.date + "T" + chosenHours.startTime + ":00.000Z",
+                                    timeMax: chosenHours.date + "T" + chosenHours.endTime + ":00.000Z",
+                                    items: [
+                                        {
+                                            id: calendarID
+                                        }
+                                    ],
+                                    timeZone: "GMT+01:00"
+                                };
+return requestBody;
+}
+
 
 //function checking for user input on change of date or time, then sending query to gcalendar
 //checking for change of all values. Then console.log values on change and executing request if busy.
@@ -181,18 +195,9 @@ function availabilityCheck() {
                                 let roomName = key;
                                 //console.log(value);
                                 //user input that goes into the freebusy query
-                                let requestBody = {
-                                    timeMin: chosenHours.date + "T" + chosenHours.startTime + ":00.000Z",
-                                    timeMax: chosenHours.date + "T" + chosenHours.endTime + ":00.000Z",
-                                    items: [
-                                        {
-                                            id: calendarID
-                                        }
-                                    ],
-                                    timeZone: "GMT+01:00"
-                                };
-
+                                let requestBody = requestBody();
                                 //make request to gcalendar if rooms are free. Giving back array on what times room is busy.
+
                                 var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
                                 //executing request.
@@ -204,7 +209,7 @@ function availabilityCheck() {
                                         console.log(`${roomName} is free`);
                                         comp_1free.push(`${roomName}`);
                                         console.log(comp_1free);
-                                        colorMap()
+                                        //colorMap()
                                     }
                                     else {
                                     console.log(`${roomName} is busy`);
@@ -235,7 +240,7 @@ function colorMap() {
     let i = 0;
     let key = false;
     for (compartment of comps) {
-        for (roomName of compartment) {
+        for (roomName in compartment) {
             if (key === false) {
                 for (available of comp_1free) {
                     if (available == roomName) {
