@@ -176,24 +176,19 @@ function availabilityCheck() {
                         //looping through all rooms in compartment and making freebusy query
                          requestConfigure()
 
-                           for (comp of comps) {
-                               let a = comps.indexOf(comp)
-                                 for (notAvailable of busyRooms) {
-                                    if (notAvailable === roomName && roomName in comp && (!(notAvailable in freeRooms))) {
-                                        svgAll[a].style.fill = "red";
-                                        svgAll[a].style.fillOpacity = "0.3";
-                                        }
-                                 }
-                           }
+                         colorMapRed()
                     } else {console.log("change date pls");
                         busyRooms.length = 0;
                         freeRooms.length = 0;
-                        svgComp1.style.fill = "none";
-                        svgComp1.style.fillOpacity = "0.1";
-                        svgComp1.addEventListener("hover", function(){
-                            svgComp1.style.fill = "rgb(168,168,168)";
-                            svgComp1.style.fillOpacity = "0.3";
-                        })
+                        for (svg in svgAll){
+                        svg.style.fill = "none";
+                        svg.style.fillOpacity = "0.1";
+                        svg.addEventListener("hover", function(){
+                            svg.style.fill = "rgb(168,168,168)";
+                            svg.style.fillOpacity = "0.3";
+                        }
+                        )
+                    }
                     }
 }
 
@@ -256,15 +251,11 @@ function colorMapGreen(roomName) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
             }
-            else{
-                svgAll[i].style.fill = "red";
-                svgAll[i].style.fillOpacity = "0.3";
-            }
         }
 }
 }
 
-/**
+
 function colorMapRed (roomName){
        for (comp of comps) {
         let a = comps.indexOf(comp)
@@ -276,7 +267,7 @@ function colorMapRed (roomName){
         }
     }
 }
- */
+
 
 /**
             if (comp_1free.length > 0) {
