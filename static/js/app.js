@@ -245,9 +245,13 @@ function colorMap(roomName) {
         for (available of freeRooms) {
             if (available === roomName) {
                 svgAll[i].style.fill = "green";
-                svgAll[i].fillOpacity = "0.3";
+                svgAll[i].style.fillOpacity = "0.3";
                 key = true;
                 break;
+            }
+            else{
+                svgAll[i].style.fill = "red";
+                svgAll[i].style.fillOpacity = "0.3";
             }
             key = false;
             i += 1;
