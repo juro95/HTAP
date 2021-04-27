@@ -18,8 +18,8 @@ var date = chosenHours.date;
 var startTime = chosenHours.startTime;
 var endTime = chosenHours.endTime;
  */
-let comp_1busy = [];
-let comp_1free = [];
+let busyRooms = [];
+let freeRooms = [];
 var svgComp1 = document.querySelector("#comp-one");
 
 window.onload = function() {
@@ -197,18 +197,15 @@ function availabilityCheck() {
 
                                     var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
-
                                     //execute request and put room in either busy or free array
-                                    executeRequest ()
-
+                                    executeRequest (freeRequest)
                                 }
                             }
                         }
-
                     } else {
                         console.log("change date pls");
-                        comp_1busy.length = 0;
-                        comp_1free.length = 0;
+                        busyRooms.length = 0;
+                        freeRooms.length = 0;
                         svgComp1.style.fill = "none";
                         svgComp1.style.fillOpacity = "0.1";
                         svgComp1.addEventListener("hover", function(){
@@ -219,25 +216,27 @@ function availabilityCheck() {
 
 }
 
-function executeRequest () {
-                                        //executing request.
-                                        freeRequest.execute(function (resp) {
-                                                var responseObject = JSON.stringify(resp);
-                                                console.log(responseObject);
-                                                //appending rooms to array whether busy or free
-                                                if (resp.calendars[calendarID].busy.length < 1) {
-                                                    console.log(`${roomName} is free`);
-                                                    comp_1free.push(`${roomName}`);
-                                                    console.log(comp_1free);
-                                                    //colorMap()
-                                                } else {
-                                                    console.log(`${roomName} is busy`);
-                                                    comp_1busy.push(`${roomName}`);
-                                                    console.log(comp_1busy);
-                                                }
-                                            }
-                                        )
-                                    }
+
+//function that executes request and allocate room to either free or busy array
+function executeRequest (freeRequest) {
+    //executing request.
+    freeRequest.execute(function (resp) {
+        var responseObject = JSON.stringify(resp);
+        console.log(responseObject);
+        //appending rooms to array whether busy or free
+            if (resp.calendars[calendarID].busy.length < 1) {
+                console.log(`${roomName} is free`);
+                freeRooms.push(`${roomName}`);
+                console.log(freeRooms);
+                //colorMap()
+            } else {
+                console.log(`${roomName} is busy`);
+                busyRooms.push(`${roomName}`);
+                console.log(busyRooms);
+            }
+        }
+    )
+}
 
 
 
@@ -247,7 +246,7 @@ function colorMap() {
     for (compartment of comps) {
         for (roomName in compartment) {
             if (key === false) {
-                for (available of comp_1free) {
+                for (available of freeRooms) {
                     if (available == roomName) {
                         svgAll[i].style.fill = "green";
                         svgAll[i].fillOpacity = "0.3";
