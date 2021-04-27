@@ -176,7 +176,10 @@ function availabilityCheck() {
                         //looping through all rooms in compartment and making freebusy query
                          requestConfigure()
 
-                         colorMapRed()
+                         Promise.all([freeRooms, busyRooms]).then()
+                        { colorMapRed()
+                        }
+
 
                     } else {console.log("change date pls");
                         busyRooms.length = 0;
@@ -222,7 +225,6 @@ function requestConfigure(){
                         }
                     }
 
-
 //function that executes request and allocate room to either free or busy array
 function executeRequest (freeRequest, calendarID, roomName) {
     //executing request.
@@ -242,8 +244,6 @@ function executeRequest (freeRequest, calendarID, roomName) {
     )
 }
 
-
-
 function colorMapGreen(roomName) {
     for (comp of comps){
         let i = comps.indexOf(comp)
@@ -253,7 +253,7 @@ function colorMapGreen(roomName) {
                 svgAll[i].style.fillOpacity = "0.3";
             }
         }
-}
+    }
 }
 
 
