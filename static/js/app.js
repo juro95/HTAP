@@ -183,8 +183,17 @@ function availabilityCheck() {
                                     let roomName = key;
                                     //console.log(value);
                                     //user input that goes into the freebusy query
-                                    let requestBody = requestBody(calendarID);
                                     //make request to gcalendar if rooms are free. Giving back array on what times room is busy.
+                                    let requestBody = {
+                                    timeMin: chosenHours.date + "T" + chosenHours.startTime + ":00.000Z",
+                                        timeMax: chosenHours.date + "T" + chosenHours.endTime + ":00.000Z",
+                                     items: [
+                                         {
+                                     id: calendarID
+                                         }
+                                      ],
+                                        timeZone: "GMT+01:00"
+                                        }
 
                                     var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
@@ -222,20 +231,6 @@ function availabilityCheck() {
                         })
                     }
 
-}
-
-function requestBody (calendarID)
-{let requestBody = {
-    timeMin: chosenHours.date + "T" + chosenHours.startTime + ":00.000Z",
-    timeMax: chosenHours.date + "T" + chosenHours.endTime + ":00.000Z",
-    items: [
-        {
-            id: calendarID
-        }
-        ],
-    timeZone: "GMT+01:00"
-};
-return requestBody;
 }
 
 
