@@ -240,7 +240,7 @@ function executeRequest (freeRequest, calendarID, roomName) {
 
 function colorMapGreen(roomName) {
     for (comp of comps){
-        i = comps[comp]
+        let i = comps[comp]
         for (available of freeRooms) {
             if (available === roomName && roomName in comp) {
                 svgAll[i].style.fill = "green";
