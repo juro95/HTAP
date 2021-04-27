@@ -198,7 +198,7 @@ function availabilityCheck() {
                                     var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
                                     //execute request and put room in either busy or free array
-                                    executeRequest (freeRequest, roomName)
+                                    executeRequest (freeRequest, calendarID, roomName)
                                 }
                             }
                         }
