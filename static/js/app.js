@@ -240,8 +240,6 @@ function executeRequest (freeRequest, calendarID, roomName) {
 
 function colorMap(roomName) {
     let i = 0;
-    let key = false;
-    if (key === false) {
         for (available of freeRooms) {
             if (available === roomName) {
                 svgAll[i].style.fill = "green";
@@ -253,11 +251,8 @@ function colorMap(roomName) {
                 svgAll[i].style.fill = "red";
                 svgAll[i].style.fillOpacity = "0.3";
             }
-            key = false;
             i += 1;
         }
-
-    }
 }
 
 
