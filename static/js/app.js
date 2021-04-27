@@ -197,24 +197,10 @@ function availabilityCheck() {
 
                                     var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
-                                    //executing request.
-                                    freeRequest.execute(function (resp) {
-                                        var responseObject = JSON.stringify(resp);
-                                        console.log(responseObject);
-                                        //appending rooms to array whether busy or free
-                                        if (resp.calendars[calendarID].busy.length < 1) {
-                                            console.log(`${roomName} is free`);
-                                            comp_1free.push(`${roomName}`);
-                                            console.log(comp_1free);
-                                            //colorMap()
-                                        }
-                                        else {
-                                            console.log(`${roomName} is busy`);
-                                            comp_1busy.push(`${roomName}`);
-                                            console.log(comp_1busy);
-                                        }
-                                    }
-                                    )
+
+                                    //execute request and put room in either busy or free array
+                                    executeRequest ()
+
                                 }
                             }
                         }
@@ -233,6 +219,25 @@ function availabilityCheck() {
 
 }
 
+function executeRequest () {
+                                        //executing request.
+                                        freeRequest.execute(function (resp) {
+                                                var responseObject = JSON.stringify(resp);
+                                                console.log(responseObject);
+                                                //appending rooms to array whether busy or free
+                                                if (resp.calendars[calendarID].busy.length < 1) {
+                                                    console.log(`${roomName} is free`);
+                                                    comp_1free.push(`${roomName}`);
+                                                    console.log(comp_1free);
+                                                    //colorMap()
+                                                } else {
+                                                    console.log(`${roomName} is busy`);
+                                                    comp_1busy.push(`${roomName}`);
+                                                    console.log(comp_1busy);
+                                                }
+                                            }
+                                        )
+                                    }
 
 
 
