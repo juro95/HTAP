@@ -172,10 +172,25 @@ function appendPre(message) {
 //function checking for user input on change of date or time, then sending query to gcalendar
 //checking for change of all values. Then console.log values on change and executing request if busy.
 function availabilityCheck() {
-                    if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== ""
-                    ) {
+                    if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "")
+                    {
+                        //looping through all rooms in compartment and making freebusy query
+                         requestConfigure()
 
-                    //looping through all rooms in compartment and making freebusy query
+              } else {console.log("change date pls");
+                        busyRooms.length = 0;
+                        freeRooms.length = 0;
+                        svgComp1.style.fill = "none";
+                        svgComp1.style.fillOpacity = "0.1";
+                        svgComp1.addEventListener("hover", function(){
+                            svgComp1.style.fill = "rgb(168,168,168)";
+                            svgComp1.style.fillOpacity = "0.3";
+                        })
+                    }
+
+}
+
+function requestConfigure(){
                         for (compartment of comps) {
                             for (let key in compartment)  {
                                 if (compartment.hasOwnProperty(key)) {
@@ -202,27 +217,13 @@ function availabilityCheck() {
                                 }
                             }
                         }
-                    } else {
-                        console.log("change date pls");
-                        busyRooms.length = 0;
-                        freeRooms.length = 0;
-                        svgComp1.style.fill = "none";
-                        svgComp1.style.fillOpacity = "0.1";
-                        svgComp1.addEventListener("hover", function(){
-                            svgComp1.style.fill = "rgb(168,168,168)";
-                            svgComp1.style.fillOpacity = "0.3";
-                        })
                     }
-
-}
 
 
 //function that executes request and allocate room to either free or busy array
 function executeRequest (freeRequest, calendarID, roomName) {
     //executing request.
     freeRequest.execute(function (resp) {
-        var responseObject = JSON.stringify(resp);
-        console.log(responseObject);
         //appending rooms to array whether busy or free
             if (resp.calendars[calendarID].busy.length < 1) {
                 console.log(`${roomName} is free`);
@@ -251,7 +252,6 @@ function colorMap() {
                         key = true;
                         break;
                     }
-
                 }
             }
         }
