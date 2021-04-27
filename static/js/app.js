@@ -38,7 +38,6 @@ let comp_1 = {
 
 let comp_2 = {
     "Lizard": "code.berlin_1885dv1guu8e4gsdmna2vusmqgqh2@resource.calendar.google.com",
-    "Lizard": "code.berlin_1885dv1guu8e4gsdmna2vusmqgqh2@resource.calendar.google.com",
     "Spock": "code.berlin_3337333133353032313436@resource.calendar.google.com"
 }
 
@@ -240,18 +239,15 @@ function executeRequest (freeRequest, calendarID, roomName) {
 
 
 function colorMapGreen(roomName) {
-    let i = 0;
+    for (comp of comps){
+        i = comps[comp]
         for (available of freeRooms) {
-            if (available === roomName) {
+            if (available === roomName && roomName in comp) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
             }
-            if (!(roomName in comps[i])){
-            i += 1;
-            console.log(i);
         }
-        }
-}
+}}
 
 
 /**
