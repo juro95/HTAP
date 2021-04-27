@@ -175,6 +175,16 @@ function availabilityCheck() {
                     {
                         //looping through all rooms in compartment and making freebusy query
                          requestConfigure()
+
+                           for (comp of comps) {
+                               let a = comps.indexOf(comp)
+                                 for (notAvailable of busyRooms) {
+                                    if (notAvailable === roomName && roomName in comp && (!(notAvailable in freeRooms))) {
+                                        svgAll[a].style.fill = "red";
+                                        svgAll[a].style.fillOpacity = "0.3";
+                                        }
+                                 }
+                           }
                     } else {console.log("change date pls");
                         busyRooms.length = 0;
                         freeRooms.length = 0;
@@ -246,9 +256,17 @@ function colorMapGreen(roomName) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
             }
+            else{
+                svgAll[i].style.fill = "red";
+                svgAll[i].style.fillOpacity = "0.3";
+            }
         }
 }
-    for (comp of comps) {
+}
+
+/**
+function colorMapRed (roomName){
+       for (comp of comps) {
         let a = comps.indexOf(comp)
         for (notAvailable of busyRooms) {
             if (notAvailable === roomName && roomName in comp && (!(notAvailable in freeRooms))) {
@@ -257,9 +275,8 @@ function colorMapGreen(roomName) {
             }
         }
     }
-
 }
-
+ */
 
 /**
             if (comp_1free.length > 0) {
