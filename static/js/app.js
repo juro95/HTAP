@@ -248,6 +248,7 @@ function colorMapGreen(roomName) {
             }
             if (!(roomName in comps[i])){
             i += 1;
+            console.log(i);
         }
         }
 }
