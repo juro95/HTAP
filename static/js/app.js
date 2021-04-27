@@ -226,7 +226,7 @@ function executeRequest (freeRequest, calendarID, roomName) {
                 console.log(`${roomName} is free`);
                 freeRooms.push(`${roomName}`);
                 console.log(freeRooms);
-                colorMap(roomName)
+                colorMapGreen(roomName)
             } else {
                 console.log(`${roomName} is busy`);
                 busyRooms.push(`${roomName}`);
@@ -238,17 +238,11 @@ function executeRequest (freeRequest, calendarID, roomName) {
 
 
 
-function colorMap(roomName) {
+function colorMapGreen(roomName) {
     let i = 0;
         for (available of freeRooms) {
             if (available === roomName) {
                 svgAll[i].style.fill = "green";
-                svgAll[i].style.fillOpacity = "0.3";
-                key = true;
-                break;
-            }
-            else{
-                svgAll[i].style.fill = "red";
                 svgAll[i].style.fillOpacity = "0.3";
             }
             i += 1;
