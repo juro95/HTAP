@@ -176,8 +176,7 @@ function availabilityCheck() {
                     {
                         //looping through all rooms in compartment and making freebusy query
                          requestConfigure()
-
-              } else {console.log("change date pls");
+                    } else {console.log("change date pls");
                         busyRooms.length = 0;
                         freeRooms.length = 0;
                         svgComp1.style.fill = "none";
@@ -187,7 +186,6 @@ function availabilityCheck() {
                             svgComp1.style.fillOpacity = "0.3";
                         })
                     }
-
 }
 
 function requestConfigure(){
@@ -209,7 +207,6 @@ function requestConfigure(){
                                       ],
                                         timeZone: "GMT+01:00"
                                         }
-
                                     var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
                                     //execute request and put room in either busy or free array
@@ -229,7 +226,7 @@ function executeRequest (freeRequest, calendarID, roomName) {
                 console.log(`${roomName} is free`);
                 freeRooms.push(`${roomName}`);
                 console.log(freeRooms);
-                colorMap()
+                colorMap(roomName)
             } else {
                 console.log(`${roomName} is busy`);
                 busyRooms.push(`${roomName}`);
@@ -241,23 +238,23 @@ function executeRequest (freeRequest, calendarID, roomName) {
 
 
 
-function colorMap() {
-            let i = 0;
-            let key = false;
-            if (key === false) {
-                for (available of freeRooms) {
-                    if (available === roomName) {
-                        svgAll[i].style.fill = "green";
-                        svgAll[i].fillOpacity = "0.3";
-                        key = true;
-                        break;
-                    }
-                }
+function colorMap(roomName) {
+    let i = 0;
+    let key = false;
+    if (key === false) {
+        for (available of freeRooms) {
+            if (available === roomName) {
+                svgAll[i].style.fill = "green";
+                svgAll[i].fillOpacity = "0.3";
+                key = true;
+                break;
             }
+            key = false;
+            i += 1;
         }
-        key = false;
-        i += 1;
 
+    }
+}
 
 
 /**
