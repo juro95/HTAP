@@ -188,6 +188,7 @@ function availabilityCheck() {
                     }
 }
 
+//loop through rooms and put together request body for each room. Then executing the freebusy request
 function requestConfigure(){
                         for (compartment of comps) {
                             for (let key in compartment)  {
