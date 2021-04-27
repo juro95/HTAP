@@ -176,8 +176,6 @@ function availabilityCheck() {
                         //looping through all rooms in compartment and making freebusy query
                          requestConfigure()
 
-                         colorMapRed (roomName)
-
 
 
                     } else {console.log("change date pls");
@@ -216,7 +214,7 @@ function requestConfigure(){
                                         timeZone: "GMT+01:00"
                                         }
                                     var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
-                                    return roomName
+
 
                                     //execute request and put room in either busy or free array
                                     executeRequest (freeRequest, calendarID, roomName)
@@ -242,6 +240,7 @@ function executeRequest (freeRequest, calendarID, roomName) {
             }
         }
     )
+    colorMapRed (roomName)
 }
 
 function colorMapGreen(roomName) {
