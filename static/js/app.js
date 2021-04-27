@@ -198,7 +198,7 @@ function availabilityCheck() {
                                     var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
                                     //execute request and put room in either busy or free array
-                                    executeRequest (freeRequest)
+                                    executeRequest (freeRequest, roomName)
                                 }
                             }
                         }
@@ -218,7 +218,7 @@ function availabilityCheck() {
 
 
 //function that executes request and allocate room to either free or busy array
-function executeRequest (freeRequest) {
+function executeRequest (freeRequest, calendarID, roomName) {
     //executing request.
     freeRequest.execute(function (resp) {
         var responseObject = JSON.stringify(resp);
@@ -300,5 +300,5 @@ function loadDate(){
     Dat.value = currentDate;
 }
 
-console.log(comp_1free);
-console.log(comp_1busy);
+console.log(freeRooms);
+console.log(busyRooms);
