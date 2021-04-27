@@ -177,15 +177,16 @@ function availabilityCheck() {
                          requestConfigure()
 
                          colorMapRed()
+
                     } else {console.log("change date pls");
                         busyRooms.length = 0;
                         freeRooms.length = 0;
-                        for (svg in svgAll){
-                        svg.style.fill = "none";
-                        svg.style.fillOpacity = "0.1";
-                        svg.addEventListener("hover", function(){
-                            svg.style.fill = "rgb(168,168,168)";
-                            svg.style.fillOpacity = "0.3";
+                        for(let i = 0; i < svgAll.length; i++){
+                        svgAll[i].style.fill = "none";
+                        svgAll[i].style.fillOpacity = "0.1";
+                        svgAll[i].addEventListener("hover", function(){
+                            svgAll[i].style.fill = "rgb(168,168,168)";
+                            svgAll[i].style.fillOpacity = "0.3";
                         }
                         )
                     }
