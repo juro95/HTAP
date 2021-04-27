@@ -246,7 +246,9 @@ function colorMapGreen(roomName) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
             }
+            if (!(roomName in comps[i])){
             i += 1;
+        }
         }
 }
 
