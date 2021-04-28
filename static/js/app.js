@@ -174,6 +174,7 @@ function availabilityCheck() {
     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "") {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
+        test()
     } else {
         console.log("change date pls");
         busyRooms.length = 0;
@@ -249,7 +250,6 @@ function colorMapGreen(roomName) {
                 svgAll[i].style.fillOpacity = "0.3";
                 //if loop is done color rooms red
                 console.log(freeRooms.length, busyRooms.length)
-                test()
         }
     }
     }
