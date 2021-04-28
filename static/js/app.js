@@ -247,7 +247,7 @@ function availabilityCheck() {
         freeRooms.length = 0;
         requestConfigure()
         }
-    else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length < 22)){
+    else {
         busyRooms.length = 0;
         freeRooms.length = 0;
         console.log("change date pls");
