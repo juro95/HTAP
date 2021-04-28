@@ -258,13 +258,13 @@ function colorMapGreen(roomName) {
 //color rooms that are not green, red
 function colorMapRed () {
     if (freeRooms.length + busyRooms.length === 22) {
-        console.log("jenk")
+        console.log("jenk");
         for (let i = 0; i < svgAll.length; i++ ) {
             console.log(svgAll[i]);
-            let style = svgAll[i].style.fill;
-            if (style !== "green" || style !== "none") {
+            let style = svgAll[i].getAttribute("fill");
+            if (style !== "green") {
                 style = "red";
-                svgAll[i].style.fillOpacity = "0.3";
+                svgAll[i].setAttribute(fillOpacity, "0.3");
             }
         }
     }
