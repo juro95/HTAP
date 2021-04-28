@@ -189,7 +189,7 @@ function availabilityCheck() {
                             svgAll[i].style.fillOpacity = "0.3";
                         }
                         )
-                    }
+                        }
                     }
 }
 
@@ -240,7 +240,6 @@ function executeRequest (freeRequest, calendarID, roomName) {
             }
         }
     )
-    colorMapRed (roomName)
 }
 
 function colorMapGreen(roomName) {
@@ -255,18 +254,14 @@ function colorMapGreen(roomName) {
     }
 }
 
-
-function colorMapRed (roomName){
-       for (comp of comps) {
-        let a = comps.indexOf(comp)
-        for (notAvailable of busyRooms) {
-            if (notAvailable === roomName && roomName in comp && (!(notAvailable in freeRooms))) {
-                svgAll[a].style.fill = "red";
-                svgAll[a].style.fillOpacity = "0.3";
-            }
+//need to find out if no room of comp is in freeRooms
+function colorMapRed (){
+    for (svg of svgAll){
+      let style = svg.style.fill;
+        if (style !== "green") {
+            style = "red";
         }
     }
-}
 
 
 /**
