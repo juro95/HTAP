@@ -264,7 +264,6 @@ function colorMapRed () {
             if (style !== "green" || style !== "none") {
                 style = "red";
                 svg.style.fillOpacity = "0.3";
-
             }
         }
     }
