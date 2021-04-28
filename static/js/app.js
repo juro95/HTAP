@@ -13,14 +13,9 @@ var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
 
 var chosenHours = {"date":'',"startTime":'', "endTime":''}
-/**
-var date = chosenHours.date;
-var startTime = chosenHours.startTime;
-var endTime = chosenHours.endTime;
- */
+
 let busyRooms = [];
 let freeRooms = [];
-var svgComp1 = document.querySelector("#comp-one");
 
 window.onload = function() {
   loadDate()
@@ -174,13 +169,13 @@ function availabilityCheck() {
     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "") {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
-        test()
     } else {
         console.log("change date pls");
         busyRooms.length = 0;
         freeRooms.length = 0;
         for (let i = 0; i < svgAll.length; i++) {
             let temp = svgAll[i]
+            console.log(svgAll[i])
             temp.style.fill = "none";
             temp.style.fillOpacity = "0.1";
             temp.addEventListener("hover", function () {
@@ -238,7 +233,6 @@ function executeRequest (freeRequest, calendarID, roomName) {
                 busyRooms.push(`${roomName}`);
                 console.log(busyRooms);
             }
-            console.log(freeRooms.length, busyRooms.length)
             colorMapRed()
         }
     )
@@ -260,12 +254,9 @@ function colorMapGreen(roomName) {
 //color rooms that are not green, red with opacity
 function colorMapRed () {
     if (freeRooms.length + busyRooms.length === 22) {
-        console.log(svgAll);
         for (let i = 0; i < svgAll.length; i++ ) {
             let currentSVG = svgAll[i];
-            console.log(svgAll[i]);
             let style = currentSVG.style.fill;
-            console.log(style)
             //change style here if changes were made on the change date pls
             if (style === "none") {
                 currentSVG.style.fill = "red";
