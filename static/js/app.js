@@ -262,9 +262,10 @@ function colorMapRed () {
         for (let i = 0; i < svgAll.length; i++ ) {
             console.log(svgAll[i]);
             let style = svgAll[i].getAttribute("fill");
-            if (style !== "green") {
+            //change style here if changes were made on the change date pls
+            if (style === "none") {
                 style = "red";
-                svgAll[i].setAttribute(fillOpacity, "0.3");
+                svgAll[i].setAttribute("fill-opacity", "0.3");
             }
         }
     }
