@@ -177,7 +177,7 @@ function availabilityCheck() {
                          requestConfigure()
 
                          console.log("request finish");
-                         colorMapRed()
+                         colorMapRed();
 
                     } else {console.log("change date pls");
                         busyRooms.length = 0;
