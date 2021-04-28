@@ -175,11 +175,6 @@ function availabilityCheck() {
                     {
                         //looping through all rooms in compartment and making freebusy query
                          requestConfigure()
-                         //if loop is done color rooms red
-                         if (freeRooms.length + busyRooms.length === 21){
-                             console.log(freeRooms.length + busyRooms.length)
-                             console.log("works")
-                             colorMapRed()
                          }
 
                     } else {console.log("change date pls");
@@ -254,7 +249,11 @@ function colorMapGreen(roomName) {
                 svgAll[i].style.fillOpacity = "0.3";
             }
         }
-    }
+    }//if loop is done color rooms red
+                         if (freeRooms.length + busyRooms.length === 22){
+                             console.log(freeRooms.length + busyRooms.length)
+                             console.log("works")
+                             colorMapRed()
 }
 
 //need to find out if no room of comp is in freeRooms
