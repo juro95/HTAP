@@ -114,6 +114,36 @@ svg5.addEventListener("mouseover", function (){
     }
 )
 
+svg1.addEventListener("mouseout", function (){
+                    svg1.style.fill = "none";
+                    svg1.style.fillOpacity = "0.1";
+    }
+)
+
+svg2.addEventListener("mouseout", function (){
+                    svg2.style.fill = "none";
+                    svg2.style.fillOpacity = "0.1";
+    }
+)
+
+svg3.addEventListener("mouseout", function (){
+                    svg3.style.fill = "none";
+                    svg3.style.fillOpacity = "0.1";
+    }
+)
+
+svg4.addEventListener("mouseout", function (){
+                    svg4.style.fill = "none";
+                    svg4.style.fillOpacity = "0.1";
+    }
+)
+
+svg5.addEventListener("mouseout", function (){
+                    svg5.style.fill = "none";
+                    svg5.style.fillOpacity = "0.1";
+    }
+)
+
 
 /**
  *  On load, called to load the auth2 library and API client library.
