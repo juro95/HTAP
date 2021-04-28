@@ -175,9 +175,7 @@ function availabilityCheck() {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
         test()
-        console.log(freeRooms.length, busyRooms.length)
     } else {
-        console.log(freeRooms.length, busyRooms.length)
         console.log("change date pls");
         busyRooms.length = 0;
         freeRooms.length = 0;
@@ -239,6 +237,7 @@ function executeRequest (freeRequest, calendarID, roomName) {
                 busyRooms.push(`${roomName}`);
                 console.log(busyRooms);
             }
+            console.log(freeRooms.length, busyRooms.length)
         }
     )
     console.log(freeRooms.length, busyRooms.length)
