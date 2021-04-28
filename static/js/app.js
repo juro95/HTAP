@@ -69,6 +69,21 @@ let svg5 = document.querySelector("#comp-five");
 let svgAll = [svg1, svg2, svg3, svg4, svg5];
 
 
+
+
+
+function makeFillNone() {
+//make default color of svg
+    for (let i = 0; i < svgAll.length; i++) {
+        let temp = svgAll[i];
+        console.log(svgAll[i]);
+        temp.style.fill = "none";
+        temp.style.fillOpacity = "0.1";
+    }
+}
+
+makeFillNone()
+
 svg1.addEventListener("hover", function (){
                     svg1.style.fill = "rgb(168,168,168)";
                     svg1.style.fillOpacity = "0.3";
@@ -98,21 +113,6 @@ svg5.addEventListener("hover", function (){
                     svg5.style.fillOpacity = "0.3";
     }
 )
-
-
-function makeFillNone() {
-//make default color of svg
-    for (let i = 0; i < svgAll.length; i++) {
-        let temp = svgAll[i];
-        console.log(svgAll[i]);
-        temp.style.fill = "none";
-        temp.style.fillOpacity = "0.1";
-    }
-}
-
-makeFillNone()
-
-
 
 
 /**

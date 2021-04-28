@@ -86,30 +86,7 @@ svg {
     width: 80%;
 }
 
-#comp-one {
-    fill: none;
-    pointer-events: all;
-    transition: all 0.5s;
-}
 
-#comp-one:hover {
-    fill: RGBA(0, 255, 0, 0.3);
-    pointer-events: all !important;
-    transition: fill .5s;
-    cursor: pointer;
-}
-
-#comp-two {
-    fill: none;
-    pointer-events: all;
-}
-
-#comp-two:hover {
-    fill: RGBA(0, 255, 0, 0.3);
-    pointer-events: all !important;
-    transition: fill .5s;
-    cursor: pointer;
-}
 
 #STAFF {
     fill: none;
@@ -120,42 +97,6 @@ svg {
     fill: #ff0000;
     opacity: 30%;
     pointer-events: all !important;
-    transition: fill .5s;
-    cursor: pointer;
-}
-
-#comp-three {
-    fill: none;
-    pointer-events: all;
-}
-
-#comp-three:hover {
-    fill: RGBA(0, 255, 0, 0.3);
-    pointer-events: all !important;
-    transition: fill .5s;
-    cursor: pointer;
-}
-
-#comp-four {
-    fill: none;
-    pointer-events: all;
-}
-
-#comp-four:hover {
-    fill: RGBA(0, 255, 0, 0.3);
-    pointer-events: all; !important;
-    transition: fill .5s;
-    cursor: pointer;
-}
-
-#comp-five {
-    fill: none;
-    pointer-events: all;
-}
-
-#comp-five:hover {
-    fill: RGBA(0, 255, 0, 0.3);
-    pointer-events: all; !important;
     transition: fill .5s;
     cursor: pointer;
 }
