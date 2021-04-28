@@ -255,7 +255,7 @@ function colorMapGreen(roomName) {
     }
 }
 
-//need to find out if no room of comp is in freeRooms
+//color rooms that are not green, red
 function colorMapRed () {
     if (freeRooms.length + busyRooms.length === 22) {
         console.log("jenk")
