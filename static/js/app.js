@@ -229,6 +229,7 @@ function executeRequest (freeRequest, calendarID, roomName) {
                 console.log(`${roomName} is free`);
                 freeRooms.push(`${roomName}`);
                 console.log(freeRooms);
+                //coloring map green if one room is free
                 colorMapGreen(roomName)
             } else {
                 console.log(`${roomName} is busy`);
