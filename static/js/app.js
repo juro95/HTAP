@@ -173,11 +173,10 @@ function availabilityCheck() {
         console.log("change date pls");
         busyRooms.length = 0;
         freeRooms.length = 0;
+        }
         for (let i = 0; i < svgAll.length; i++) {
             let temp = svgAll[i]
             console.log(svgAll[i])
-            temp.style.fill = "none";
-            temp.style.fillOpacity = "0.1";
             temp.addEventListener("hover", function () {
                     temp.style.fill = "rgb(168,168,168)";
                     temp.style.fillOpacity = "0.3";
@@ -185,7 +184,7 @@ function availabilityCheck() {
             )
         }
     }
-}
+
 
 
 //loop through rooms and put together request body for each room. Then executing the freebusy request
