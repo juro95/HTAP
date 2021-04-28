@@ -176,7 +176,8 @@ function availabilityCheck() {
                         //looping through all rooms in compartment and making freebusy query
                          requestConfigure()
                          //if loop is done color rooms red
-                         if (freeRooms.length + busyRooms.length === 22){
+                         if (freeRooms.length + busyRooms.length === 21){
+                             console.log(freeRooms.length + busyRooms.length)
                              console.log("works")
                              colorMapRed()
                          }
