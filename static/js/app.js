@@ -176,7 +176,7 @@ function availabilityCheck() {
                         //looping through all rooms in compartment and making freebusy query
                          requestConfigure()
 
-                        console.log("request finish");
+                         console.log("request finish");
                          colorMapRed()
 
                     } else {console.log("change date pls");
