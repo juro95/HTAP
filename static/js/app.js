@@ -250,6 +250,7 @@ function colorMapGreen(roomName) {
             if (available === roomName && roomName in comp) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
+                console.log((svgAll[i]))
         }
     }
     }
@@ -260,12 +261,14 @@ function colorMapRed () {
     if (freeRooms.length + busyRooms.length === 22) {
         console.log(svgAll);
         for (let i = 0; i < svgAll.length; i++ ) {
+            let currentSVG = svgAll[i];
             console.log(svgAll[i]);
-            let style = svgAll[i].getAttribute("fill");
+            let style = currentSVG.style.fill;
+            console.log(style)
             //change style here if changes were made on the change date pls
             if (style === "none") {
-                svgAll[i].setAttribute("fill", "red");
-                svgAll[i].setAttribute("fill-opacity", "0.3");
+                currentSVG.setAttribute("fill", "red");
+                currentSVG.setAttribute("fill-opacity", "0.3");
             }
         }
     }
