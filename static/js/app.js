@@ -248,15 +248,22 @@ function colorMapGreen(roomName) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
                 //if loop is done color rooms red
-                         if (freeRooms.length + busyRooms.length == 22) {
-                             console.log(freeRooms.length + busyRooms.length)
-                             console.log("works")
-                             colorMapRed()
-            }
+                console.log(freeRooms.length, busyRooms.length)
+                test()
+
+
         }
     }
     }
 }
+function test(){
+    console.log("peter")
+if (freeRooms.length + busyRooms.length == 22) {
+                             console.log(freeRooms.length + busyRooms.length)
+                             console.log("works")
+                             colorMapRed()
+            }
+console.log("jenkins")}
 
 //need to find out if no room of comp is in freeRooms
 function colorMapRed () {
