@@ -171,26 +171,25 @@ function appendPre(message) {
 //function checking for user input on change of date or time, then sending query to gcalendar
 //checking for change of all values. Then console.log values on change and executing request if busy.
 function availabilityCheck() {
-                    if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "")
-                    {
-                        //looping through all rooms in compartment and making freebusy query
-                         requestConfigure()
-                         }
-
-                    } else {console.log("change date pls");
-                        busyRooms.length = 0;
-                        freeRooms.length = 0;
-                        for(let i = 0; i < svgAll.length; i++){
-                        svgAll[i].style.fill = "none";
-                        svgAll[i].style.fillOpacity = "0.1";
-                        svgAll[i].addEventListener("hover", function(){
-                            svgAll[i].style.fill = "rgb(168,168,168)";
-                            svgAll[i].style.fillOpacity = "0.3";
-                                }
-                            )
-                        }
-                    }
+    if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "") {
+        //looping through all rooms in compartment and making freebusy query
+        requestConfigure()
+    } else {
+        console.log("change date pls");
+        busyRooms.length = 0;
+        freeRooms.length = 0;
+        for (let i = 0; i < svgAll.length; i++) {
+            svgAll[i].style.fill = "none";
+            svgAll[i].style.fillOpacity = "0.1";
+            svgAll[i].addEventListener("hover", function () {
+                    svgAll[i].style.fill = "rgb(168,168,168)";
+                    svgAll[i].style.fillOpacity = "0.3";
+                }
+            )
+        }
+    }
 }
+
 
 //loop through rooms and put together request body for each room. Then executing the freebusy request
 function requestConfigure(){
@@ -250,10 +249,11 @@ function colorMapGreen(roomName) {
             }
         }
     }//if loop is done color rooms red
-                         if (freeRooms.length + busyRooms.length === 22){
+                         if (freeRooms.length + busyRooms.length === 22) {
                              console.log(freeRooms.length + busyRooms.length)
                              console.log("works")
                              colorMapRed()
+                         }
 }
 
 //need to find out if no room of comp is in freeRooms
