@@ -264,21 +264,6 @@ function colorMapRed () {
     }
 }
 
-
-/**
-            if (comp_1free.length > 0) {
-                svgComp1.style.fill = "green";
-                console.log("comp not busy");
-                svgComp1.style.fillOpacity = "0.3";
-            } else {
-                svgComp1.style.fill = "red";
-                console.log("comp busy");
-                svgComp1.style.fillOpacity = "0.3";
-            }*/
-
-
-
-
 //Omar
 
 /**
