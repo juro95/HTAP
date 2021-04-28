@@ -84,13 +84,13 @@ function makeFillNone() {
 
 makeFillNone()
 
-svg1.addEventListener("mouseover", function (){
+svg1.addEventListener("mouseenter", function (){
                     svg1.style.fill = "rgb(168,168,168)";
                     svg1.style.fillOpacity = "0.3";
     }
 )
 
-svg2.addEventListener("mouseover", function (){
+svg2.addEventListener("mouseenter", function (){
                     svg2.style.fill = "rgb(168,168,168)";
                     svg2.style.fillOpacity = "0.3";
     }
@@ -102,43 +102,43 @@ svg3.addEventListener("mouseover", function (){
     }
 )
 
-svg4.addEventListener("mouseover", function (){
+svg4.addEventListener("mouseenter", function (){
                     svg4.style.fill = "rgb(168,168,168)";
                     svg4.style.fillOpacity = "0.3";
     }
 )
 
-svg5.addEventListener("mouseover", function (){
+svg5.addEventListener("mouseenter", function (){
                     svg5.style.fill = "rgb(168,168,168)";
                     svg5.style.fillOpacity = "0.3";
     }
 )
 
-svg1.addEventListener("mouseout", function (){
+svg1.addEventListener("mouseleave", function (){
                     svg1.style.fill = "none";
                     svg1.style.fillOpacity = "0.1";
     }
 )
 
-svg2.addEventListener("mouseout", function (){
+svg2.addEventListener("mouseleave", function (){
                     svg2.style.fill = "none";
                     svg2.style.fillOpacity = "0.1";
     }
 )
 
-svg3.addEventListener("mouseout", function (){
+svg3.addEventListener("mouseleave", function (){
                     svg3.style.fill = "none";
                     svg3.style.fillOpacity = "0.1";
     }
 )
 
-svg4.addEventListener("mouseout", function (){
+svg4.addEventListener("mouseleave", function (){
                     svg4.style.fill = "none";
                     svg4.style.fillOpacity = "0.1";
     }
 )
 
-svg5.addEventListener("mouseout", function (){
+svg5.addEventListener("mouseleave", function (){
                     svg5.style.fill = "none";
                     svg5.style.fillOpacity = "0.1";
     }
