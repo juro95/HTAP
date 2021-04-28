@@ -177,6 +177,7 @@ function availabilityCheck() {
                          requestConfigure()
 
                          if (freeRooms.length + busyRooms.length === 22){
+                             console.log("works")
                              colorMapRed()
                          }
 
