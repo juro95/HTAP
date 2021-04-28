@@ -175,7 +175,9 @@ function availabilityCheck() {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
         test()
+        console.log(freeRooms.length, busyRooms.length)
     } else {
+        console.log(freeRooms.length, busyRooms.length)
         console.log("change date pls");
         busyRooms.length = 0;
         freeRooms.length = 0;
@@ -239,6 +241,7 @@ function executeRequest (freeRequest, calendarID, roomName) {
             }
         }
     )
+    console.log(freeRooms.length, busyRooms.length)
 }
 
 function colorMapGreen(roomName) {
@@ -249,7 +252,7 @@ function colorMapGreen(roomName) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
                 //if loop is done color rooms red
-                console.log(freeRooms.length, busyRooms.length)
+
         }
     }
     }
