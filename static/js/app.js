@@ -238,7 +238,7 @@ function executeRequest (freeRequest, calendarID, roomName) {
                 console.log(busyRooms);
             }
             console.log(freeRooms.length, busyRooms.length)
-            test()
+            colorMapRed()
         }
     )
 }
@@ -255,22 +255,15 @@ function colorMapGreen(roomName) {
     }
 }
 
-function test(){
-    console.log("peter")
-if (freeRooms.length + busyRooms.length == 22) {
-                             console.log(freeRooms.length + busyRooms.length)
-                             console.log("works")
-                             colorMapRed()
-            }
-console.log("jenkins")
-}
-
 //need to find out if no room of comp is in freeRooms
 function colorMapRed () {
-    for (svg of svgAll) {
-        let style = svg.style.fill;
-        if (style !== "green" || style !== "none") {
-            style = "red";
+    if (freeRooms.length + busyRooms.length === 22) {
+        console.log("jenk")
+        for (svg of svgAll) {
+            let style = svg.style.fill;
+            if (style !== "green" || style !== "none") {
+                style = "red";
+            }
         }
     }
 }
