@@ -69,7 +69,48 @@ let svg5 = document.querySelector("#comp-five");
 let svgAll = [svg1, svg2, svg3, svg4, svg5];
 
 
+svg1.addEventListener("hover", function (){
+                    svg1.style.fill = "rgb(168,168,168)";
+                    svg1.style.fillOpacity = "0.3";
+    }
+)
 
+svg2.addEventListener("hover", function (){
+                    svg2.style.fill = "rgb(168,168,168)";
+                    svg2.style.fillOpacity = "0.3";
+    }
+)
+
+svg3.addEventListener("hover", function (){
+                    svg3.style.fill = "rgb(168,168,168)";
+                    svg3.style.fillOpacity = "0.3";
+    }
+)
+
+svg4.addEventListener("hover", function (){
+                    svg4.style.fill = "rgb(168,168,168)";
+                    svg4.style.fillOpacity = "0.3";
+    }
+)
+
+svg5.addEventListener("hover", function (){
+                    svg5.style.fill = "rgb(168,168,168)";
+                    svg5.style.fillOpacity = "0.3";
+    }
+)
+
+
+function makeFillNone() {
+//make default color of svg
+    for (let i = 0; i < svgAll.length; i++) {
+        let temp = svgAll[i];
+        console.log(svgAll[i]);
+        temp.style.fill = "none";
+        temp.style.fillOpacity = "0.1";
+    }
+}
+
+makeFillNone()
 
 
 
@@ -173,16 +214,23 @@ function availabilityCheck() {
         console.log("change date pls");
         busyRooms.length = 0;
         freeRooms.length = 0;
+        makeFillNone()
         }
+
+
+    /**
         for (let i = 0; i < svgAll.length; i++) {
             let temp = svgAll[i]
             console.log(svgAll[i])
+
+
             temp.addEventListener("hover", function () {
                     temp.style.fill = "rgb(168,168,168)";
-                    temp.style.fillOpacity = "0.3";
+                    temp.style.fillOpacity = "0.3";})
+
                 }
-            )
-        }
+*/
+
     }
 
 
@@ -244,7 +292,6 @@ function colorMapGreen(roomName) {
             if (available === roomName && roomName in comp) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
-                console.log((svgAll[i]))
         }
     }
     }
