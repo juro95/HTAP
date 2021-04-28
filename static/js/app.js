@@ -259,10 +259,11 @@ function colorMapGreen(roomName) {
 function colorMapRed () {
     if (freeRooms.length + busyRooms.length === 22) {
         console.log("jenk")
-        for (svg of svgAll) {
+        for (let svg of svgAll) {
             let style = svg.style.fill;
             if (style !== "green" || style !== "none") {
                 style = "red";
+
             }
         }
     }
