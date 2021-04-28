@@ -77,8 +77,8 @@ function makeFillNone() {
     for (let i = 0; i < svgAll.length; i++) {
         let temp = svgAll[i];
         console.log(svgAll[i]);
-        temp.style.fill = "none";
-        temp.style.fillOpacity = "0.1";
+        temp.style.fill = "grey";
+        temp.style.fillOpacity = "0.01";
     }
 }
 
@@ -96,7 +96,7 @@ svg2.addEventListener("mouseenter", function (){
     }
 )
 
-svg3.addEventListener("mouseover", function (){
+svg3.addEventListener("mouseenter", function (){
                     svg3.style.fill = "rgb(168,168,168)";
                     svg3.style.fillOpacity = "0.3";
     }
@@ -326,7 +326,7 @@ function colorMapRed () {
             let currentSVG = svgAll[i];
             let style = currentSVG.style.fill;
             //change style here if changes were made on the change date pls
-            if (style === "none") {
+            if (style === "grey") {
                 currentSVG.style.fill = "red";
                 currentSVG.style.fillOpacity = "0.3";
             }
