@@ -176,8 +176,9 @@ function availabilityCheck() {
                         //looping through all rooms in compartment and making freebusy query
                          requestConfigure()
 
-                         console.log("request finish");
-                         colorMapRed();
+                         if (freeRooms.length + busyRooms.length === 22){
+                             colorMapRed()
+                         }
 
                     } else {console.log("change date pls");
                         busyRooms.length = 0;
