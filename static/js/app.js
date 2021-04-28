@@ -238,9 +238,9 @@ function executeRequest (freeRequest, calendarID, roomName) {
                 console.log(busyRooms);
             }
             console.log(freeRooms.length, busyRooms.length)
+            test()
         }
     )
-    console.log(freeRooms.length, busyRooms.length)
 }
 
 function colorMapGreen(roomName) {
