@@ -267,8 +267,8 @@ function colorMapRed () {
             console.log(style)
             //change style here if changes were made on the change date pls
             if (style === "none") {
-                currentSVG.setAttribute("fill", "red");
-                currentSVG.setAttribute("fill-opacity", "0.3");
+                currentSVG.style.fill = "red";
+                currentSVG.style.fillOpacity = "0.3";
             }
         }
     }
