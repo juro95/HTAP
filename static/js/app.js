@@ -188,8 +188,8 @@ function availabilityCheck() {
                         svgAll[i].addEventListener("hover", function(){
                             svgAll[i].style.fill = "rgb(168,168,168)";
                             svgAll[i].style.fillOpacity = "0.3";
-                        }
-                        )
+                                }
+                            )
                         }
                     }
 }
@@ -258,7 +258,7 @@ function colorMapGreen(roomName) {
 function colorMapRed () {
     for (svg of svgAll) {
         let style = svg.style.fill;
-        if (style !== "green") {
+        if (style !== "green" || style !== "none") {
             style = "red";
         }
     }
