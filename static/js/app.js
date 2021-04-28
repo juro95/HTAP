@@ -236,6 +236,7 @@ function appendPre(message) {
 
 //function checking for user input on change of date or time, then sending query to gcalendar
 //checking for change of all values. Then console.log values on change and executing request if busy.
+//also coloring according to whether the compartment is busy or not
 function availabilityCheck() {
     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (!(freeRooms.length + busyRooms.length === 22))) {
         //looping through all rooms in compartment and making freebusy query
