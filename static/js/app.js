@@ -256,7 +256,7 @@ function colorMapGreen(roomName) {
     }
 }
 
-//color rooms that are not green, red
+//color rooms that are not green, red with opacity
 function colorMapRed () {
     if (freeRooms.length + busyRooms.length === 22) {
         console.log(svgAll);
