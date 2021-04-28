@@ -264,7 +264,7 @@ function colorMapRed () {
             let style = svgAll[i].getAttribute("fill");
             //change style here if changes were made on the change date pls
             if (style === "none") {
-                style = "red";
+                svgAll[i].setAttribute("fill", "red");
                 svgAll[i].setAttribute("fill-opacity", "0.3");
             }
         }
