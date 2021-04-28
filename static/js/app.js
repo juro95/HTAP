@@ -255,13 +255,14 @@ function colorMapGreen(roomName) {
 }
 
 //need to find out if no room of comp is in freeRooms
-function colorMapRed (){
-    for (svg of svgAll){
-      let style = svg.style.fill;
+function colorMapRed () {
+    for (svg of svgAll) {
+        let style = svg.style.fill;
         if (style !== "green") {
             style = "red";
         }
     }
+}
 
 
 /**
