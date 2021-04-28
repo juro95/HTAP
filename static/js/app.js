@@ -216,21 +216,6 @@ function availabilityCheck() {
         freeRooms.length = 0;
         makeFillNone()
         }
-
-
-    /**
-        for (let i = 0; i < svgAll.length; i++) {
-            let temp = svgAll[i]
-            console.log(svgAll[i])
-
-
-            temp.addEventListener("hover", function () {
-                    temp.style.fill = "rgb(168,168,168)";
-                    temp.style.fillOpacity = "0.3";})
-
-                }
-*/
-
     }
 
 
