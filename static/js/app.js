@@ -215,7 +215,6 @@ function requestConfigure(){
                                         }
                                     var freeRequest = gapi.client.calendar.freebusy.query(requestBody);
 
-
                                     //execute request and put room in either busy or free array
                                     executeRequest (freeRequest, calendarID, roomName)
                                 }
@@ -298,6 +297,3 @@ function loadDate(){
     var currentDate = date.toISOString().substring(0,10);
     Dat.value = currentDate;
 }
-
-console.log(freeRooms);
-console.log(busyRooms);
