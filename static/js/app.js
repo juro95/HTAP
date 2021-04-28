@@ -84,31 +84,31 @@ function makeFillNone() {
 
 makeFillNone()
 
-svg1.addEventListener("hover", function (){
+svg1.addEventListener("mouseover", function (){
                     svg1.style.fill = "rgb(168,168,168)";
                     svg1.style.fillOpacity = "0.3";
     }
 )
 
-svg2.addEventListener("hover", function (){
+svg2.addEventListener("mouseover", function (){
                     svg2.style.fill = "rgb(168,168,168)";
                     svg2.style.fillOpacity = "0.3";
     }
 )
 
-svg3.addEventListener("hover", function (){
+svg3.addEventListener("mouseover", function (){
                     svg3.style.fill = "rgb(168,168,168)";
                     svg3.style.fillOpacity = "0.3";
     }
 )
 
-svg4.addEventListener("hover", function (){
+svg4.addEventListener("mouseover", function (){
                     svg4.style.fill = "rgb(168,168,168)";
                     svg4.style.fillOpacity = "0.3";
     }
 )
 
-svg5.addEventListener("hover", function (){
+svg5.addEventListener("mouseover", function (){
                     svg5.style.fill = "rgb(168,168,168)";
                     svg5.style.fillOpacity = "0.3";
     }
