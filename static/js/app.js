@@ -260,6 +260,7 @@ function colorMapRed () {
     if (freeRooms.length + busyRooms.length === 22) {
         console.log("jenk")
         for (let svg of svgAll) {
+            console.log(svg);
             let style = svg.style.fill;
             if (style !== "green" || style !== "none") {
                 style = "red";
