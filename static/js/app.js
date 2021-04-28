@@ -261,12 +261,11 @@ function colorMapRed () {
         console.log(svgAll);
         for (let i = 0; i < svgAll.length; i++ ) {
             console.log(svgAll[i]);
-            /**
             let style = svgAll[i].getAttribute("fill");
             if (style !== "green") {
                 style = "red";
                 svgAll[i].setAttribute(fillOpacity, "0.3");
-            }*/
+            }
         }
     }
 }
