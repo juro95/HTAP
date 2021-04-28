@@ -241,13 +241,16 @@ function availabilityCheck() {
     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (!(freeRooms.length + busyRooms.length === 22))) {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
-    } else {
-        console.log("change date pls");
+    } else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length === 22)) {
         busyRooms.length = 0;
         freeRooms.length = 0;
-        makeFillNone()
+        requestConfigure()
         }
-    }
+    else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== ""){
+        console.log("change date pls");
+        makeFillNone()
+            }
+        }
 
 
 
