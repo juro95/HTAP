@@ -250,8 +250,6 @@ function colorMapGreen(roomName) {
                 //if loop is done color rooms red
                 console.log(freeRooms.length, busyRooms.length)
                 test()
-
-
         }
     }
     }
