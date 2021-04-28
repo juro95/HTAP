@@ -176,7 +176,7 @@ function availabilityCheck() {
                         //looping through all rooms in compartment and making freebusy query
                          requestConfigure()
 
-
+                         colorMapRed()
 
                     } else {console.log("change date pls");
                         busyRooms.length = 0;
