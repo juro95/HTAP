@@ -84,6 +84,7 @@ function makeFillNone() {
 
 makeFillNone()
 
+//make hover effect when no request is being made
 function makeHover () {
         console.log(currentColor);
             svgAll.forEach(item => {
@@ -114,7 +115,7 @@ function makeHover () {
             })
         }
 
-
+        //give hover effect on available compartment
        function makeHoverGreen(){svgAll.forEach(item => {
                 item.addEventListener('mouseover', event => {
                     if(greenColor === 1) {
@@ -144,6 +145,7 @@ function makeHover () {
             })
         }
 
+        //give hover effect on unavailable compartment
        function makeHoverRed(){svgAll.forEach(item => {
                 item.addEventListener('mouseover', event => {
                     if(redColor === 1) {
