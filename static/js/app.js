@@ -83,6 +83,7 @@ function makeFillNone() {
 makeFillNone()
 
 function makeHover () {
+        console.log(currentColor);
         if (currentColor === "") {
             svgAll.forEach(item => {
                 item.addEventListener('mouseover', event => {
@@ -207,16 +208,18 @@ function availabilityCheck() {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
         currentColor = "green"
+        console.log(currentColor)
         makeHover ()
-        console.log(svg1.style.fill)
+        console.log(currentColor)
     }
     else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length === 23)) {
         busyRooms.length = 0;
         freeRooms.length = 0;
         requestConfigure()
         currentColor = "green"
+        console.log(currentColor);
         makeHover ()
-        console.log(svg1.style.fill)
+        console.log(currentColor);
         }
     else {
         busyRooms.length = 0;
@@ -224,8 +227,9 @@ function availabilityCheck() {
         currentColor = ""
         console.log("change date pls");
         makeFillNone()
+        console.log(currentColor);
         makeHover()
-        console.log(svg1.style.fill)
+        console.log(currentColor);
             }
         }
 
@@ -288,8 +292,6 @@ function colorMapGreen(roomName) {
             if (available === roomName && roomName in comp) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
-                console.log(svgAll[i])
-                console.log(svgAll[i].style.fill)
             }
         }
     }
@@ -305,8 +307,6 @@ function colorMapRed () {
             if (style === "none") {
                 currentSVG.style.fill = "red";
                 currentSVG.style.fillOpacity = "0.3";
-                console.log(currentSVG)
-                console.log(currentSVG.style.fill)
             }
         }
     }
