@@ -117,7 +117,7 @@ function makeHover () {
 
        function makeHoverGreen(){svgAll.forEach(item => {
                 item.addEventListener('mouseover', event => {
-                    if(greenColor === 0) {
+                    if(greenColor === 1) {
                         event.target.style.pointerEvents = "all";
                         event.target.style.cursor = "pointer";
                         event.target.style.strokeOpacity = "1";
@@ -131,7 +131,7 @@ function makeHover () {
             })
             svgAll.forEach(item => {
                 item.addEventListener('mouseout', event => {
-                    if(greenColor === 0) {
+                    if(greenColor === 1) {
                         event.target.style.fill = "green";
                         event.target.style.stroke = "white";
                         event.target.style.pointerEvents = "all";
@@ -146,7 +146,7 @@ function makeHover () {
 
        function makeHoverRed(){svgAll.forEach(item => {
                 item.addEventListener('mouseover', event => {
-                    if(redColor === 0) {
+                    if(redColor === 1) {
                         event.target.style.pointerEvents = "all";
                         event.target.style.cursor = "pointer";
                         event.target.style.strokeOpacity = "1";
@@ -160,7 +160,7 @@ function makeHover () {
             })
             svgAll.forEach(item => {
                 item.addEventListener('mouseout', event => {
-                    if(redColor === 0) {
+                    if(redColor === 1) {
                         event.target.style.fill = "red";
                         event.target.style.stroke = "white";
                         event.target.style.pointerEvents = "all";
