@@ -85,9 +85,33 @@ function makeFillNone() {
 
 makeFillNone()
 
+svgAll.forEach(item => {
+    item.addEventListener('mouseover', event => {
+        event.target.style.fill = "rgb(168,168,168)";
+        event.target.style.opacity = "0.3";
+        event.target.style.pointerEvents = "all";
+        event.target.style.cursor = "pointer";
+        event.target.style.strokeOpacity = "1";
+        event.style.fillOpacity = "0.3";
+    })
+})
+
+
+svgAll.forEach(item => {
+    item.addEventListener('mouseout', event => {
+        event.target.style.fill = "none";
+        event.target.style.stroke = "white";
+        event.target.style.pointerEvents = "all";
+        event.target.style.strokeOpacity = "1";
+        event.target.style.fillOpacity = "0.1";
+    })
+})
+
+
+/**
 svg1.addEventListener("mouseenter", function (){
-                    svg1.style.fill = "rgb(168,168,168)";
-                    svg1.style.fillOpacity = "0.3";
+                    target.style.fill = "rgb(168,168,168)";
+                    this.style.fillOpacity = "0.3";
     }
 )
 
@@ -144,7 +168,7 @@ svg5.addEventListener("mouseleave", function (){
                     svg5.style.fillOpacity = "0.1";
     }
 )
-
+*/
 
 /**
  *  On load, called to load the auth2 library and API client library.
