@@ -205,7 +205,7 @@ function availabilityCheck() {
     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (!(freeRooms.length + busyRooms.length === 23))) {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
-        currentColor = 1
+        currentColor = 1;
         console.log(currentColor)
         if (currentColor === 0)
         {makeHover ()}
@@ -214,8 +214,8 @@ function availabilityCheck() {
     else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length === 23)) {
         busyRooms.length = 0;
         freeRooms.length = 0;
+        currentColor = 1;
         requestConfigure()
-        currentColor = 1
         console.log(currentColor);
         if (currentColor === 0)
         {makeHover ()}
