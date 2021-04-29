@@ -35,7 +35,6 @@ let comp_2 = {
     "Lizard": "code.berlin_1885dv1guu8e4gsdmna2vusmqgqh2@resource.calendar.google.com",
     "Spock": "code.berlin_3337333133353032313436@resource.calendar.google.com",
     "Scissors" : "code.berlin_3934313230373536353639@resource.calendar.google.com"
-
 }
 
 let comp_3 = {
@@ -81,38 +80,38 @@ function makeFillNone() {
 
 makeFillNone()
 
-
-for (let i = 0; i < svgAll.length; i++ ) {
-    let currentSVG = svgAll[i];
-    let style = currentSVG.style.fill;
-    //check if style of compartment is red or green to make hover possible
-    if (style === "green" || style === "red") {
-        svgAll.forEach(item => {
-            item.addEventListener('mouseover', event => {
-                event.target.style.fill = "rgb(168,168,168)";
-                event.target.style.pointerEvents = "all";
-                event.target.style.cursor = "pointer";
-                event.target.style.strokeOpacity = "1";
-                event.target.style.fillOpacity = "0.3";
-                event.target.style.transitionDuration = "0.5s";
-                event.target.style.transitionTimingFunction = "ease-in";
+function makeHover () {
+    for (let i = 0; i < svgAll.length; i++) {
+        let currentSVG = svgAll[i];
+        let style = currentSVG.style.fill;
+        //check if style of compartment is red or green to make hover possible
+        if (!(style === "green" || style === "red")) {
+            svgAll.forEach(item => {
+                item.addEventListener('mouseover', event => {
+                    event.target.style.fill = "rgb(168,168,168)";
+                    event.target.style.pointerEvents = "all";
+                    event.target.style.cursor = "pointer";
+                    event.target.style.strokeOpacity = "1";
+                    event.target.style.fillOpacity = "0.3";
+                    event.target.style.transitionDuration = "0.5s";
+                    event.target.style.transitionTimingFunction = "ease-in";
+                })
             })
-        })
 
-        svgAll.forEach(item => {
-            item.addEventListener('mouseout', event => {
-                event.target.style.fill = "none";
-                event.target.style.stroke = "white";
-                event.target.style.pointerEvents = "all";
-                event.target.style.strokeOpacity = "1";
-                event.target.style.fillOpacity = "0.1";
-                event.target.style.transitionDuration = "0.5s";
-                event.target.style.transitionTimingFunction = "ease-out";
+            svgAll.forEach(item => {
+                item.addEventListener('mouseout', event => {
+                    event.target.style.fill = "none";
+                    event.target.style.stroke = "white";
+                    event.target.style.pointerEvents = "all";
+                    event.target.style.strokeOpacity = "1";
+                    event.target.style.fillOpacity = "0.1";
+                    event.target.style.transitionDuration = "0.5s";
+                    event.target.style.transitionTimingFunction = "ease-out";
+                })
             })
-        })
+        }
     }
 }
-
 /**
 svg1.addEventListener("mouseenter", function (){
                     target.style.fill = "rgb(168,168,168)";
@@ -271,17 +270,20 @@ function availabilityCheck() {
     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (!(freeRooms.length + busyRooms.length === 23))) {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
+        makeHover()
     }
     else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length === 23)) {
         busyRooms.length = 0;
         freeRooms.length = 0;
         requestConfigure()
+        makeHover()
         }
     else {
         busyRooms.length = 0;
         freeRooms.length = 0;
         console.log("change date pls");
         makeFillNone()
+        makeHover()
             }
         }
 
