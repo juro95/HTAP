@@ -86,28 +86,42 @@ function makeHover () {
         console.log(currentColor);
             svgAll.forEach(item => {
                 item.addEventListener('mouseover', event => {
-                    event.target.style.fill = "rgb(168,168,168)";
-                    event.target.style.pointerEvents = "all";
-                    event.target.style.cursor = "pointer";
-                    event.target.style.strokeOpacity = "1";
-                    event.target.style.fillOpacity = "0.3";
-                    event.target.style.transitionDuration = "0.5s";
-                    event.target.style.transitionTimingFunction = "ease-in";
+                    if(currentColor === 0) {
+                        event.target.style.fill = "rgb(168,168,168)";
+                        event.target.style.pointerEvents = "all";
+                        event.target.style.cursor = "pointer";
+                        event.target.style.strokeOpacity = "1";
+                        event.target.style.fillOpacity = "0.3";
+                        event.target.style.transitionDuration = "0.5s";
+                        event.target.style.transitionTimingFunction = "ease-in";
+                    }
                 })
             })
 
             svgAll.forEach(item => {
                 item.addEventListener('mouseout', event => {
-                    event.target.style.fill = "none";
-                    event.target.style.stroke = "white";
-                    event.target.style.pointerEvents = "all";
-                    event.target.style.strokeOpacity = "1";
-                    event.target.style.fillOpacity = "0.1";
-                    event.target.style.transitionDuration = "0.5s";
-                    event.target.style.transitionTimingFunction = "ease-out";
+                    if(currentColor === 0) {
+                        event.target.style.fill = "none";
+                        event.target.style.stroke = "white";
+                        event.target.style.pointerEvents = "all";
+                        event.target.style.strokeOpacity = "1";
+                        event.target.style.fillOpacity = "0.1";
+                        event.target.style.transitionDuration = "0.5s";
+                        event.target.style.transitionTimingFunction = "ease-out";
+                    }
                 })
             })
         }
+
+/**
+        function makeNotHover (){
+      console.log(currentColor);
+            svgAll.forEach(item => {
+                item.addEventListener('mouseover', event => {
+                    event.target.style.pointerEvents = "none";
+}
+            )})}
+*/
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -206,31 +220,20 @@ function availabilityCheck() {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
         currentColor = 1;
-        console.log(currentColor)
-        if (currentColor === 0)
-        {makeHover ()}
-        else{console.log(currentColor)}
     }
     else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length === 23)) {
         busyRooms.length = 0;
         freeRooms.length = 0;
         currentColor = 1;
         requestConfigure()
-        console.log(currentColor);
-        if (currentColor === 0)
-        {makeHover ()}
-        else{console.log(currentColor)}
         }
     else {
         busyRooms.length = 0;
         freeRooms.length = 0;
-        currentColor = 0
+        currentColor = 0;
         console.log("change date pls");
         makeFillNone()
-        console.log(currentColor);
-        if (currentColor === 0)
-        {makeHover ()}
-        else{console.log(currentColor)}
+        makeHover()
             }
         }
 
