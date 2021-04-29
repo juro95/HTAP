@@ -69,6 +69,8 @@ let svg5 = document.querySelector("#comp-five");
 
 let svgAll = [svg1, svg2, svg3, svg4, svg5];
 
+let currentColor = ""
+
 function makeFillNone() {
 //make default color of svg
     for (let i = 0; i < svgAll.length; i++) {
@@ -81,12 +83,7 @@ function makeFillNone() {
 makeFillNone()
 
 function makeHover () {
-    for (let i = 0; i < svgAll.length; i++) {
-        let currentSVG = svgAll[i];
-        let style = currentSVG.style.fill;
-        console.log(style)
-        //check if style of compartment is red or green to make hover possible
-        if (!(style === "green" || style === "red")) {
+        if (currentColor === "") {
             svgAll.forEach(item => {
                 item.addEventListener('mouseover', event => {
                     event.target.style.fill = "rgb(168,168,168)";
@@ -210,6 +207,7 @@ function availabilityCheck() {
     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (!(freeRooms.length + busyRooms.length === 23))) {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
+        currentColor = "green"
         makeHover ()
         console.log(svg1.style.fill)
     }
@@ -217,12 +215,14 @@ function availabilityCheck() {
         busyRooms.length = 0;
         freeRooms.length = 0;
         requestConfigure()
+        currentColor = "green"
         makeHover ()
         console.log(svg1.style.fill)
         }
     else {
         busyRooms.length = 0;
         freeRooms.length = 0;
+        currentColor = ""
         console.log("change date pls");
         makeFillNone()
         makeHover()
