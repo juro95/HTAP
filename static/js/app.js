@@ -270,13 +270,11 @@ function availabilityCheck() {
     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (!(freeRooms.length + busyRooms.length === 23))) {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
-        makeHover()
     }
     else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length === 23)) {
         busyRooms.length = 0;
         freeRooms.length = 0;
         requestConfigure()
-        makeHover()
         }
     else {
         busyRooms.length = 0;
