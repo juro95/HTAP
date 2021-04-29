@@ -69,7 +69,7 @@ let svg5 = document.querySelector("#comp-five");
 
 let svgAll = [svg1, svg2, svg3, svg4, svg5];
 
-let currentColor = ""
+let currentColor = 0
 
 function makeFillNone() {
 //make default color of svg
@@ -84,7 +84,6 @@ makeFillNone()
 
 function makeHover () {
         console.log(currentColor);
-        if (currentColor === "") {
             svgAll.forEach(item => {
                 item.addEventListener('mouseover', event => {
                     event.target.style.fill = "rgb(168,168,168)";
@@ -109,7 +108,6 @@ function makeHover () {
                 })
             })
         }
-}
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -207,28 +205,31 @@ function availabilityCheck() {
     if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (!(freeRooms.length + busyRooms.length === 23))) {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
-        currentColor = "green"
+        currentColor = 1
         console.log(currentColor)
-        makeHover ()
+        if (currentColor === 0)
+        {makeHover ()}
         console.log(currentColor)
     }
     else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length === 23)) {
         busyRooms.length = 0;
         freeRooms.length = 0;
         requestConfigure()
-        currentColor = "green"
+        currentColor = 1
         console.log(currentColor);
-        makeHover ()
+        if (currentColor === 0)
+        {makeHover ()}
         console.log(currentColor);
         }
     else {
         busyRooms.length = 0;
         freeRooms.length = 0;
-        currentColor = ""
+        currentColor = 0
         console.log("change date pls");
         makeFillNone()
         console.log(currentColor);
-        makeHover()
+        if (currentColor === 0)
+        {makeHover ()}
         console.log(currentColor);
             }
         }
