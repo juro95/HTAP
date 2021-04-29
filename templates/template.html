@@ -4,24 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How To Avoid People</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Hours-styles.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/compartments.css')}}">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id"
-          content="945713320218-l3hktm010jrfi3v5qg6lsbpern4bl1pu.apps.googleusercontent.com">
+          content='425223675927-dugksbk5qnqi680lf4gor9n6ec5hceth.apps.googleusercontent.com'>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.12.0/css/all.css'>
 </head>
 <body>
    <header>
+        <a href="/">
         <div class="logo-frame">
-        <img class="logo" alt="Logo"
+        <img class="logo" alt="Logo" href="/"
              src="{{ url_for('static', filename='img/CodeNChill.png') }}">
         </div>
+        </a>
    </header>
-
+<main>
+    {% block content%}
+    {% endblock %}
+</main>
 
     <footer>
        <a class="about" href="/About">About</a>

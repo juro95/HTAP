@@ -1,61 +1,77 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/compartments.css') }}">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-</head>
-<body>
-<div class="header">
-    <header>
-        <a class="home-button" href="/">Home</a><br>
-        <a class="about" href="/About">About</a>
-    </header>
-</div>
-<div class="pannel">
-    <div class="main-content">
-        <div id="map-wrap">
-            <svg width="415" height="245" viewBox="0 0 415 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+{% extends "template.html" %}
+{% block content %}
+<div class="container">
+
+<svg width="200" height="450" viewBox="0 -50 425 345" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="right-wing">
                     <g id="names">
-                        <text id="CODE LABORATORY" transform="translate(24.241 158.5)" fill="#231F1F"
+                        <text id="CODE LABORATORY" transform="translate(24.241 158.5)" fill="whitesmoke"
                               xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12"
                               letter-spacing="0em"><tspan x="22.1191" y="11.1016">CODE&#10;</tspan>
                             <tspan x="0.421875" y="25.1016">LABORATORY</tspan></text>
-                        <text id="R2" transform="translate(168.241 163.5)" fill="#231F1F" xml:space="preserve"
+                        <text id="R2" transform="translate(168.241 163.5)" fill="whitesmoke" xml:space="preserve"
                               style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">R2</tspan></text>
-                        <text id="D2" transform="translate(267.241 178.5)" fill="#231F1F" xml:space="preserve"
+                        <text id="D2" transform="translate(267.241 178.5)" fill="whitesmoke" xml:space="preserve"
                               style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">D2&#10;</tspan></text>
-                        <text id="SILENT SPACE" transform="translate(351.241 100.5)" fill="#231F1F" xml:space="preserve"
+                        <text id="SILENT SPACE" transform="translate(351.241 100.5)" fill="whitesmoke" xml:space="preserve"
                               style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="0" y="11.1016">SILENT&#10;</tspan>
                             <tspan x="0" y="25.1016">SPACE&#10;</tspan></text>
                     </g>
                     <path id="Code-Lab" class="room" d="M1.24103 222.5V130.5H122.241V222L1.24103 222.5Z"
-                          stroke="black"/>
-                    <path id="R-two" class="room" d="M224.241 222.5H122.241V130.5H224.241V222.5Z" stroke="black"/>
-                    <path id="D-two" class="room" d="M224.241 130.5V241.5L326.241 242.5V130.5H224.241Z" stroke="black"/>
+                          stroke="white"/>
+                    <path id="R-two" class="room" d="M224.241 222.5H122.241V130.5H224.241V222.5Z" stroke="white"/>
+                    <path id="D-two" class="room" d="M224.241 130.5V241.5L326.241 242.5V130.5H224.241Z" stroke="white"/>
                     <path id="Silent-Space" class="room" d="M414.241 243.5L326.241 242.5V1H414.241V243.5Z"
-                          stroke="black"/>
+                          stroke="white"/>
                     <path id="Vector"
                           d="M122.5 130.5V222M1 130.5H326.5M326.5 130.5V76M326.5 130.5V242.273M326.5 76H189.5L1 77V222.5H224V241.5M326.5 76V1H414V244L224 241.5M224 241.5V130.5"
-                          stroke="black"/>
+                          stroke="white"/>
                 </g>
             </svg>
 
-
-        </div>
+<span class="TimeSelection">
+        <div class="column" style="background-color:#1F2626;">
+    <div><img class="night" src="{{url_for('static', filename='img/moon.png')}}"></div>
+    <div class="title">NIGHT</div>
+    <div><button id="00" class="btn effect01" onclick = handleUserChoice("00")>00:00</button></div>
+    <div><button id="01" class="btn effect01" onclick = handleUserChoice("01")>01:00</button></div>
+    <div><button id="02" class="btn effect01" onclick = handleUserChoice("02")>02:00</button></div>
+    <div><button id="03" class="btn effect01" onclick = handleUserChoice("03")>03:00</button></div>
+    <div><button id="04" class="btn effect01" onclick = handleUserChoice("04")>04:00</button></div>
+    <div><button id="05" class="btn effect01" onclick = handleUserChoice("05")>05:00</button></div>
+  </div>
+  <div class="column" style="background-color:#1F2626;">
+    <div><img src="{{url_for('static', filename='img/sunrise.png')}}"></div>
+    <div class="title">MORNING</div>
+    <div><button id="06" class="btn effect01" onclick = handleUserChoice('06')>06:00</button></div>
+    <div><button id="07" class="btn effect01" onclick = handleUserChoice("07")>07:00</button></div>
+    <div><button id="08" class="btn effect01" onclick = handleUserChoice("08")>08:00</button></div>
+    <div><button id="09" class="btn effect01" onclick = handleUserChoice("09")>09:00</button></div>
+    <div><button id="10" class="btn effect01" onclick = handleUserChoice("10")>10:00</button></div>
+    <div><button id="11" class="btn effect01" onclick = handleUserChoice("11")>11:00</button></div>
+  </div>
+  <div class="column" style="background-color:#1F2626;">
+    <div><img src="{{url_for('static', filename='img/sun.png')}}"></div>
+    <div class="title">MIDDAY</div>
+    <div><button id="12" class="btn effect01" onclick = handleUserChoice("12")>12:00</button></div>
+    <div><button id="13" class="btn effect01" onclick = handleUserChoice("13")>13:00</button></div>
+    <div><button id="14" class="btn effect01" onclick = handleUserChoice("14")>14:00</button></div>
+    <div><button id="15" class="btn effect01" onclick = handleUserChoice("15")>15:00</button></div>
+    <div><button id="16" class="btn effect01" onclick = handleUserChoice("16")>16:00</button></div>
+    <div><button id="17" class="btn effect01" onclick = handleUserChoice("17")>17:00</button></div>
+  </div>
+    <div class="column" style="background-color:#1F2626;">
+        <div><img src="{{url_for('static', filename='img/sunSet.png')}}"></div>
+        <div class="title">EVENING</div>
+        <div><button id="18" class="btn effect01" onclick = handleUserChoice("18")>18:00</button></div>
+        <div><button id="19" class="btn effect01" onclick = handleUserChoice("19")>19:00</button></div>
+        <div><button id="20" class="btn effect01" onclick = handleUserChoice("20")>20:00</button></div>
+        <div><button id="21" class="btn effect01" onclick = handleUserChoice("21")>21:00</button></div>
+        <div><button id="22" class="btn effect01" onclick = handleUserChoice("22")>22:00</button></div>
+        <div><button id="23" class="btn effect01" onclick = handleUserChoice("23")>23:00</button></div>
     </div>
+    </span>
 
-</body>
-<footer>Rooms are to be booked from here<br>
-    any and all information about room availabity,
-    should be seen once javascript and API are utilised
-</footer>
-
+</div>
 <script src="{{ url_for('static', filename='js/style.js') }}"></script>
-</html>
+{% endblock %}

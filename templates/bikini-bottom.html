@@ -1,69 +1,91 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/compartments.css') }}">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-</head>
-<body>
-<div class="header">
-    <header>
-        <a class="home-button" href="/">Home</a><br>
-        <a class="about" href="/About">About</a>
-    </header>
-</div>
-<div class="pannel">
-    <div class="main-content">
-        <div id="map-wrap">
-            <svg width="237" height="353" viewBox="0 0 237 353" fill="none" xmlns="http://www.w3.org/2000/svg">
+{% extends "template.html" %}
+{% block content %}
+<div class="container">
+
+<svg width="200" height="450" viewBox="0 -100 400 553" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="Bikini double">
                     <g id="names">
-                        <text id="PLANKTON" transform="translate(152.259 252.384) rotate(-11)" fill="#231F1F"
+                        <text id="PLANKTON" transform="translate(152.259 252.384) rotate(-11)" fill="whitesmoke"
                               xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12"
                               letter-spacing="0em"><tspan x="0" y="11.1016">PLANKTON&#10;</tspan></text>
-                        <text id="MR. KRABS" transform="translate(143.259 198.384) rotate(-11)" fill="#231F1F"
+                        <text id="MR. KRABS" transform="translate(143.259 198.384) rotate(-11)" fill="whitesmoke"
                               xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12"
                               letter-spacing="0em"><tspan x="0" y="11.1016">MR. KRABS&#10;</tspan></text>
-                        <text id="SPONGEBOB" transform="translate(107.259 41.9106) rotate(-11)" fill="#231F1F"
+                        <text id="SPONGEBOB" transform="translate(107.259 41.9106) rotate(-11)" fill="whitesmoke"
                               xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12"
                               letter-spacing="0em"><tspan x="0" y="11.1016">SPONGEBOB</tspan></text>
-                        <text id="PATRICK" transform="translate(131.259 93.522) rotate(-11)" fill="#231F1F"
+                        <text id="PATRICK" transform="translate(131.259 93.522) rotate(-11)" fill="whitesmoke"
                               xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12"
                               letter-spacing="0em"><tspan x="0" y="11.1016">PATRICK&#10;</tspan></text>
-                        <text id="SQUIDWARD" transform="translate(130.259 146.529) rotate(-11)" fill="#231F1F"
+                        <text id="SQUIDWARD" transform="translate(130.259 146.529) rotate(-11)" fill="whitesmoke"
                               xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12"
                               letter-spacing="0em"><tspan x="0" y="11.1016">SQUIDWARD&#10;</tspan></text>
                     </g>
                     <path id="Vector"
                           d="M100.5 77.5L196 59M111.5 129.5L206 111M122 181.5L216 163.5M132 233L226.5 217.5M90 20.4117L102.5 86.8737L116.5 153.374L129.5 219.874L143 286.374L236 271.374M55 351.554H160V347.554H236V268.054L185.5 2.55396L1 37.054L55 351.554Z"
-                          stroke="black"/>
+                          stroke="whitesmoke"/>
                     <path id="Plankton" class="room"
                           d="M235.856 271.548L142.941 286.246L132.3 233.05L226.222 217.863L235.879 268.569L235.856 271.548Z"
-                          stroke="black"/>
+                          stroke="whitesmoke"/>
                     <path id="Mr.Krabs" class="room"
                           d="M132.325 233.344L122.086 181.292L216.175 163.764L226.404 217.816L132.325 233.344Z"
-                          stroke="black"/>
+                          stroke="whitesmoke"/>
                     <path id="Squidward" class="room"
                           d="M111.5 129.374L122.077 181.308L216 163.874L205.797 111.313L111.5 129.374Z"
-                          stroke="black"/>
+                          stroke="whitesmoke"/>
                     <path id="Patrick" class="room"
                           d="M100.597 77.5493L111.359 129.115L206.11 111.189L196.357 59.1288L100.597 77.5493Z"
-                          stroke="black"/>
+                          stroke="whitesmoke"/>
                     <path id="Spongebob" class="room"
                           d="M90.1666 20.537L100.509 77.1052L196 58.874L185.508 2.37416L90.1666 20.537Z"
-                          stroke="black"/>
+                          stroke="whitesmoke"/>
                 </g>
             </svg>
 
-
-        </div>
+<span class="TimeSelection">
+        <div class="column" style="background-color:#1F2626;">
+    <div><img class="night" src="{{url_for('static', filename='img/moon.png')}}"></div>
+    <div class="title">NIGHT</div>
+    <div><button id="00" class="btn effect01" onclick = handleUserChoice("00")>00:00</button></div>
+    <div><button id="01" class="btn effect01" onclick = handleUserChoice("01")>01:00</button></div>
+    <div><button id="02" class="btn effect01" onclick = handleUserChoice("02")>02:00</button></div>
+    <div><button id="03" class="btn effect01" onclick = handleUserChoice("03")>03:00</button></div>
+    <div><button id="04" class="btn effect01" onclick = handleUserChoice("04")>04:00</button></div>
+    <div><button id="05" class="btn effect01" onclick = handleUserChoice("05")>05:00</button></div>
+  </div>
+  <div class="column" style="background-color:#1F2626;">
+    <div><img src="{{url_for('static', filename='img/sunrise.png')}}"></div>
+    <div class="title">MORNING</div>
+    <div><button id="06" class="btn effect01" onclick = handleUserChoice('06')>06:00</button></div>
+    <div><button id="07" class="btn effect01" onclick = handleUserChoice("07")>07:00</button></div>
+    <div><button id="08" class="btn effect01" onclick = handleUserChoice("08")>08:00</button></div>
+    <div><button id="09" class="btn effect01" onclick = handleUserChoice("09")>09:00</button></div>
+    <div><button id="10" class="btn effect01" onclick = handleUserChoice("10")>10:00</button></div>
+    <div><button id="11" class="btn effect01" onclick = handleUserChoice("11")>11:00</button></div>
+  </div>
+  <div class="column" style="background-color:#1F2626;">
+    <div><img src="{{url_for('static', filename='img/sun.png')}}"></div>
+    <div class="title">MIDDAY</div>
+    <div><button id="12" class="btn effect01" onclick = handleUserChoice("12")>12:00</button></div>
+    <div><button id="13" class="btn effect01" onclick = handleUserChoice("13")>13:00</button></div>
+    <div><button id="14" class="btn effect01" onclick = handleUserChoice("14")>14:00</button></div>
+    <div><button id="15" class="btn effect01" onclick = handleUserChoice("15")>15:00</button></div>
+    <div><button id="16" class="btn effect01" onclick = handleUserChoice("16")>16:00</button></div>
+    <div><button id="17" class="btn effect01" onclick = handleUserChoice("17")>17:00</button></div>
+  </div>
+    <div class="column" style="background-color:#1F2626;">
+        <div><img src="{{url_for('static', filename='img/sunSet.png')}}"></div>
+        <div class="title">EVENING</div>
+        <div><button id="18" class="btn effect01" onclick = handleUserChoice("18")>18:00</button></div>
+        <div><button id="19" class="btn effect01" onclick = handleUserChoice("19")>19:00</button></div>
+        <div><button id="20" class="btn effect01" onclick = handleUserChoice("20")>20:00</button></div>
+        <div><button id="21" class="btn effect01" onclick = handleUserChoice("21")>21:00</button></div>
+        <div><button id="22" class="btn effect01" onclick = handleUserChoice("22")>22:00</button></div>
+        <div><button id="23" class="btn effect01" onclick = handleUserChoice("23")>23:00</button></div>
     </div>
+    </span>
 
-</body>
+</div>
+
 <script src="{{ url_for('static', filename='js/style.js') }}"></script>
-</html>
+{% endblock %}
