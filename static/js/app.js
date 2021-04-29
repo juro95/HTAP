@@ -70,10 +70,6 @@ let svg5 = document.querySelector("#comp-five");
 
 let svgAll = [svg1, svg2, svg3, svg4, svg5];
 
-
-
-
-
 function makeFillNone() {
 //make default color of svg
     for (let i = 0; i < svgAll.length; i++) {
@@ -88,7 +84,6 @@ makeFillNone()
 svgAll.forEach(item => {
     item.addEventListener('mouseover', event => {
         event.target.style.fill = "rgb(168,168,168)";
-        event.target.style.opacity = "0.3";
         event.target.style.pointerEvents = "all";
         event.target.style.cursor = "pointer";
         event.target.style.strokeOpacity = "1";
