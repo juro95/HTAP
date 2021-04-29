@@ -81,31 +81,36 @@ function makeFillNone() {
 
 makeFillNone()
 
-svgAll.forEach(item => {
-    item.addEventListener('mouseover', event => {
-        event.target.style.fill = "rgb(168,168,168)";
-        event.target.style.pointerEvents = "all";
-        event.target.style.cursor = "pointer";
-        event.target.style.strokeOpacity = "1";
-        event.target.style.fillOpacity = "0.3";
-        event.target.style.transitionDuration = "0.5s";
-        event.target.style.transitionTimingFunction = "ease-in";
-    })
-})
 
+for (let i = 0; i < svgAll.length; i++ ) {
+            let currentSVG = svgAll[i];
+            let style = currentSVG.style.fill;
+            //check if style of compartment is red or green to make hover possible
+            if (style === "green" || style === "red") {
+                svgAll.forEach(item => {
+                    item.addEventListener('mouseover', event => {
+                        event.target.style.fill = "rgb(168,168,168)";
+                        event.target.style.pointerEvents = "all";
+                        event.target.style.cursor = "pointer";
+                        event.target.style.strokeOpacity = "1";
+                        event.target.style.fillOpacity = "0.3";
+                        event.target.style.transitionDuration = "0.5s";
+                        event.target.style.transitionTimingFunction = "ease-in";
+                    })
+                })
 
-svgAll.forEach(item => {
-    item.addEventListener('mouseout', event => {
-        event.target.style.fill = "none";
-        event.target.style.stroke = "white";
-        event.target.style.pointerEvents = "all";
-        event.target.style.strokeOpacity = "1";
-        event.target.style.fillOpacity = "0.1";
-        event.target.style.transitionDuration = "0.5s";
-        event.target.style.transitionTimingFunction = "ease-out";
-    })
-})
-
+                svgAll.forEach(item => {
+                    item.addEventListener('mouseout', event => {
+                        event.target.style.fill = "none";
+                        event.target.style.stroke = "white";
+                        event.target.style.pointerEvents = "all";
+                        event.target.style.strokeOpacity = "1";
+                        event.target.style.fillOpacity = "0.1";
+                        event.target.style.transitionDuration = "0.5s";
+                        event.target.style.transitionTimingFunction = "ease-out";
+                    })
+                })
+            }
 
 /**
 svg1.addEventListener("mouseenter", function (){
@@ -338,8 +343,8 @@ function colorMapGreen(roomName) {
             if (available === roomName && roomName in comp) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
+            }
         }
-    }
     }
 }
 
