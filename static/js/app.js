@@ -234,8 +234,6 @@ function availabilityCheck() {
             }
         }
 
-
-
 //loop through rooms and put together request body for each room. Then executing the freebusy request
 function requestConfigure(){
                         for (compartment of comps) {
@@ -282,6 +280,7 @@ function executeRequest (freeRequest, calendarID, roomName) {
                 console.log(busyRooms);
             }
             colorMapRed()
+            console.log(currentColor);
         }
     )
 }
