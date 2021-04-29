@@ -116,64 +116,69 @@ function makeHover () {
         }
 
         //give hover effect on available compartment
-       function makeHoverGreen(){svgAll.forEach(item => {
-                item.addEventListener('mouseover', event => {
-                    if(greenColor === 1) {
-                        event.target.style.pointerEvents = "all";
-                        event.target.style.cursor = "pointer";
-                        event.target.style.strokeOpacity = "1";
-                        event.target.style.strokeWidth = "4px";
-                        event.target.style.stroke = "green";
-                        event.target.style.fillOpacity = "0.3";
-                        event.target.style.transitionDuration = "0.5s";
-                        event.target.style.transitionTimingFunction = "ease-in";
-                    }
-                })
-            })
-            svgAll.forEach(item => {
-                item.addEventListener('mouseout', event => {
-                    if(greenColor === 1) {
-                        event.target.style.fill = "green";
-                        event.target.style.stroke = "white";
-                        event.target.style.pointerEvents = "all";
-                        event.target.style.strokeOpacity = "1";
-                        event.target.style.fillOpacity = "0.1";
-                        event.target.style.transitionDuration = "0.5s";
-                        event.target.style.transitionTimingFunction = "ease-out";
-                    }
-                })
-            })
-        }
+       function makeHoverGreen(svgAll)
+{
+           {
+               svgAll.addEventListener('mouseover', event => {
+                   if (greenColor === 1) {
+                       event.target.style.pointerEvents = "all";
+                       event.target.style.cursor = "pointer";
+                       event.target.style.strokeOpacity = "1";
+                       event.target.style.strokeWidth = "4px";
+                       event.target.style.stroke = "green";
+                       event.target.style.fillOpacity = "0.3";
+                       event.target.style.transitionDuration = "0.5s";
+                       event.target.style.transitionTimingFunction = "ease-in";
+                   }
+               })
+           }
+           svgAll.addEventListener('mouseout', event => {
+                   if (greenColor === 1) {
+                       event.target.style.fill = "green";
+                       event.target.style.stroke = "white";
+                       event.target.style.pointerEvents = "all";
+                       event.target.style.strokeOpacity = "1";
+                       event.target.style.fillOpacity = "0.1";
+                       event.target.style.transitionDuration = "0.5s";
+                       event.target.style.transitionTimingFunction = "ease-out";
+                   }
+               }
+           )
+       }
+
+
+
+
 
         //give hover effect on unavailable compartment
-       function makeHoverRed(){svgAll.forEach(item => {
-                item.addEventListener('mouseover', event => {
-                    if(redColor === 1) {
-                        event.target.style.pointerEvents = "all";
-                        event.target.style.cursor = "pointer";
-                        event.target.style.strokeOpacity = "1";
-                        event.target.style.strokeWidth = "4px";
-                        event.target.style.stroke = "red";
-                        event.target.style.fillOpacity = "0.3";
-                        event.target.style.transitionDuration = "0.5s";
-                        event.target.style.transitionTimingFunction = "ease-in";
-                    }
-                })
-            })
-            svgAll.forEach(item => {
-                item.addEventListener('mouseout', event => {
-                    if(redColor === 1) {
-                        event.target.style.fill = "red";
-                        event.target.style.stroke = "white";
-                        event.target.style.pointerEvents = "all";
-                        event.target.style.strokeOpacity = "1";
-                        event.target.style.fillOpacity = "0.1";
-                        event.target.style.transitionDuration = "0.5s";
-                        event.target.style.transitionTimingFunction = "ease-out";
-                    }
-                })
-            })
-        }
+       function makeHoverRed(currentSVG) {
+           {
+               currentSVG.addEventListener('mouseover', event => {
+                   if (redColor === 1) {
+                       event.target.style.pointerEvents = "all";
+                       event.target.style.cursor = "pointer";
+                       event.target.style.strokeOpacity = "1";
+                       event.target.style.strokeWidth = "4px";
+                       event.target.style.stroke = "red";
+                       event.target.style.fillOpacity = "0.3";
+                       event.target.style.transitionDuration = "0.5s";
+                       event.target.style.transitionTimingFunction = "ease-in";
+                   }
+               })
+           }
+           currentSVG.addEventListener('mouseout', event => {
+                   if (redColor === 1) {
+                       event.target.style.fill = "red";
+                       event.target.style.stroke = "white";
+                       event.target.style.pointerEvents = "all";
+                       event.target.style.strokeOpacity = "1";
+                       event.target.style.fillOpacity = "0.1";
+                       event.target.style.transitionDuration = "0.5s";
+                       event.target.style.transitionTimingFunction = "ease-out";
+                   }
+               }
+           )
+       }
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -350,7 +355,7 @@ function colorMapGreen(roomName) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
                 greenColor = 1
-                makeHoverGreen()
+                makeHoverGreen(svgAll[i])
             }
         }
     }
@@ -367,7 +372,7 @@ function colorMapRed () {
                 currentSVG.style.fill = "red";
                 currentSVG.style.fillOpacity = "0.3";
                 redColor = 1
-                makeHoverRed()
+                makeHoverRed(currentSVG)
             }
         }
     }
