@@ -209,7 +209,7 @@ function availabilityCheck() {
         console.log(currentColor)
         if (currentColor === 0)
         {makeHover ()}
-        console.log(currentColor)
+        else{console.log(currentColor)}
     }
     else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length === 23)) {
         busyRooms.length = 0;
@@ -219,7 +219,7 @@ function availabilityCheck() {
         console.log(currentColor);
         if (currentColor === 0)
         {makeHover ()}
-        console.log(currentColor);
+        else{console.log(currentColor)}
         }
     else {
         busyRooms.length = 0;
@@ -230,7 +230,7 @@ function availabilityCheck() {
         console.log(currentColor);
         if (currentColor === 0)
         {makeHover ()}
-        console.log(currentColor);
+        else{console.log(currentColor)}
             }
         }
 
