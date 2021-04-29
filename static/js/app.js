@@ -88,6 +88,8 @@ svgAll.forEach(item => {
         event.target.style.cursor = "pointer";
         event.target.style.strokeOpacity = "1";
         event.target.style.fillOpacity = "0.3";
+        event.target.style.transitionDuration = "0.5s";
+        event.target.style.transitionTimingFunction = "ease-in";
     })
 })
 
@@ -99,6 +101,8 @@ svgAll.forEach(item => {
         event.target.style.pointerEvents = "all";
         event.target.style.strokeOpacity = "1";
         event.target.style.fillOpacity = "0.1";
+        event.target.style.transitionDuration = "0.5s";
+        event.target.style.transitionTimingFunction = "ease-out";
     })
 })
 
