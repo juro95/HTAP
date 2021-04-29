@@ -87,7 +87,7 @@ svgAll.forEach(item => {
         event.target.style.pointerEvents = "all";
         event.target.style.cursor = "pointer";
         event.target.style.strokeOpacity = "1";
-        event.style.fillOpacity = "0.3";
+        event.target.style.fillOpacity = "0.3";
     })
 })
 
