@@ -176,16 +176,6 @@ function makeHover () {
         }
 
 /**
-        function makeNotHover (){
-      console.log(currentColor);
-            svgAll.forEach(item => {
-                item.addEventListener('mouseover', event => {
-                    event.target.style.pointerEvents = "none";
-}
-            )})}
-*/
-
-/**
  *  On load, called to load the auth2 library and API client library.
  */
 function handleClientLoad() {
