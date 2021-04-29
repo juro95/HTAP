@@ -70,6 +70,8 @@ let svg5 = document.querySelector("#comp-five");
 let svgAll = [svg1, svg2, svg3, svg4, svg5];
 
 let currentColor = 0
+let greenColor = 0
+let redColor = 0
 
 function makeFillNone() {
 //make default color of svg
@@ -97,11 +99,69 @@ function makeHover () {
                     }
                 })
             })
-
             svgAll.forEach(item => {
                 item.addEventListener('mouseout', event => {
                     if(currentColor === 0) {
                         event.target.style.fill = "none";
+                        event.target.style.stroke = "white";
+                        event.target.style.pointerEvents = "all";
+                        event.target.style.strokeOpacity = "1";
+                        event.target.style.fillOpacity = "0.1";
+                        event.target.style.transitionDuration = "0.5s";
+                        event.target.style.transitionTimingFunction = "ease-out";
+                    }
+                })
+            })
+        }
+
+
+       function makeHoverGreen(){svgAll.forEach(item => {
+                item.addEventListener('mouseover', event => {
+                    if(greenColor === 0) {
+                        event.target.style.pointerEvents = "all";
+                        event.target.style.cursor = "pointer";
+                        event.target.style.strokeOpacity = "1";
+                        event.target.style.strokeWidth = "4px";
+                        event.target.style.stroke = "green";
+                        event.target.style.fillOpacity = "0.3";
+                        event.target.style.transitionDuration = "0.5s";
+                        event.target.style.transitionTimingFunction = "ease-in";
+                    }
+                })
+            })
+            svgAll.forEach(item => {
+                item.addEventListener('mouseout', event => {
+                    if(greenColor === 0) {
+                        event.target.style.fill = "green";
+                        event.target.style.stroke = "white";
+                        event.target.style.pointerEvents = "all";
+                        event.target.style.strokeOpacity = "1";
+                        event.target.style.fillOpacity = "0.1";
+                        event.target.style.transitionDuration = "0.5s";
+                        event.target.style.transitionTimingFunction = "ease-out";
+                    }
+                })
+            })
+        }
+
+       function makeHoverRed(){svgAll.forEach(item => {
+                item.addEventListener('mouseover', event => {
+                    if(redColor === 0) {
+                        event.target.style.pointerEvents = "all";
+                        event.target.style.cursor = "pointer";
+                        event.target.style.strokeOpacity = "1";
+                        event.target.style.strokeWidth = "4px";
+                        event.target.style.stroke = "red";
+                        event.target.style.fillOpacity = "0.3";
+                        event.target.style.transitionDuration = "0.5s";
+                        event.target.style.transitionTimingFunction = "ease-in";
+                    }
+                })
+            })
+            svgAll.forEach(item => {
+                item.addEventListener('mouseout', event => {
+                    if(redColor === 0) {
+                        event.target.style.fill = "red";
                         event.target.style.stroke = "white";
                         event.target.style.pointerEvents = "all";
                         event.target.style.strokeOpacity = "1";
@@ -231,6 +291,8 @@ function availabilityCheck() {
         busyRooms.length = 0;
         freeRooms.length = 0;
         currentColor = 0;
+        redColor = 0;
+        greenColor = 0;
         console.log("change date pls");
         makeFillNone()
         makeHover()
@@ -295,6 +357,8 @@ function colorMapGreen(roomName) {
             if (available === roomName && roomName in comp) {
                 svgAll[i].style.fill = "green";
                 svgAll[i].style.fillOpacity = "0.3";
+                greenColor = 1
+                makeHoverGreen()
             }
         }
     }
@@ -310,6 +374,8 @@ function colorMapRed () {
             if (style === "none") {
                 currentSVG.style.fill = "red";
                 currentSVG.style.fillOpacity = "0.3";
+                redColor = 1
+                makeHoverRed()
             }
         }
     }
