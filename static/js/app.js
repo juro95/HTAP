@@ -33,7 +33,9 @@ let comp_1 = {
 
 let comp_2 = {
     "Lizard": "code.berlin_1885dv1guu8e4gsdmna2vusmqgqh2@resource.calendar.google.com",
-    "Spock": "code.berlin_3337333133353032313436@resource.calendar.google.com"
+    "Spock": "code.berlin_3337333133353032313436@resource.calendar.google.com",
+    "Scissors" : "code.berlin_3934313230373536353639@resource.calendar.google.com"
+
 }
 
 let comp_3 = {
@@ -76,7 +78,6 @@ function makeFillNone() {
 //make default color of svg
     for (let i = 0; i < svgAll.length; i++) {
         let temp = svgAll[i];
-        console.log(svgAll[i]);
         temp.style.fill = "none";
         temp.style.fillOpacity = "0.01";
     }
@@ -238,11 +239,11 @@ function appendPre(message) {
 //checking for change of all values. Then console.log values on change and executing request if busy.
 //also coloring according to whether the compartment is busy or not
 function availabilityCheck() {
-    if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (!(freeRooms.length + busyRooms.length === 22))) {
+    if (chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (!(freeRooms.length + busyRooms.length === 23))) {
         //looping through all rooms in compartment and making freebusy query
         requestConfigure()
     }
-    else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length === 22)) {
+    else if(chosenHours.date !== "" && chosenHours.startTime !== "" && chosenHours.endTime !== "" && (freeRooms.length + busyRooms.length === 23)) {
         busyRooms.length = 0;
         freeRooms.length = 0;
         requestConfigure()
@@ -321,7 +322,7 @@ function colorMapGreen(roomName) {
 
 //color rooms that are not green, red with opacity
 function colorMapRed () {
-    if (freeRooms.length + busyRooms.length === 22) {
+    if (freeRooms.length + busyRooms.length === 23) {
         for (let i = 0; i < svgAll.length; i++ ) {
             let currentSVG = svgAll[i];
             let style = currentSVG.style.fill;
